@@ -35,4 +35,29 @@ public class UserDAO {
             System.out.println("Erro ao consultar usuário: " + e.getMessage());
         }
     }
+    public void updateUser (User user) {
+        String update = "UPDATE TABLE usuario, SET cpf_usuario = ?, nome_usuario = ?, sobrenome_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(update)){
+            stmt.setString(1, user.getCPF());
+            stmt.setString(2, user.getNome());
+            stmt.setString(3, user.getSobrenome());
+            stmt.setString(4, user.getSenha());
+            stmt.executeUpdate();
+            System.out.println("Atualizado com sucesso.");
+        } catch (SQLException e){
+            System.out.println("Erro ao atualizar informações.");
+        }
+    }
+    public void deleteUser (User user) {
+        String delete = "DELETE FROM usuario WHERE id_usuario = ?";
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(delete)){
+            stmt.setString(1, user.getCPF());
+            stmt.executeUpdate();
+            System.out.println("Deletado com sucesso");
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar usuário.");
+        }
+    }
 }
