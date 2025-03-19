@@ -1,13 +1,14 @@
 package model;
 
 public class TransacaoConta {
+    private int id;
     private int idUsuario;
     private int idConta;
     private double valor;
     private String data;
     private String tipo;
 
-    public TransacaoConta(int idUsuario, int idConta, double valor, String data, String tipo){
+    public TransacaoConta(int idUsuario, int idConta, double valor, String data, String tipo) {
         this.idUsuario = idUsuario;
         this.idConta = idConta;
         this.valor = valor;
@@ -17,6 +18,14 @@ public class TransacaoConta {
 
     public int getIdUsuario() {
         return idUsuario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setIdUsuario(int idUsuario) {
