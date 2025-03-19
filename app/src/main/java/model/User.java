@@ -5,12 +5,14 @@ public class User {
     private String nome;
     private String sobrenome;
     private String senha;
+    private String email;
 
-    public User (String CPF, String nome, String sobrenome, String senha){
+    public User (String CPF, String nome, String sobrenome, String senha, String email) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.senha = senha;
+        this.email = email;
     }
 
     public String getCPF() {
@@ -43,5 +45,12 @@ public class User {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
