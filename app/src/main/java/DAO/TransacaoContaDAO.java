@@ -81,20 +81,4 @@ public class TransacaoContaDAO {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        TransacaoContaDAO trcdao = null;
-        try {
-            trcdao = new TransacaoContaDAO();
-            TransacaoConta teste = new TransacaoConta(1, 1, 100, "2025-03-19", "deposito");
-            TransacaoConta transacoes = trcdao.buscarTransacao(2);
-            String iduser = transacoes.getData();
-            System.out.println(iduser);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }
 }
