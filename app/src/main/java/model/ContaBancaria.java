@@ -3,10 +3,10 @@ package model;
 public class ContaBancaria {
     private double saldo;
     private double id_usuario;
-    private String id_conta;
+    private double id_conta;
 
 
-    public ContaBancaria(double saldo, double id_usuario, String id_conta) {
+    public ContaBancaria(double saldo, double id_usuario, double id_conta) {
         this.saldo = saldo;
         this.id_usuario = id_usuario;
         this.id_conta = id_conta;
