@@ -6,6 +6,12 @@ public class ContaBancaria {
     private double id_conta;
 
 
+    public ContaBancaria(double saldo, double id_usuario, double id_conta) {
+        this.saldo = saldo;
+        this.id_usuario = id_usuario;
+        this.id_conta = id_conta;
+    }
+
     public double getSaldo() {
         return saldo;
     }
