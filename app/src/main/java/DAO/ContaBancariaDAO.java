@@ -17,7 +17,7 @@ public class ContaBancariaDAO {
 
                 double saldo = ct.getDouble("saldo");
                 double id_usuario = ct.getDouble("id_usuario");
-                double id_conta = ct.getDouble("id_conta");
+                int id_conta = ct.getInt("id_conta");
                 System.out.println(saldo + ", " + id_usuario + ", " + id_conta);
             }
         } catch (SQLException e) {
@@ -30,7 +30,7 @@ public class ContaBancariaDAO {
         try (Connection conn = JDBC_Connection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(insertConta)) {
 
-            stmt.setDouble(1,conta.getId_conta());
+            stmt.setInt(1,conta.getId_conta());
             stmt.setDouble(2, conta.getSaldo());
 
             int rowsAffected = stmt.executeUpdate();
@@ -51,7 +51,7 @@ public class ContaBancariaDAO {
              PreparedStatement stmt = conn.prepareStatement(updateConta)) {
 
             stmt.setDouble(1, conta.getSaldo());  // Atualiza o saldo
-            stmt.setDouble(2, conta.getId_conta());  // Identifica a conta pela chave primária
+            stmt.setInt(2, conta.getId_conta());  // Identifica a conta pela chave primária
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -70,7 +70,7 @@ public class ContaBancariaDAO {
         try (Connection conn = JDBC_Connection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(deleteConta)) {
 
-            stmt.setDouble(1, conta.getId_conta());  // Identifica a conta pela chave primária
+            stmt.setInt(1, conta.getId_conta());  // Identifica a conta pela chave primária
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
