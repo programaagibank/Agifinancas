@@ -1,16 +1,28 @@
 package model;
 
 public class User {
+    private int idUsuario;
     private String CPF;
     private String nome;
     private String sobrenome;
     private String senha;
+    private String email;
 
-    public User (String CPF, String nome, String sobrenome, String senha){
+
+    public User (int id, String CPF, String nome, String sobrenome, String senha, String email) {
+        this.idUsuario = id;
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.senha = senha;
+        this.email = email;
+    }
+    public User (String CPF, String nome, String sobrenome, String senha, String email) {
+        this.CPF = CPF;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.senha = senha;
+        this.email = email;
     }
 
     public String getCPF() {
@@ -44,4 +56,12 @@ public class User {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getEmail() {return email;}
+
+    public void setEmail(String email) {this.email = email;}
+
+    public int getId() {return idUsuario;}
+
+    public void setId(int id) {this.idUsuario = id;}
 }
