@@ -6,30 +6,18 @@ import java.util.Date;
 public class Cartao {
     private String nome;
     private int limite;
-    private int dataFechamento;
-    private int dataValidade;
+    private String dataFechamento;
+    private String dataValidade;
     private int idCartao;
     private int idUsuario;
 
-    Cartao(String nome, int limite, int dataFechamento, int dataValidade, int idCartao, int idUsuario){
+    public Cartao(String nome, int limite, String dataFechamento, String dataValidade, int idUsuario){
         this.nome = nome;
         this.limite = limite;
         this.dataFechamento = dataFechamento;
         this.dataValidade = dataValidade;
         this.idCartao = idCartao;
         this.idUsuario = idUsuario;
-    }
-
-    public String getNome(){
-        return "Nome: " + nome;
-    }
-
-    public int getLimite(){
-        return limite;
-    }
-
-    public int getDataFechamento(){
-        return dataFechamento;
     }
 
     public void setNome(String nome) {
@@ -40,11 +28,11 @@ public class Cartao {
         this.limite = limite;
     }
 
-    public void setDataFechamento(int dataFechamento) {
+    public void setDataFechamento(String dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 
-    public void setDataValidade(int dataValidade) {
+    public void setDataValidade(String dataValidade) {
         this.dataValidade = dataValidade;
     }
 
@@ -56,7 +44,19 @@ public class Cartao {
         this.idUsuario = idUsuario;
     }
 
-    public int getDataValidade(){
+    public String getNome(){
+        return "Nome: " + nome;
+    }
+
+    public int getLimite(){
+        return limite;
+    }
+
+    public String getDataFechamento(){
+        return dataFechamento;
+    }
+
+    public String getDataValidade(){
         return dataValidade;
     }
 
