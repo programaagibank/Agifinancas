@@ -1,8 +1,6 @@
 
 package model;
 
-import java.util.Date;
-
 public class Cartao {
     private String nome;
     private int limite;

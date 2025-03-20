@@ -68,14 +68,10 @@ public class CartaoDAO {
     }
 
     public static void main(String[] args) {
-//        Cartao cr = new Cartao("card01", 1000, "2026-01-01", "2026-02-01",1);
-//        CartaoDAO crdao = new CartaoDAO();
-//        crdao.createCartao(cr);
-        try {
-            Connection conn = JDBC_Connection.getConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        Cartao cr = new Cartao("cartao itau", 1000, "2026-01-01", "2026-02-01", 1);
+        CartaoDAO crdao = new CartaoDAO();
+        crdao.createCartao(cr);
+
 
     }
 }
