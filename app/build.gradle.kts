@@ -25,6 +25,8 @@ dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
     implementation(libs.connector.j)
+    implementation("mysql:mysql-connector-java:8.0.28")
+
 }
 
 
