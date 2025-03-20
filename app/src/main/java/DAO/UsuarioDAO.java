@@ -3,7 +3,6 @@ package DAO;
 
 import model.JDBC_Connection;
 import model.Usuario;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +21,7 @@ public class UsuarioDAO {
             System.out.println("Cadastro realizado com sucesso!");
         } catch (SQLException e) {
             System.out.println("Erro ao cadastrar cliente: " +e.getMessage());
+            e.printStackTrace();
         }
     }
     public Usuario queryUser (int idUsuario) {
