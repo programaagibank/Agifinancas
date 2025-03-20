@@ -1,6 +1,6 @@
 package model;
 
-public class User {
+public class Usuario {
     private int idUsuario;
     private String CPF;
     private String nome;
@@ -9,7 +9,7 @@ public class User {
     private String email;
 
 
-    public User (int id, String CPF, String nome, String sobrenome, String senha, String email) {
+    public Usuario(int id, String CPF, String nome, String sobrenome, String senha, String email) {
         this.idUsuario = id;
         this.CPF = CPF;
         this.nome = nome;
@@ -17,7 +17,7 @@ public class User {
         this.senha = senha;
         this.email = email;
     }
-    public User (String CPF, String nome, String sobrenome, String senha, String email) {
+    public Usuario(String CPF, String nome, String sobrenome, String senha, String email) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
