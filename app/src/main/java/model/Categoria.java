@@ -16,6 +16,17 @@ public class Categoria {
     public Categoria() {
     }
 
+    public Categoria(String nome, String tipo) {
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
+    public Categoria(int generatedId, String nome, String tipo) {
+        this.id_usuario = generatedId;
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
     public int getId_categoria() {
         return id_categoria;
     }
