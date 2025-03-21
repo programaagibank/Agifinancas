@@ -1,93 +1,59 @@
 package DAO;
 
-import java.util.Date;
+import model.ContaBancaria;
+import model.JDBC_Connection;
+import model.LancamentosCartao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LancamentoCartaoDAO {
+    public LancamentosCartao queryLancamentosCartao(int idLancamentoCartao) {
 
-    public class CartaoLancamento {
-        private int idLancamento;
-        private int idCartao;
-        private double valor;
-        private Date data;
-        private boolean recorrencia;
+    }
+    public List <LancamentosCartao> listLancamentosCartao(int idCartao) {
+    }
+        public void insertLancamento(LancamentosCartao lancamentos ) {
+        String sql = "INSERT INTO Agifinancas.lancamentos_cartao (id_cartao, valor, data, recorrencia) VALUES (?, ?, ?, ?)";
+        try (Connection conn = JDBC_Connection.getConnection()) {
+             PreparedStatement stmt = conn.prepareStatement(sql);
 
-        // Construtor
-        public CartaoLancamento(int idLancamento, int idCartao, double valor, Date data, boolean recorrencia) {
-            this.idLancamento = idLancamento;
-            this.idCartao = idCartao;
-            this.valor = valor;
-            this.data = data;
-            this.recorrencia = recorrencia;
-        }
+                stmt.setInt(1, lancamentos.getIdCartao());
+                stmt.setDouble(2, lancamentos.getValor());
+                stmt.setString(3, lancamentos.getData());
+                stmt.setBoolean(4, lancamentos.isRecorrencia());
 
-        // Getters e Setters
-        public int getIdLancamento() {
-            return idLancamento;
-        }
+                int linhasAfetadas = stmt.executeUpdate();
+                if (linhasAfetadas > 0){
+                    System.out.println("Dados salvo com sucesso!" );
+                }
 
-        public void setIdLancamento(int idLancamento) {
-            this.idLancamento = idLancamento;
-        }
-
-        public int getIdCartao() {
-            return idCartao;
-        }
-
-        public void setIdCartao(int idCartao) {
-            this.idCartao = idCartao;
-        }
-
-        public double getValor() {
-            return valor;
-        }
-
-        public void setValor(double valor) {
-            this.valor = valor;
-        }
-
-        public Date getData() {
-            return data;
-        }
-
-        public void setData(Date data) {
-            this.data = data;
-        }
-
-        public boolean isRecorrencia() {
-            return recorrencia;
-        }
-
-        public void setRecorrencia(boolean recorrencia) {
-            this.recorrencia = recorrencia;
-        }
-
-        @Override
-        public String toString() {
-            return "Lançamento{" +
-                    "ID do Lançamento=" + idLancamento +
-                    ", ID do Cartão=" + idCartao +
-                    ", Valor=" + valor +
-                    ", Data=" + data +
-                    ", Recorrente=" + (recorrencia ? "Sim" : "Não") +
-                    '}';
-        }
-        public void main(String[] args) {
-            // Lista para armazenar os lançamentos de cartões
-            List<CartaoLancamento> lancamentos = new ArrayList<>();
-
-            // Criando lançamentos de cartão de exemplo
-            lancamentos.add(new CartaoLancamento(1, 100, 150.75, new Date(), true));  // Recorrente
-            lancamentos.add(new CartaoLancamento(2, 102, 85.50, new Date(), false)); // Não Recorrente
-            lancamentos.add(new CartaoLancamento(3, 101, 200.00, new Date(), true));  // Recorrente
-            lancamentos.add(new CartaoLancamento(4, 103, 50.25, new Date(), false)); // Não Recorrente
-
-            // Exibindo os lançamentos
-            for (CartaoLancamento lancamento : lancamentos) {
-                System.out.println(lancamento);
-            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao inserir lançamento.: " + e.getMessage());
         }
     }
 
+    public static void main(String[] args) {
+            // Lista para armazenar os lançamentos de cartões
+            List<LancamentosCartao> lancamentos = new ArrayList<>();
+            LancamentoCartaoDAO lancamentoCartaoDAO = new LancamentoCartaoDAO();
+
+            // Criando lançamentos de cartão de exemplo
+            lancamentos.add(new LancamentosCartao(1, 100, 150.75, new String(), true));  // Recorrente
+            lancamentos.add(new LancamentosCartao(2, 102, 85.50, new String(), false)); // Não Recorrente
+            lancamentos.add(new LancamentosCartao(3, 101, 200.00, new String(), true));  // Recorrente
+            lancamentos.add(new LancamentosCartao(4, 103, 50.25, new String(), false)); // Não Recorrente
+            lancamentoCartaoDAO.insertLancamento(new LancamentosCartao(4, 3, 50.25, "2025-03-12", false)); // Não Recorrente
+
+            // Exibindo os lançamentos
+            for (LancamentosCartao lancamento : lancamentos) {
+                System.out.println(lancamento);
+            }
+    }
 }
+
+
+
