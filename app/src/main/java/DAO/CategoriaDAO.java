@@ -16,32 +16,34 @@ public class CategoriaDAO {
     public CategoriaDAO() throws SQLException {
     }
 
-    public void insert(Categoria categoria){
-        String sql = "INSERT INTO categoria (id_usuario, nome, tipo) VALUES (?, ?, ?)";
+    public void update(Categoria categoria) {
+        String sql = "UPDATE categoria SET nome = ?, tipo = ? WHERE id_categoria = ?";
         PreparedStatement stm = null;
         try {
             stm = conn.prepareStatement(sql);
-            stm.setInt(1, categoria.getId_usuario());
-            stm.setString(2, categoria.getNome());
+            stm.setString(1, categoria.getNome());
             stm.setString(2, categoria.getTipo());
+            stm.setInt(3, categoria.getId_categoria());
             stm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void update(Categoria categoria){
+
+    public void insert(Categoria categoria) {
         String sql = "INSERT INTO categoria (id_usuario, nome, tipo) VALUES (?, ?, ?)";
         try {
             PreparedStatement stm = conn.prepareStatement(sql);
             stm.setInt(1, categoria.getId_usuario());
-            stm.setString(1, categoria.getNome());
-            stm.setString(1, categoria.getTipo());
+            stm.setString(2, categoria.getNome());
+            stm.setString(3, categoria.getTipo());
             stm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
+
     public void deletar(int id) throws SQLException {
         String sql = "DELETE FROM categoria WHERE id_categoria = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -49,6 +51,7 @@ public class CategoriaDAO {
             stmt.executeUpdate();
         }
     }
+
     public Categoria buscarPorId(int id_categoria) {
         String sql = "SELECT * FROM categoria WHERE id_categoria = ?";
         try (PreparedStatement stm = conn.prepareStatement(sql)) {
@@ -79,20 +82,13 @@ public class CategoriaDAO {
                         rs.getString("nome"),
                         rs.getString("tipo")
                 );
-                categoria.setId_categoria(rs.getInt("id_categoria")); // Ajusta o ID
+                categoria.setId_categoria(rs.getInt("id_categoria"));
                 categorias.add(categoria);
             }
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao buscar categorias do usuário: " + e.getMessage(), e);
         }
         return categorias;
-    }
-
-    public static void main(String[] args) throws SQLException {
-        Categoria cat = new Categoria(1, "Padaria", "Gastos");
-        CategoriaDAO catDAO = new CategoriaDAO();
-        catDAO.insert(cat);
-
     }
 
 
