@@ -1,11 +1,13 @@
 package view.home;
 
-import view.cadastroUsuario.UsuarioView;
+import DAO.UsuarioDAO;
+import view.cadastroUsuario.CadastroUsuarioView;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Home extends HomeMetodos {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Logo();
         Delay(500);
 
@@ -24,9 +26,10 @@ public class Home extends HomeMetodos {
         }
 
         if (resposta.equals("NAO")){
-            UsuarioView cadastro = new UsuarioView();
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            CadastroUsuarioView cadastro = new CadastroUsuarioView(usuarioDAO);
             cadastro.cabecalho();
-            cadastro.coletarDados();
+            cadastro.cadastrarUsuario();
         }
         else {
 

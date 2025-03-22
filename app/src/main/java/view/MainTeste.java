@@ -1,17 +1,15 @@
 package view;
 
 import DAO.UsuarioDAO;
-import control.UsuarioController;
-import view.cadastroUsuario.UsuarioView;
+import view.cadastroUsuario.CadastroUsuarioView;
 
 import java.sql.SQLException;
 
 public class MainTeste {
     public static void main(String[] args) throws SQLException {
-        UsuarioView usuarioView = new UsuarioView();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        UsuarioController usuarioController = new UsuarioController(usuarioView, usuarioDAO);
+        CadastroUsuarioView cadastroUsuarioView = new CadastroUsuarioView(usuarioDAO);
 
-        usuarioController.cadastrarUsuario();
+        cadastroUsuarioView.cadastrarUsuario();
     }
 }
