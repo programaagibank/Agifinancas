@@ -5,7 +5,10 @@ import model.JDBC_Connection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoriaDAO {
     private Connection conn = JDBC_Connection.getConnection();
@@ -45,6 +48,51 @@ public class CategoriaDAO {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         }
+    }
+    public Categoria buscarPorId(int id_categoria) {
+        String sql = "SELECT * FROM categoria WHERE id_categoria = ?";
+        try (PreparedStatement stm = conn.prepareStatement(sql)) {
+            stm.setInt(1, id_categoria);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                return new Categoria(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nome"),
+                        rs.getString("tipo")
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar categoria: " + e.getMessage(), e);
+        }
+        return null;
+    }
+
+    public List<Categoria> buscarPorUsuario(int id_usuario) {
+        String sql = "SELECT * FROM categoria WHERE id_usuario = ?";
+        List<Categoria> categorias = new ArrayList<>();
+        try (PreparedStatement stm = conn.prepareStatement(sql)) {
+            stm.setInt(1, id_usuario);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Categoria categoria = new Categoria(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nome"),
+                        rs.getString("tipo")
+                );
+                categoria.setId_categoria(rs.getInt("id_categoria")); // Ajusta o ID
+                categorias.add(categoria);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar categorias do usuário: " + e.getMessage(), e);
+        }
+        return categorias;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        Categoria cat = new Categoria(1, "Padaria", "Gastos");
+        CategoriaDAO catDAO = new CategoriaDAO();
+        catDAO.insert(cat);
+
     }
 
 
