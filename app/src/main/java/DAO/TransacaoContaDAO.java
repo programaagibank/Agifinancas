@@ -37,11 +37,10 @@ public class TransacaoContaDAO {
         }
     }
 
-    public void deletarTransacao(int idUsuario, int idConta) throws SQLException {
-        String sql = "DELETE FROM transacao_conta WHERE id_usuario = ? AND id_conta = ?";
+    public void deletarTransacao(int id) throws SQLException {
+        String sql = "DELETE FROM transacao_conta WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, idUsuario);
-            stmt.setInt(2, idConta);
+            stmt.setInt(1, id);
             stmt.executeUpdate();
         }
     }
