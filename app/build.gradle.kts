@@ -21,7 +21,7 @@ dependencies {
     testImplementation(libs.junit.jupiter)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
+    implementation("mysql:mysql-connector-java:8.0.26")
     // This dependency is used by the application.
     implementation(libs.guava)
     implementation(libs.connector.j)
