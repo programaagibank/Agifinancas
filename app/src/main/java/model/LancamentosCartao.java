@@ -12,7 +12,6 @@ public class LancamentosCartao {
         private String data;
         private boolean recorrencia;
 
-        // Construtor
         public LancamentosCartao(int idLancamento, int idCartao, double valor, String data, boolean recorrencia) {
             this.idLancamento = idLancamento;
             this.idCartao = idCartao;
