@@ -1,5 +1,7 @@
 package view.menu;
 
+import view.finalizacao.Finalizacaoview;
+
 import java.util.Scanner;
 
 public class Menu extends MenuMetodos {
@@ -17,6 +19,7 @@ public class Menu extends MenuMetodos {
 
         logomenu();
 
+        System.out.println(BLUE + "Categorias" + RESET);
         System.out.println("----------------------------------------------------");
         System.out.println("|                                                  |");
         System.out.println("| Gastos fixos -> 1                                |");
@@ -25,6 +28,7 @@ public class Menu extends MenuMetodos {
         System.out.println("| Criar uma reserva de emergência -> 4             |");
         System.out.println("| Gerar alertas definidos pelo usuário -> 5        |");
         System.out.println("|                                                  |");
+        System.out.println("| Fechar sistema -> 6                              |");
         System.out.println("----------------------------------------------------");
         System.out.println();
         System.out.print("Qual Categoria deseja?: ");
@@ -32,10 +36,19 @@ public class Menu extends MenuMetodos {
 
         switch (resposta){
             case 1:
+
                 break;
             case 2:
                 break;
             case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                Finalizacaoview fechamento = new Finalizacaoview();
+                fechamento.Fim();
                 break;
 
         }

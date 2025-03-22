@@ -1,5 +1,7 @@
 package view.home;
 
+import view.cadastroUsuario.UsuarioView;
+
 import java.util.Scanner;
 
 public class Home extends HomeMetodos {
@@ -21,8 +23,10 @@ public class Home extends HomeMetodos {
             resposta = sc.nextLine().toUpperCase();
         }
 
-        if (resposta.equals("Sim")){
-
+        if (resposta.equals("NAO")){
+            UsuarioView cadastro = new UsuarioView();
+            cadastro.cabecalho();
+            cadastro.coletarDados();
         }
         else {
 
