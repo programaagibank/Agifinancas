@@ -26,7 +26,7 @@ public class UsuarioController {
             usuarioView.mensagemErro("CPF já cadastrado");
             return;
         }
-        Usuario usuario = new Usuario(0, cpf, nome, sobrenome, email, senha);
+        Usuario usuario = new Usuario(cpf, nome, sobrenome, email, senha);
         if (usuarioDAO.insertUser(usuario)) {
             usuarioView.mensagemSucesso("Usuário cadastrado com sucesso!");
         } else {

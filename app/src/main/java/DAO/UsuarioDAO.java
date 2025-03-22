@@ -18,8 +18,7 @@ public class UsuarioDAO {
     }
 
     public boolean insertUser(Usuario usuario) {
-        String insertUser = "INSERT INTO usuario (cpf_usuario, nome_usuario, sobrenome_usuario, senha_usuario, email_usuario) " +
-                "VALUES (?, ?, ?, ?, ?)";
+        String insertUser = "INSERT INTO Agifinancas.usuario (cpf_usuario, nome_usuario, sobrenome_usuario, senha_usuario, email_usuario) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = JDBC_Connection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(insertUser)) {
             stmt.setString(1, usuario.getCPF());
@@ -43,7 +42,7 @@ public class UsuarioDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new Usuario(
-                            rs.getInt("id_usuario"),
+                            //rs.getInt("id_usuario"),
                             rs.getString("cpf_usuario"),
                             rs.getString("nome_usuario"),
                             rs.getString("sobrenome_usuario"),

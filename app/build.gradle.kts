@@ -25,6 +25,8 @@ dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
     implementation(libs.connector.j)
+    //implementation ("io.github.cdimascio:dotenv-java:5.2.2")
+    //implementation (libs.dot.env)
 }
 
 

@@ -5,11 +5,13 @@
 guava = "33.3.1-jre"
 junit-jupiter = "5.11.3"
 connector-j = "8.4.0"
+dot-env = "5.2.2"
 
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 connector-j = { module = "com.mysql:mysql-connector-j", version.ref = "connector-j"}
+#dot-env = { module = "io.github.cdimascio:dotenv-java", version.ref = "dot-env"}
 
 [bundles]
