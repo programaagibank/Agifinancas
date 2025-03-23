@@ -2,13 +2,15 @@ package model;
 
 
 import DAO.UsuarioDAO;
+import control.Senha;
 
 import java.sql.SQLException;
 
 public class TesteCadastro {
     public static void main(String[] args) throws SQLException {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuario = new Usuario("12345678901", "felipe", "martins", "1234", "felipe123@gmail.com");
+        String senhaUsuario = Senha.hashSenha("1234");
+        Usuario usuario = new Usuario("12312312312", "Felipe", "Rodrigues", senhaUsuario, "felipe@email.com");
         usuarioDAO.insertUser(usuario);
     }
 }

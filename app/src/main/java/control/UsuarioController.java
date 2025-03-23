@@ -3,6 +3,7 @@ package control;
 import DAO.UsuarioDAO;
 import model.Usuario;
 import view.cadastroUsuario.UsuarioView;
+import control.Senha;
 
 public class UsuarioController {
     private UsuarioView usuarioView;
@@ -26,11 +27,13 @@ public class UsuarioController {
             usuarioView.mensagemErro("CPF já cadastrado");
             return;
         }
-        Usuario usuario = new Usuario(cpf, nome, sobrenome, email, senha);
+        String senhaHash = Senha.hashSenha(senha);
+        Usuario usuario = new Usuario(cpf, nome, sobrenome, email, senhaHash);
         if (usuarioDAO.insertUser(usuario)) {
             usuarioView.mensagemSucesso("Usuário cadastrado com sucesso!");
         } else {
             usuarioView.mensagemErro("Erro ao cadastrar usuario");
         }
     }
+
 }
