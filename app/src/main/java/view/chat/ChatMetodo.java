@@ -5,6 +5,8 @@ public class ChatMetodo {
     String bold = "\033[1m";  // Ativa o negrito
     String reset = "\033[0m"; // Reseta o formato (negrito, cor, etc.)
     String cyan = "\u001B[36m";
+    String red = "\033[31m";
+    String green = "\033[32m";
 
     public void cabecalhoChat() {
 
@@ -47,11 +49,11 @@ public class ChatMetodo {
         System.out.println(bold + "Categorias disponíveis: Alimentação - Saúde - Transporte - Moradia - Lazer" + reset);
     }
     public void mensagemSucesso(String mensagem) {
-        System.out.println(cyan);
+        System.out.println(green);
         System.out.println(bold + mensagem + reset);
     }
     public void mensagemErro(String mensagem) {
-        System.out.println(cyan);
+        System.out.println(red);
         System.out.println(bold + mensagem + reset);
     }
 }
