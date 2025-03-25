@@ -15,8 +15,11 @@ public class ChatView {
     }
     public void iniciarChat(Usuario usuarioAutenticado) {
         chatMetodo.cabecalhoChat();
+        cadastrarReceitaMensal(usuarioAutenticado);
+        perguntarCartaoCredito(usuarioAutenticado);
+        perguntarDespesaFixa(usuarioAutenticado);
     }
-    private void cadastrarReceitaMensal() {
+    private void cadastrarReceitaMensal(Usuario usuarioAutenticado) {
         chatMetodo.cabecalhoReceitaMensal();
 
         try {
@@ -38,7 +41,13 @@ public class ChatView {
             chatMetodo.mensagemErro("Erro ao cadastrar a receita mensal" + e.getMessage());
         }
     }
-    private void cadastrarCartaoCredito() {
+    private void perguntarCartaoCredito(Usuario usuarioAutenticado) {
+        System.out.print("\nDeseja cadastrar cartão de crédito? (S/N): ");
+        if (scanner.nextLine().equalsIgnoreCase("S")) {
+            cadastrarCartaoCredito(usuarioAutenticado);
+        }
+    }
+    private void cadastrarCartaoCredito(Usuario usuarioAutenticado) {
         chatMetodo.cabecalhoCartaoCredito();
         try {
             System.out.print("Qual o nome do cartão? (ex: Agi, Itaú, American Express): ");
@@ -54,7 +63,13 @@ public class ChatView {
             chatMetodo.mensagemErro("Erro ao cadastrar o cartão de crédito" + e.getMessage());
         }
     }
-    private void cadastrarDespesaFixa() {
+    private void perguntarDespesaFixa(Usuario usuarioAutenticado) {
+        System.out.print("\nDeseja cadastrar despesa fixa? (S/N): ");
+        if (scanner.nextLine().equalsIgnoreCase("S")) {
+            cadastrarDespesaFixa(usuarioAutenticado);
+        }
+    }
+    private void cadastrarDespesaFixa(Usuario usuarioAutenticado) {
         chatMetodo.cabecalhoDespesaFixa();
 
         try {
