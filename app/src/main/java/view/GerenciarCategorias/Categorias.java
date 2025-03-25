@@ -1,5 +1,7 @@
 package view.GerenciarCategorias;
 
+import view.GerenciarCategorias.CategoriaView;
+
 import java.util.Scanner;
 
 public class Categorias {
