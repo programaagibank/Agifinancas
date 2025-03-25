@@ -71,7 +71,11 @@ public class LancamentosCartao {
                     ", Recorrente=" + (recorrencia ? "Sim" : "Não") +
                     '}';
         }
+
+    public int getIdLancamentoCartao() {
+        return 0;
     }
+}
 
 
 
