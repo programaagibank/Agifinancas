@@ -1,6 +1,6 @@
 package view.cadastroUsuario;
 
-public class VisualCadastroUsuario {
+public class CadastroUsuarioMetodos {
 
     public void cabecalho() {
         System.out.println("\u001B[36m");
