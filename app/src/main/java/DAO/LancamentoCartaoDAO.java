@@ -1,21 +1,17 @@
 package DAO;
 
-import model.ContaBancaria;
 import model.JDBC_Connection;
 import model.LancamentosCartao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LancamentoCartaoDAO {
-    public LancamentosCartao queryLancamentosCartao(int idLancamentoCartao) {
 
-    }
-    public List <LancamentosCartao> listLancamentosCartao(int idCartao) {
-    }
         public void insertLancamento(LancamentosCartao lancamentos ) {
         String sql = "INSERT INTO Agifinancas.lancamentos_cartao (id_cartao, valor, data, recorrencia) VALUES (?, ?, ?, ?)";
         try (Connection conn = JDBC_Connection.getConnection()) {
@@ -36,24 +32,95 @@ public class LancamentoCartaoDAO {
         }
     }
 
-    public static void main(String[] args) {
-            // Lista para armazenar os lançamentos de cartões
-            List<LancamentosCartao> lancamentos = new ArrayList<>();
-            LancamentoCartaoDAO lancamentoCartaoDAO = new LancamentoCartaoDAO();
+    public LancamentosCartao queryLancamentosCartao(int idLancamentoCartao) {
+        String sql = "SELECT * FROM Agifinancas.lancamentos_cartao WHERE id_lancamento_cartao = ?";
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            // Criando lançamentos de cartão de exemplo
-            lancamentos.add(new LancamentosCartao(1, 100, 150.75, new String(), true));  // Recorrente
-            lancamentos.add(new LancamentosCartao(2, 102, 85.50, new String(), false)); // Não Recorrente
-            lancamentos.add(new LancamentosCartao(3, 101, 200.00, new String(), true));  // Recorrente
-            lancamentos.add(new LancamentosCartao(4, 103, 50.25, new String(), false)); // Não Recorrente
-            lancamentoCartaoDAO.insertLancamento(new LancamentosCartao(4, 3, 50.25, "2025-03-12", false)); // Não Recorrente
+            stmt.setInt(1, idLancamentoCartao);
+            ResultSet rs = stmt.executeQuery();
 
-            // Exibindo os lançamentos
-            for (LancamentosCartao lancamento : lancamentos) {
-                System.out.println(lancamento);
+            if (rs.next()) {
+                return new LancamentosCartao(
+                        rs.getInt("id_lancamento_cartao"),
+                        rs.getInt("id_cartao"),
+                        rs.getDouble("valor"),
+                        rs.getString("data"),
+                        rs.getBoolean("recorrencia")
+                );
             }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao consultar lançamento: " + e.getMessage());
+        }
+        return null; // Retorna null caso não encontre
+    }
+
+    // READ - Lista todos os lançamentos de um determinado cartão
+    public List<LancamentosCartao> listLancamentosCartao(int idCartao) {
+        List<LancamentosCartao> lancamentos = new ArrayList<>();
+        String sql = "SELECT * FROM Agifinancas.lancamentos_cartao WHERE id_cartao = ?";
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idCartao);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                lancamentos.add(new LancamentosCartao(
+                        rs.getInt("id_lancamento_cartao"),
+                        rs.getInt("id_cartao"),
+                        rs.getDouble("valor"),
+                        rs.getString("data"),
+                        rs.getBoolean("recorrencia")
+                ));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar lançamentos: " + e.getMessage());
+        }
+        return lancamentos;
+    }
+
+    // UPDATE - Atualiza um lançamento existente
+    public void updateLancamento(LancamentosCartao lancamento) {
+        String sql = "UPDATE Agifinancas.lancamentos_cartao SET id_cartao = ?, valor = ?, data = ?, recorrencia = ? WHERE id_lancamento_cartao = ?";
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, lancamento.getIdCartao());
+            stmt.setDouble(2, lancamento.getValor());
+            stmt.setString(3, lancamento.getData());
+            stmt.setBoolean(4, lancamento.isRecorrencia());
+            stmt.setInt(5, lancamento.getIdLancamentoCartao());
+
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Lançamento atualizado com sucesso!");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao atualizar lançamento: " + e.getMessage());
+        }
+    }
+
+    // DELETE - Exclui um lançamento pelo ID
+    public void deleteLancamento(int idLancamentoCartao) {
+        String sql = "DELETE FROM Agifinancas.lancamentos_cartao WHERE id_lancamento_cartao = ?";
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idLancamentoCartao);
+
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Lançamento excluído com sucesso!");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao excluir lançamento: " + e.getMessage());
+        }
     }
 }
-
 
 
