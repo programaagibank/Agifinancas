@@ -2,12 +2,15 @@ package DAO;
 
 import model.JDBC_Connection;
 import model.Cartao;
+import model.LeitorDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Properties;
+
 public class CartaoDAO {
     public void createCartao(Cartao cartao) {
         String inserirCartao = "INSERT INTO cartao (id_usuario, nome, limite, data_fechamento, data_validade) values (?, ?, ?, ?, ?)";
@@ -68,14 +71,11 @@ public class CartaoDAO {
     }
 
     public static void main(String[] args) {
-//        Cartao cr = new Cartao("card01", 1000, "2026-01-01", "2026-02-01",1);
-//        CartaoDAO crdao = new CartaoDAO();
-//        crdao.createCartao(cr);
-        try {
-            Connection conn = JDBC_Connection.getConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        String url;
+        String userHome = System.getProperty("user.home");
+        System.out.println(userHome);
+
+
 
     }
 }
