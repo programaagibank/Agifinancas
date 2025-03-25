@@ -1,6 +1,7 @@
 package view.cadastroUsuario;
 
 import DAO.UsuarioDAO;
+import control.Senha;
 import model.Usuario;
 import view.chat.ChatView;
 
@@ -24,12 +25,12 @@ public class CadastroUsuarioView {
     public void cadastrarUsuario() {
         cabecalho();
 
+        System.out.println("⇒ Digite seu CPF: ");
+        String cpf = scanner.nextLine();
         System.out.println("⇒ Digite seu nome: ");
         String nome = scanner.nextLine();
         System.out.println("⇒ Digite seu sobrenome: ");
         String sobrenome = scanner.nextLine();
-        System.out.println("⇒ Digite seu CPF: ");
-        String cpf = scanner.nextLine();
         System.out.println("⇒ Digite seu email: ");
         String email = scanner.nextLine();
         System.out.println("⇒ Digite sua senha: ");
@@ -39,15 +40,20 @@ public class CadastroUsuarioView {
             mensagemErro("CPF já cadastrado");
             return;
         }
-        Usuario usuario = new Usuario(0, nome, sobrenome, cpf, email, senha);
+        String senhaHash = Senha.hashSenha(senha);
+        Usuario usuario = new Usuario(cpf, nome, sobrenome, senhaHash, email);
         if (usuarioDAO.insertUser(usuario)) {
             mensagemSucesso("Usuario cadastrado com sucesso");
+            Usuario usuarioAutenticado = new Usuario(usuario.getIdUsuario(), email, senhaHash);
+            view.chat.ChatView chatView = new view.chat.ChatView();
+            chatView.iniciarChat(usuarioAutenticado);
         } else {
             mensagemErro("Erro ao cadastrar usuario");
         }
+
     }
 
-    private void redirecionarChat() {
+    private void redirecionarChat(Usuario usuarioAutenticado) {
         System.out.println("\nPor favor aguarde...");
 
         int tempoTotal = 3000;
@@ -65,8 +71,8 @@ public class CadastroUsuarioView {
             System.out.println("█");
         }
         System.out.println("] 100%\n");
-        ChatView chatView = new ChatView(/*DAOs para acessar o chat*/);
-        chatView.iniciarChat();
+        ChatView chatView = new ChatView();
+        chatView.iniciarChat(usuarioAutenticado);
     }
 
     public void mensagemErro(String mensagem) {

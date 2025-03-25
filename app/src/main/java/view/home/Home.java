@@ -1,13 +1,8 @@
 package view.home;
 
-<<<<<<< HEAD
-import view.cadastroUsuario.UsuarioView;
-import view.loginUsuario.LoginView;
-=======
-import DAO.UsuarioDAO;
 import view.cadastroUsuario.CadastroUsuarioView;
->>>>>>> feature/chat
-
+import view.loginUsuario.LoginView;
+import DAO.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.Scanner;
 

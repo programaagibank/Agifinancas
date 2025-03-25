@@ -1,5 +1,7 @@
 package view.chat;
 
+import model.Usuario;
+
 import java.util.Scanner;
 
 public class ChatView {
@@ -11,7 +13,7 @@ public class ChatView {
         this.scanner = new Scanner(System.in);
         this.chatMetodo = new ChatMetodo();
     }
-    public void iniciarChat() {
+    public void iniciarChat(Usuario usuarioAutenticado) {
         chatMetodo.cabecalhoChat();
     }
     private void cadastrarReceitaMensal() {

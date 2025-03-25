@@ -2,33 +2,33 @@ package control;
 
 import DAO.UsuarioDAO;
 import model.Usuario;
-import view.cadastroUsuario.UsuarioView;
+import view.cadastroUsuario.CadastroUsuarioView;
+import view.cadastroUsuario.CadastroUsuarioView;
 import control.Senha;
 
 public class UsuarioController {
-    private UsuarioView usuarioView;
+    private CadastroUsuarioView usuarioView;
     private UsuarioDAO usuarioDAO;
 
-    public UsuarioController(UsuarioView usuarioView, UsuarioDAO usuarioDAO) {
+    public UsuarioController(CadastroUsuarioView usuarioView, UsuarioDAO usuarioDAO) {
         this.usuarioView = usuarioView;
         this.usuarioDAO = usuarioDAO;
     }
-    public void cadastrarUsuario() {
+    public void cadastrarUsuario(Usuario usuario) {
         usuarioView.cabecalho();
-        String[] dados = usuarioView.coletarDados();
+        //String[] dados = usuarioView.coletarDados();
 
-        String nome = dados[0];
-        String sobrenome = dados[1];
-        String cpf = dados[2];
-        String email = dados[3];
-        String senha = dados[4];
+        String cpf = usuario.getCPF();
+        String nome = usuario.getNome();
+        String sobrenome = usuario.getSobrenome();
+        String senha = usuario.getSenha();
+        String email = usuario.getEmail();
 
         if (usuarioDAO.existeUsuario(cpf)) {
             usuarioView.mensagemErro("CPF já cadastrado");
             return;
         }
         String senhaHash = Senha.hashSenha(senha);
-        Usuario usuario = new Usuario(cpf, nome, sobrenome, email, senhaHash);
         if (usuarioDAO.insertUser(usuario)) {
             usuarioView.mensagemSucesso("Usuário cadastrado com sucesso!");
         } else {

@@ -5,10 +5,7 @@ import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import model.JDBC_Connection;
 import model.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UsuarioDAO {
     private final Connection connection;
@@ -19,15 +16,21 @@ public class UsuarioDAO {
     }
 
     public boolean insertUser(Usuario usuario) {
-        String insertUser = "INSERT INTO Agifinancas.usuario (cpf_usuario, nome_usuario, sobrenome_usuario, senha_usuario, email_usuario) VALUES (?, ?, ?, ?, ?)";
+        String insertUser = "INSERT INTO Agifinancas.usuario (cpf_usuario, nome_usuario, sobrenome_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = JDBC_Connection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(insertUser)) {
+             PreparedStatement stmt = conn.prepareStatement(insertUser, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, usuario.getCPF());
             stmt.setString(2, usuario.getNome());
             stmt.setString(3, usuario.getSobrenome());
-            stmt.setString(4, usuario.getSenha());
-            stmt.setString(5, usuario.getEmail());
-            stmt.executeUpdate();
+            stmt.setString(4, usuario.getEmail());
+            stmt.setString(5, usuario.getSenha());
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                ResultSet rs = stmt.getGeneratedKeys();
+                if (rs.next()) {
+                    usuario.setIdUsuario(rs.getInt(1));
+                }
+            }
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,19 +58,19 @@ public class UsuarioDAO {
         return null;
     }
     public Usuario queryUser(int idUsuario) {
-        String query = "SELECT cpf_usuario, nome_usuario, sobrenome_usuario, senha_usuario, email_usuario FROM usuario WHERE id_usuario = ?";
+        String query = "SELECT cpf_usuario, nome_usuario, sobrenome_usuario, email_usuario, senha_usuario FROM usuario WHERE id_usuario = ?";
         try (Connection conn = JDBC_Connection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, idUsuario);
+            stmt.setInt(6, idUsuario);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new Usuario(
-                            //rs.getInt("id_usuario"),
                             rs.getString("cpf_usuario"),
                             rs.getString("nome_usuario"),
                             rs.getString("sobrenome_usuario"),
+                            rs.getString("email_usuario"),
                             rs.getString("senha_usuario"),
-                            rs.getString("email_usuario")
+                            rs.getInt("id_usuario")
                     );
                 } else {
                     System.out.println("Nenhum usuário encontrado com ID fornecido.");
@@ -80,14 +83,14 @@ public class UsuarioDAO {
     }
 
     public void updateUser(Usuario usuario) {
-        String update = "UPDATE usuario SET cpf_usuario = ?, nome_usuario = ?, sobrenome_usuario = ?, senha_usuario = ?, email_usuario = ? WHERE id_usuario = ?";
+        String update = "UPDATE usuario SET cpf_usuario = ?, nome_usuario = ?, sobrenome_usuario = ?, email_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
         try (Connection conn = JDBC_Connection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(update)) {
             stmt.setString(1, usuario.getCPF());
             stmt.setString(2, usuario.getNome());
             stmt.setString(3, usuario.getSobrenome());
-            stmt.setString(4, usuario.getSenha());
-            stmt.setString(5, usuario.getEmail());
+            stmt.setString(4, usuario.getEmail());
+            stmt.setString(5, usuario.getSenha());
             stmt.setInt(6, usuario.getIdUsuario());
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
