@@ -31,12 +31,12 @@ public class MenuMetodos {
 
     public static void logomenu(){
         System.out.println(CYAN);
-        System.out.println("███╗   ███╗███████╗███╗   ██╗██╗   ██╗");
-        System.out.println("████╗ ████║██╔════╝████╗  ██║██║   ██║");
-        System.out.println("██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║");
-        System.out.println("██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║");
-        System.out.println("██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝");
-        System.out.println("╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ ");
+        System.out.println("███╗   ███╗ ███████╗ ███╗   ██╗ ██╗   ██╗");
+        System.out.println("████╗ ████║ ██╔════╝ ████╗  ██║ ██║   ██║");
+        System.out.println("██╔████╔██║ █████╗   ██╔██╗ ██║ ██║   ██║");
+        System.out.println("██║╚██╔╝██║ ██╔══╝   ██║╚██╗██║ ██║   ██║");
+        System.out.println("██║ ╚═╝ ██║ ███████╗ ██║ ╚████║ ╚██████╔╝");
+        System.out.println("╚═╝     ╚═╝ ╚══════╝ ╚═╝  ╚═══╝  ╚═════╝ ");
         System.out.println("                                      ");
         System.out.println(RESET);
     }

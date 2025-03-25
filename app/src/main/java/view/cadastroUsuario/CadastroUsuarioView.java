@@ -23,7 +23,6 @@ public class CadastroUsuarioView {
     }
 
     public void cadastrarUsuario() {
-        cabecalho();
 
         System.out.println("⇒ Digite seu CPF: ");
         String cpf = scanner.nextLine();
