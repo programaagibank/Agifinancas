@@ -1,7 +1,6 @@
 package view.loginUsuario;
 
 import DAO.UsuarioDAO;
-import com.mysql.cj.log.Log;
 import control.LoginController;
 
 import java.sql.SQLException;
@@ -18,7 +17,7 @@ public class UsuarioLogin {
         String email = sc.nextLine();
         System.out.println("⇒ Insira sua senha: ");
         String senha = sc.nextLine();
-        UsuarioDAO dao = null;
+        UsuarioDAO dao;
         try {
             dao = new UsuarioDAO();
         } catch (SQLException e) {
