@@ -1,15 +1,13 @@
-package view.orcamento;
-
-import view.GerenciarCategorias.CategoriaView;
+package view.GerenciarCategorias;
 
 import java.util.Scanner;
 
-public class Orcamentoview extends OrcamentoMetodos {
-    public static void startorcamento (){
+public class Categorias {
+    public static void startcategoria(){
         int opcao;
         Scanner sc = new Scanner(System.in);
 
-        logoorcamento();
+
         System.out.println("Opções");
         System.out.println("------------------------------------------------------------");
         System.out.println("|                                                          |");
