@@ -2,6 +2,7 @@ package DAO;
 
 import model.Categoria;
 import model.JDBC_Connection;
+import model.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -89,6 +90,19 @@ public class CategoriaDAO {
             throw new RuntimeException("Erro ao buscar categorias do usuário: " + e.getMessage(), e);
         }
         return categorias;
+    }
+    public Categoria CriarCategoria(Usuario usuarioAutenticado, Categoria categoria) {
+        String sql = " INSERT INTO categoria (id_usuario, nome, tipo, limite) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setInt(1, usuarioAutenticado.getIdUsuario());
+            stmt.setString(2, categoria.getNome());
+            stmt.setString(3, categoria.getTipo());
+            stmt.setDouble(4, categoria.getLimite());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao criar categoria: " + e.getMessage(), e);
+        }
+        return null;
     }
 
 

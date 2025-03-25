@@ -1,7 +1,7 @@
 package view.home;
 
 import view.cadastroUsuario.UsuarioView;
-import view.loginUsuario.UsuarioLogin;
+import view.loginUsuario.LoginView;
 
 import java.util.Scanner;
 
@@ -30,7 +30,7 @@ public class Home extends HomeMetodos {
             cadastro.coletarDados();
         }
         else {
-            UsuarioLogin login = new UsuarioLogin();
+            LoginView login = new LoginView();
             login.dadosLogin();
         }
 

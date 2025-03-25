@@ -1,5 +1,7 @@
 package view.orcamento;
 
+import view.GerenciarCategorias.CategoriaView;
+
 import java.util.Scanner;
 
 public class Orcamentoview extends OrcamentoMetodos {

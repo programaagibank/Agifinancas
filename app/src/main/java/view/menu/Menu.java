@@ -1,11 +1,14 @@
 package view.menu;
 
+import model.Usuario;
+import view.GerenciarCategorias.CategoriaView;
 import view.finalizacao.Finalizacaoview;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu extends MenuMetodos {
-    public static void main(String[] args) {
+    public static void menu(Usuario usuarioAutenticado) throws SQLException {
         int resposta;
 
         Scanner sc = new Scanner(System.in);
@@ -36,6 +39,8 @@ public class Menu extends MenuMetodos {
 
         switch (resposta){
             case 1:
+                CategoriaView categoria = new CategoriaView();
+                categoria.CriarCategoria(usuarioAutenticado);
 
                 break;
             case 2:

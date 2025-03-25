@@ -5,14 +5,6 @@ import java.sql.SQLException;
 
 public class Senha {
     private static int workload = 12;
-//    public static String hashSenha(String senha) {
-//        return BCrypt.hashpw(senha, BCrypt.gensalt(12));
-//    }
-//    public static boolean checkSenha(String senhaComum, String senhaArmazenada) {
-//        return BCrypt.checkpw(senhaComum, senhaArmazenada);
-//    }
-//
-//}
     public static String hashSenha(String senha){
     String salt = BCrypt.gensalt(workload);
     String senhaHash = BCrypt.hashpw(senha, salt);

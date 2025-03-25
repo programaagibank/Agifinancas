@@ -6,9 +6,9 @@ import control.LoginController;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class UsuarioLogin {
+public class LoginView {
     private LoginController controller;
-    public UsuarioLogin() {
+    public LoginView() {
     }
 
     public void dadosLogin() {
