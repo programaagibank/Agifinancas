@@ -49,6 +49,7 @@ public class MenuMetodos {
         System.out.println("| Definir meta de economia -> 3                    |");
         System.out.println("| Criar uma reserva de emergência -> 4             |");
         System.out.println("| Gerar alertas definidos pelo usuário -> 5        |");
+        System.out.println("| Chat de Suporte -> 6                             |");
         System.out.println("|                                                  |");
         System.out.println("----------------------------------------------------");
         System.out.println();

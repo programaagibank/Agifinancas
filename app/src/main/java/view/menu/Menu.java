@@ -2,6 +2,7 @@ package view.menu;
 
 import model.Usuario;
 import view.GerenciarCategorias.CategoriaView;
+import view.chatSuporte.ChatSuporte;
 import view.finalizacao.Finalizacaoview;
 
 import java.sql.SQLException;
@@ -30,6 +31,7 @@ public class Menu extends MenuMetodos {
         System.out.println("| Definir meta de economia -> 3                    |");
         System.out.println("| Criar uma reserva de emergência -> 4             |");
         System.out.println("| Gerar alertas definidos pelo usuário -> 5        |");
+        System.out.println("| Chat de Suporte -> 6                             |");
         System.out.println("|                                                  |");
         System.out.println("| Fechar sistema -> 6                              |");
         System.out.println("----------------------------------------------------");
@@ -52,6 +54,10 @@ public class Menu extends MenuMetodos {
             case 5:
                 break;
             case 6:
+                ChatSuporte chat = new ChatSuporte();
+                chat.iniciarChatSuporte(usuarioAutenticado);
+                break;
+            case 7:
                 Finalizacaoview fechamento = new Finalizacaoview();
                 fechamento.Fim();
                 break;

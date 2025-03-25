@@ -2,8 +2,8 @@ package view.chat;
 
 public class ChatMetodo {
 
-    String bold = "\033[1m";  // Ativa o negrito
-    String reset = "\033[0m"; // Reseta o formato (negrito, cor, etc.)
+    String bold = "\033[1m";
+    String reset = "\033[0m";
     String cyan = "\u001B[36m";
     String red = "\033[31m";
     String green = "\033[32m";
