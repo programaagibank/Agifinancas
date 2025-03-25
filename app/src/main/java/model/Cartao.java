@@ -32,6 +32,14 @@ public class Cartao {
         return dataFechamento;
     }
 
+    public Cartao(String nome, double limite, String dataFechamento, String dataValidade, int idUsuario) {
+        this.nome = nome;
+        this.limite = limite;
+        this.dataFechamento = dataFechamento;
+        this.dataValidade = dataValidade;
+        this.idUsuario = idUsuario;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }

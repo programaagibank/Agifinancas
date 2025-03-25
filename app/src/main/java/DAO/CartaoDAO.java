@@ -2,15 +2,12 @@ package DAO;
 
 import model.JDBC_Connection;
 import model.Cartao;
-import model.LeitorDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.Properties;
-
 public class CartaoDAO {
     public void createCartao(Cartao cartao) {
         String inserirCartao = "INSERT INTO cartao (id_usuario, nome, limite, data_fechamento, data_validade) values (?, ?, ?, ?, ?)";
@@ -27,30 +24,38 @@ public class CartaoDAO {
             System.out.println("Erro ao cadastrar cartão." + e.getMessage());
         }
     }
-    public void consultaCartao (Cartao cartao){
-        String query = "SELECT id_usuario, nome, limite, data_fechamento, data_validade FROM cartao";
-        try(Connection conexao = JDBC_Connection.getConnection();
-            ResultSet rs = conexao.createStatement().executeQuery(query)){
-            int id_user = rs.getInt(1);
-            String nomeCartao = rs.getString(2);
-            Double limiteCartao = rs.getDouble(3);
-            Date dataFechamento = rs.getDate(4);
-            Date dataVencimento = rs.getDate(5);
-            System.out.println("Consulta concluída!");
-            System.out.println("Id usuário: " + id_user + "Nome do cartão: " + nomeCartao + "Limite do cartão: " + limiteCartao + "Data de fechamento: " + dataFechamento + "Data de vendcimento: " + dataVencimento);
+    public Cartao buscarPorId(int id_cartao) {
+        String sql = "SELECT * FROM cartao WHERE id_cartao = ?";
+        try (PreparedStatement stm = JDBC_Connection.getConnection().prepareStatement(sql)) {
+            stm.setInt(1, id_cartao);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                return new Cartao(
+                        rs.getString("nome"),
+                        rs.getDouble("limite"),
+                        rs.getString("data_fechamento"),
+                        rs.getString("data_validade"),
+                        rs.getInt("id_cartao"),
+                        rs.getInt("id_usuario")
+                );
+            }
         } catch (SQLException e) {
-            System.out.println("Erro ao consultar dados do cartão " + e.getMessage());
+            throw new RuntimeException("Erro ao buscar categoria: " + e.getMessage(), e);
         }
+        return null;
     }
 
+
     public void atualizarCartao(Cartao cartao) {
-        String atualizar = "UPDATE cartao SET nome = ?, limite = ?, data_fechamento = ?, data_validade = ? id_usuario = ?";
+        String atualizar = "UPDATE cartao SET nome = ?, limite = ?, data_fechamento = ?, data_validade = ?, id_usuario = ? WHERE id_cartao = ?";
         try (Connection conexao = JDBC_Connection.getConnection();
              PreparedStatement stmt = conexao.prepareStatement(atualizar)) {
             stmt.setString(1, cartao.getNome());
             stmt.setDouble(2, cartao.getLimite());
             stmt.setString(3, cartao.getDataFechamento());
             stmt.setString(4, cartao.getDataValidade());
+            stmt.setInt(5, cartao.getIdUsuario());
+            stmt.setInt(6, cartao.getIdCartao());
             stmt.executeUpdate();
             System.out.println("Cartão atualizado com sucesso!");
 
@@ -60,9 +65,10 @@ public class CartaoDAO {
     }
 
     public void deletarCartao(Cartao cartao){
-        String deletar = "DELETE FROM cartao WHERE id_usuario = ?";
+        String deletar = "DELETE FROM cartao WHERE id_cartao = ?";
         try (Connection conexao = JDBC_Connection.getConnection();
         PreparedStatement stmt = conexao.prepareStatement(deletar)){
+            stmt.setInt(1, cartao.getIdCartao());
             stmt.executeUpdate();
             System.out.println("Deletado com sucesso!");
         }catch(SQLException e) {
@@ -71,10 +77,10 @@ public class CartaoDAO {
     }
 
     public static void main(String[] args) {
-        String url;
-        String userHome = System.getProperty("user.home");
-        System.out.println(userHome);
-
+        Cartao cr = new Cartao("cartao numero1", 1000, "2026-01-01", "2026-02-01", 1, 1);
+        CartaoDAO crdao = new CartaoDAO();
+        crdao.deletarCartao(cr);
+        ;
 
 
     }
