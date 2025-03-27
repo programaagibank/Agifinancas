@@ -47,10 +47,4 @@ public class OrcamentoView {
         }
 
     }
-
-
-    public static void main(String[] args) throws SQLException {
-        Usuario user = new Usuario(1, "joao@gmail", "1234");
-        OrcamentoView.startOrcamento(user);
-    }
 }
