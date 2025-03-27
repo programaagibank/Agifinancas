@@ -5,8 +5,8 @@ public class Categoria {
     private int id_usuario;
     private String nome;
     private String tipo;
-    private Double limite;
-    private Double valor;
+    private double limite;
+    private double valor;
 
     public Categoria(int id_usuario, String nome, String tipo, double limite) {
         this.id_usuario = id_usuario;
