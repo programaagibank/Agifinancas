@@ -18,14 +18,14 @@ public class CategoriaDAO {
     public CategoriaDAO() throws SQLException {
     }
 
-    public void update(Categoria categoria) {
-        String sql = "UPDATE categoria SET nome = ?, tipo = ? WHERE id_categoria = ?";
-        PreparedStatement stm = null;
+    public void atualizarCategoria(Usuario usuarioAutenticado, String nome, String novoNome) throws SQLException {
+        String sql = "UPDATE categoria SET nome = ? WHERE id_usuario = ? AND nome = ?";
+        PreparedStatement stm;
         try {
             stm = conn.prepareStatement(sql);
-            stm.setString(1, categoria.getNome());
-            stm.setString(2, categoria.getTipo());
-            stm.setInt(3, categoria.getId_categoria());
+            stm.setString(1, novoNome);
+            stm.setString(2, usuarioAutenticado.getNome());
+            stm.setString(3, nome);
             stm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -46,16 +46,17 @@ public class CategoriaDAO {
 
     }
 
-    public void deletar(int id) throws SQLException {
-        String sql = "DELETE FROM categoria WHERE id_categoria = ?";
+    public void deletar(Usuario usuarioAutenticado, String nome) throws SQLException {
+        String sql = "DELETE FROM categoria WHERE id_usuario = ? AND nome = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setInt(1, usuarioAutenticado.getIdUsuario());
+            stmt.setString(2, nome);
             stmt.executeUpdate();
         }
     }
 
     public Categoria buscarPorId(int id_categoria) {
-        String sql = "SELECT * FROM categoria WHERE id_categoria = ?";
+        String sql = "SELECT * FROM categoria WHERE id_usuario = ?";
         try (PreparedStatement stm = conn.prepareStatement(sql)) {
             stm.setInt(1, id_categoria);
             ResultSet rs = stm.executeQuery();
@@ -65,7 +66,6 @@ public class CategoriaDAO {
                         rs.getString("nome"),
                         rs.getString("tipo"),
                         rs.getDouble("limite")
-
                 );
             }
         } catch (SQLException e) {
@@ -74,20 +74,19 @@ public class CategoriaDAO {
         return null;
     }
 
-    public List<Categoria> buscarPorUsuario(int id_usuario) {
-        String sql = "SELECT * FROM categoria WHERE id_usuario = ?";
+    public List<Categoria> consultarCategorias(Usuario usuarioAutenticado) {
+        String sql = "SELECT nome, tipo, limite FROM Agifinancas.categoria WHERE id_usuario = ?";
         List<Categoria> categorias = new ArrayList<>();
         try (PreparedStatement stm = conn.prepareStatement(sql)) {
-            stm.setInt(1, id_usuario);
+            stm.setInt(1, usuarioAutenticado.getIdUsuario());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Categoria categoria = new Categoria(
-                        rs.getInt("id_usuario"),
                         rs.getString("nome"),
                         rs.getString("tipo"),
                         rs.getDouble("limite")
                 );
-                categoria.setId_categoria(rs.getInt("id_categoria"));
+                //categoria.setId_categoria(rs.getInt("id_categoria"));
                 categorias.add(categoria);
             }
         } catch (SQLException e) {

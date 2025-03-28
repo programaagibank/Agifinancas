@@ -17,7 +17,7 @@ public class LoginController {
         this.loginView = loginView;
     }
 
-    public Usuario login(String email, String pwd) throws SQLException {
+    public Usuario login(String email, String pwd) throws SQLException, ClassNotFoundException {
         String Email = email;
         String senha = pwd;
         Usuario usuario = usuarioDAO.buscarPorEmail(email);

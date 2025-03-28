@@ -37,7 +37,7 @@ public class OrcamentoMetodo {
     public static int obterIdcat(Usuario user) throws SQLException {
         int idCategoria = 0;
         while (true){
-            OrcamentoControl.listarCategorias(user.getIdUsuario());
+            OrcamentoControl.listarCategorias(user);
             System.out.println("Selecione uma das categorias: ");
             idCategoria = sc.nextInt();
             sc.nextLine();

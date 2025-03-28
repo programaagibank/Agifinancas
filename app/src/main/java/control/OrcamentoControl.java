@@ -11,9 +11,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class OrcamentoControl {
-    public static void listarCategorias(int idUser) throws SQLException {
+    public static void listarCategorias(Usuario usuarioAutenticado) throws SQLException {
         CategoriaDAO catDao = new CategoriaDAO();
-        List<Categoria> lisCat = catDao.buscarPorUsuario(idUser);
+        List<Categoria> lisCat = catDao.consultarCategorias(usuarioAutenticado);
         for (Categoria cat : lisCat) {
             System.out.printf("%d - %s - %.2f\n", cat.getId_categoria(), cat.getNome(), cat.getLimite());
         }

@@ -4,6 +4,7 @@ import DAO.TransacaoContaDAO;
 import control.TransacaoContaController;
 import model.Usuario;
 import view.GerenciarCategorias.CategoriaView;
+import view.GerenciarCategorias.Categorias;
 import view.TransacaoConta.TransacaoContaView;
 import view.chatSuporte.ChatSuporte;
 import view.finalizacao.Finalizacaoview;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu extends MenuMetodos {
-    public static void menu(Usuario usuarioAutenticado) throws SQLException {
+    public static void menu(Usuario usuarioAutenticado) throws SQLException, ClassNotFoundException {
         int resposta;
 
         Scanner sc = new Scanner(System.in);
@@ -45,8 +46,8 @@ public class Menu extends MenuMetodos {
 
         switch (resposta){
             case 1:
-                CategoriaView categoria = new CategoriaView();
-                categoria.CriarCategoria(usuarioAutenticado);
+                Categorias categorias = new Categorias();
+                categorias.startcategoria(usuarioAutenticado);
 
                 break;
             case 2:
