@@ -47,8 +47,32 @@ public class CategoriaView {
     public void atualizarCategoria(Usuario usuarioAutenticado) throws SQLException {
         System.out.println("Insira o nome da categoria a ser alterado: ");
         String nome = sc.next();
-        System.out.println("Insira o novo nome da categoria: ");
-        String novoNome = sc.next();
-        //categoriaController.atualizarNomeCategoria(usuarioAutenticado, nome, novoNome);
+        String propriedade;
+        System.out.print("""
+                Qual propriedade alterar?
+                1- nome
+                2- tipo
+                3- limite""");
+        int opt = sc.nextInt();
+        switch (opt) {
+        case 1:
+            propriedade = "nome";
+            System.out.println("Insira o novo nome: ");
+            String novoNome = sc.next();
+            categoriaController.atualizarCategoria(usuarioAutenticado, propriedade, nome, novoNome);
+            break;
+        case 2:
+            propriedade = "tipo";
+            System.out.println("Insira o novo tipo: ");
+            String novoTipo = sc.next();
+            categoriaController.atualizarCategoria(usuarioAutenticado, propriedade, nome , novoTipo);
+            break;
+        case 3:
+            propriedade = "limite";
+            System.out.println("Insira o novo limite: ");
+            String novoLimite = sc.next();
+            categoriaController.atualizarCategoria(usuarioAutenticado, propriedade, nome, novoLimite);
+            break;
+        }
     }
 }

@@ -52,4 +52,7 @@ public class CategoriaController {
 
         return List.of();
     }
+    public void atualizarCategoria(Usuario usuarioAutenticado, String propriedade, String nome, String novoValor) throws SQLException {
+        dao.atualizarCategoria(usuarioAutenticado, propriedade, nome, novoValor);
+    }
 }

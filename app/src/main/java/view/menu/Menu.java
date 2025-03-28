@@ -19,10 +19,10 @@ public class Menu extends MenuMetodos {
         Scanner sc = new Scanner(System.in);
 
         System.out.print(RED+"Entrando");
-        for (int i=0; i <=6;i++){
-            System.out.print(".");
-            Delay(1000);
-        }
+//        for (int i=0; i <=6;i++){
+//            System.out.print(".");
+//            Delay(1000);
+//        }
         System.out.println(RESET);
 
         logomenu();
