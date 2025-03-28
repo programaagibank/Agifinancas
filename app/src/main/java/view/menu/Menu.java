@@ -1,7 +1,10 @@
 package view.menu;
 
+import DAO.TransacaoContaDAO;
+import control.TransacaoContaController;
 import model.Usuario;
 import view.GerenciarCategorias.CategoriaView;
+import view.TransacaoConta.TransacaoContaView;
 import view.chatSuporte.ChatSuporte;
 import view.finalizacao.Finalizacaoview;
 
@@ -27,13 +30,14 @@ public class Menu extends MenuMetodos {
         System.out.println("----------------------------------------------------");
         System.out.println("|                                                  |");
         System.out.println("| Gastos fixos -> 1                                |");
-        System.out.println("| Gastos excedentes -> 2                           |");
-        System.out.println("| Definir meta de economia -> 3                    |");
-        System.out.println("| Criar uma reserva de emergência -> 4             |");
-        System.out.println("| Gerar alertas definidos pelo usuário -> 5        |");
-        System.out.println("| Chat de Suporte -> 6                             |");
+        System.out.println("| Transações -> 2                                  |");
+        System.out.println("| Gastos excedentes -> 3                           |");
+        System.out.println("| Definir meta de economia -> 4                    |");
+        System.out.println("| Criar uma reserva de emergência -> 5             |");
+        System.out.println("| Gerar alertas definidos pelo usuário -> 6        |");
+        System.out.println("| Chat de Suporte -> 7                             |");
         System.out.println("|                                                  |");
-        System.out.println("| Fechar sistema -> 6                              |");
+        System.out.println("| Fechar sistema -> 8                              |");
         System.out.println("----------------------------------------------------");
         System.out.println();
         System.out.print("Qual Categoria deseja?: ");
@@ -46,6 +50,14 @@ public class Menu extends MenuMetodos {
 
                 break;
             case 2:
+                try {
+                    TransacaoContaView view = new TransacaoContaView();
+                    TransacaoContaDAO dao = new TransacaoContaDAO();
+                    TransacaoContaController controller = new TransacaoContaController(view, dao);
+                    controller.cadastrarTransacao(usuarioAutenticado);
+                } catch (SQLException e) {
+                    System.out.println("Erro no banco de dados: " + e.getMessage());
+                }
                 break;
             case 3:
                 break;
