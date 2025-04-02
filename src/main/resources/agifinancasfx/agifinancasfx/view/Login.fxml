@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="639.0" prefWidth="386.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.LoginController">
+    <children>
+        <Label layoutX="58.0" layoutY="272.0" text="Email" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label layoutX="56.0" layoutY="332.0" text="Senha" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="emailText" layoutX="120.0" layoutY="267.0" style="-fx-border-color: #0757eb;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <ButtonBar layoutX="214.0" layoutY="240.0" prefHeight="27.0" prefWidth="78.0" />
+    <Button fx:id="btnLogin" contentDisplay="CENTER" layoutX="140.0" layoutY="484.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0757eb;" text="Login" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="129.0" layoutY="194.0" prefHeight="40.0" prefWidth="152.0" text="Bem vindo!">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCadastro" alignment="CENTER" layoutX="139.0" layoutY="432.0" mnemonicParsing="false" onAction="#fazerCadastro" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0757eb;" text="Cadastro" textFill="WHITE" />
+      <PasswordField fx:id="passwordText" layoutX="120.0" layoutY="327.0" style="-fx-border-color: #0757eb;" />
+      <ImageView fitHeight="89.0" fitWidth="122.0" layoutX="46.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/download.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="173.0" layoutY="91.0" prefHeight="40.0" prefWidth="161.0" text="Finanças" textFill="#0757eb">
+         <font>
+            <Font name="Comfortaa Light" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSair" alignment="CENTER" layoutX="139.0" layoutY="534.0" mnemonicParsing="false" onAction="#sairDoApp" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0757eb;" text="Sair" textFill="WHITE" />
+    </children>
+</AnchorPane>
