@@ -14,7 +14,7 @@
     <children>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="43.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/logo.png" />
+                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/logo.png" />
             </image>
         </ImageView>
         <Label fx:id="lblNovoUsuario" layoutX="35.0" layoutY="191.0" text="Novo usuário" textFill="DODGERBLUE">
