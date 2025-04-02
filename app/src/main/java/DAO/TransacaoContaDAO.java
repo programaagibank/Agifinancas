@@ -1,7 +1,9 @@
 package DAO;
 
+import model.Categoria;
 import model.JDBC_Connection;
 import model.TransacaoConta;
+import model.Usuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -79,5 +81,27 @@ public class TransacaoContaDAO {
             }
         }
         return null;
+    }
+
+    public double resultadoCategoria(Categoria categoria, Usuario user, String dataInicio, String dataFinal) {
+        String sql = "SELECT SUM(valor) FROM transacao_conta WHERE id_categoria = ? AND id_usuario = ? AND data_transacao BETWEEN ? AND ?";
+        try {
+            double valor =0;
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, categoria.getId_categoria());
+            stm.setInt(2, user.getIdUsuario());
+            stm.setString(3, dataInicio);
+            stm.setString(4, dataFinal);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()){
+                valor = rs.getDouble(1);
+            }
+            return valor;
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -28,6 +28,8 @@ public class LoginView {
             controller.login(email, senha);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -8,7 +8,7 @@ public class Categoria {
     private Double limite;
     private Double valor;
 
-    public Categoria(int id_usuario, String nome, String tipo, double limite) {
+    public Categoria( String nome, String tipo, Double limite) {
         this.id_usuario = id_usuario;
         this.nome = nome;
         this.tipo = tipo;
@@ -20,10 +20,11 @@ public class Categoria {
         this.tipo = tipo;
     }
 
-    public Categoria(int idUsuario, String nome, String tipo) {
+    public Categoria(int idUsuario, String nome, String tipo, Double limite) {
         this.id_usuario = idUsuario;
         this.nome = nome;
         this.tipo = tipo;
+        this.limite = limite;
     }
 
     public int getId_categoria() {

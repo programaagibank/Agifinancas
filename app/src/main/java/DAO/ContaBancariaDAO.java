@@ -83,6 +83,26 @@ public class ContaBancariaDAO {
             System.out.println("Erro ao excluir conta: " + e.getMessage());
         }
     }
+    public static double saldoGeral(Usuario user){
+        double retorno=0;
+        ResultSet rs = null;
+        try (Connection conn = JDBC_Connection.getConnection()){
+            String sql = "SELECT SUM(saldo) AS total_saldo FROM conta_bancaria WHERE id_usuario = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, user.getIdUsuario());
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                double totalSaldo = rs.getDouble("total_saldo");
+                retorno = totalSaldo;
+            } else {
+                System.out.println("Nenhuma conta encontrada para este usuário.");
+            }
+            return retorno;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
 
