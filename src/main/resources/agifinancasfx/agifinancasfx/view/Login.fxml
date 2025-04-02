@@ -21,9 +21,9 @@
             <font>
                 <Font name="System Bold" size="20.0" />
             </font></Label>
-        <TextField fx:id="txtCPF" layoutX="33.0" layoutY="293.0" promptText="Digite seu CPF" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-width: 0 0 2px 0; -fx-border-color: #8E8E8E; -fx-padding: 10; -fx-pref-width: 250px; -fx-pref-height: 30px;" />
-        <PasswordField fx:id="txtPassword" layoutX="33.0" layoutY="338.0" promptText="Digite sua senha" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-width: 0 0 2px 0; -fx-border-color: #8E8E8E; -fx-padding: 10; -fx-pref-width: 250px; -fx-pref-height: 30px;" />
-        <Button fx:id="btnCadastrar" layoutX="90.0" layoutY="505.0" mnemonicParsing="false" onAction="#cadastrarUsuario" style="-fx-background-color: #1e90ff; -fx-background-radius: 5; -fx-border-radius: 5;" text="Cadastrar" textFill="WHITE">
+        <TextField fx:id="txtLoginCPF" layoutX="33.0" layoutY="293.0" promptText="Digite seu CPF" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-width: 0 0 2px 0; -fx-border-color: #8E8E8E; -fx-padding: 10; -fx-pref-width: 250px; -fx-pref-height: 30px;" />
+        <PasswordField fx:id="txtLoginPassword" layoutX="33.0" layoutY="338.0" promptText="Digite sua senha" style="-fx-background-color: transparent; -fx-border-style: none none solid none; -fx-border-width: 0 0 2px 0; -fx-border-color: #8E8E8E; -fx-padding: 10; -fx-pref-width: 250px; -fx-pref-height: 30px;" />
+        <Button fx:id="btnAcessar" layoutX="90.0" layoutY="505.0" mnemonicParsing="false" onAction="#Acessar" style="-fx-background-color: #1e90ff; -fx-background-radius: 5; -fx-border-radius: 5;" text="Acessar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -32,7 +32,7 @@
             </padding>
         </Button>
         <Label fx:id="lblPossuiCadastro" layoutX="65.0" layoutY="554.0" text="Não possui cadastro?" textFill="#8e8e8e" />
-        <Button fx:id="btnFazerLoginCadastro" layoutX="176.0" layoutY="550.0" mnemonicParsing="false" onAction="#fazerLoginCadastro" style="-fx-background-color: transparent;" text="Cadastre-se" textFill="DODGERBLUE" />
-      <Button fx:id="btnFazerLoginCadastro1" layoutX="171.0" layoutY="388.0" mnemonicParsing="false" onAction="#fazerLoginCadastro" style="-fx-background-color: transparent;" text="Esqueceu a senha?" textFill="DODGERBLUE" />
+        <Button fx:id="btnCadastreSe" layoutX="176.0" layoutY="550.0" mnemonicParsing="false" onAction="#CadastreSe" style="-fx-background-color: transparent;" text="Cadastre-se" textFill="DODGERBLUE" />
+      <Button fx:id="btnEsqueceuSenha" layoutX="171.0" layoutY="388.0" mnemonicParsing="false" onAction="#esqueceuSenha" style="-fx-background-color: transparent;" text="Esqueceu a senha?" textFill="DODGERBLUE" />
     </children>
 </Pane>
