@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="639.0" prefWidth="386.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.LoginController">
+<AnchorPane prefHeight="639.0" prefWidth="386.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.LoginController">
     <children>
         <Label layoutX="58.0" layoutY="272.0" text="Email" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <Label layoutX="56.0" layoutY="332.0" text="Senha" GridPane.columnIndex="0" GridPane.rowIndex="1" />
