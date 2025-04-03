@@ -8,6 +8,7 @@ group = 'com.AgifinancasFX'
 version = '1.0-SNAPSHOT'
 
 repositories {
+    maven { url 'https://nexus.gluonhq.com/nexus/content/repositories/releases/' }
     mavenCentral()
 }
 
@@ -27,7 +28,7 @@ javafx {
 dependencies {
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.mindrot:jbcrypt:0.4'  // Agora funcionará sem problemas
-
+    implementation 'com.gluonhq:charm-glisten:6.0.5'
     // JavaFX e outras libs
     implementation 'org.controlsfx:controlsfx:11.2.1'
     implementation 'com.dlsc.formsfx:formsfx-core:11.6.0'

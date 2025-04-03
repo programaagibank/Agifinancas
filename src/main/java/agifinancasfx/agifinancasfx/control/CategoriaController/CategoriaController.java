@@ -5,25 +5,28 @@ import agifinancasfx.agifinancasfx.Model.Categoria;
 import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
-
 import agifinancasfx.agifinancasfx.Model.Usuario;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
 public class CategoriaController {
-    private Usuario usuario;
+    private Categoria categoria;
+    private Usuario usuarioAutenticado;
     private CategoriaDAO dao = new CategoriaDAO();
-
     public CategoriaController() throws SQLException {
     }
-    public void criarCategoria(Usuario usuarioAutenticado, Categoria categoria) throws SQLException, ClassNotFoundException {
-        dao.CriarCategoria(usuarioAutenticado, categoria);
-        System.out.println("Categoria cadastrada com sucesso!");
+    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
+        this.usuarioAutenticado = usuarioAutenticado;
     }
-    public void excluirCategoria(Usuario usuarioAutenticado, String nome) throws SQLException, ClassNotFoundException {
+    @FXML
+    private void excluirCategoria(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String nome = "";
         dao.deletar(usuarioAutenticado, nome);
         System.out.println("Categoria excluida com sucesso!");
     }
-
-    public List<Categoria> exibirCategorias(Usuario usuarioAutenticado) throws SQLException, ClassNotFoundException {
+    @FXML
+    private List<Categoria> exibirCategorias(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             List<Categoria> categorias = dao.consultarCategorias(usuarioAutenticado);
             categorias.sort(Comparator.comparing(Categoria::getNome));
@@ -49,7 +52,22 @@ public class CategoriaController {
 
         return List.of();
     }
-    public void atualizarCategoria(Usuario usuarioAutenticado, String propriedade, String nome, String novoValor) throws SQLException {
+    @FXML
+    private void atualizarCategoria(ActionEvent actionEvent/*, Usuario usuarioAutenticado, String propriedade, String nome, String novoValor*/) throws SQLException {
+        String propriedade = "";
+        String nome = "";
+        String novoValor = "";
         dao.atualizarCategoria(usuarioAutenticado, propriedade, nome, novoValor);
     }
+    @FXML
+    private void criarCategoria(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/criarCategoria.fxml"));
+            dao.CriarCategoria(usuarioAutenticado, categoria);
+            System.out.println("Categoria cadastrada com sucesso!");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+

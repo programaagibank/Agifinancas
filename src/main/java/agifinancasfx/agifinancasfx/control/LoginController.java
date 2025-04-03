@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,8 +19,17 @@ public class LoginController {
     private TextField emailText;
     @FXML
     private PasswordField passwordText;
+    @FXML private Label loginSucedidoLabel;
     private UsuarioDAO usuarioDAO;
     Usuario usuarioAutenticado;
+
+    public void setLoginSucedidoLabel(Label loginSucedidoLabel, Usuario usuarioAutenticado) {
+        loginSucedidoLabel.setText("Login bem sucedido, bem vindo de volta " + usuarioAutenticado.getNome());
+    }
+    public void setLoginFalhoLabel(Label loginSucedidoLabel, Usuario usuarioAutenticado) {
+        loginSucedidoLabel.setText("Email ou senha inválidos!");
+    }
+
     public void setUsuarioDAO(UsuarioDAO dao) {
         this.usuarioDAO = dao;
     }
@@ -32,8 +42,9 @@ public class LoginController {
     private void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
         if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            System.out.println("Login bem sucedido.");
+            setLoginSucedidoLabel(loginSucedidoLabel, usuario);
             this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
+            UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
 
             // Navegar para view Menu
             try {
@@ -45,7 +56,10 @@ public class LoginController {
                 Stage stage = (Stage) emailText.getScene().getWindow();
 
                 // Criar nova scene com menu root
-                Scene menuScene = new Scene(menuRoot, 412, 912); // Adjust size as needed
+                Scene menuScene = new Scene(menuRoot, 412, 912);
+
+
+
 
                 // Settar nova scene
                 stage.setScene(menuScene);
@@ -55,7 +69,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Email ou senha inválidos!");
+            setLoginFalhoLabel(loginSucedidoLabel, usuarioAutenticado);
         }
     }
 
