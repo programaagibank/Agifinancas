@@ -18,7 +18,7 @@
     -fx-background-color: #1e90ff;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-font-size: 18px;  /* Reduzi o tamanho da fonte */
+    -fx-font-size: 18px; /* Reduzi o tamanho da fonte */
     -fx-padding: 6px 10px; /* Padding menor (vertical horizontal) */
     -fx-background-radius: 5px;
     -fx-cursor: hand;
@@ -88,7 +88,7 @@
     -fx-font-size: 14px;
     -fx-text-fill: #F44336; /* Vermelho */
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
 }
 
 .tipo-transacao:selected {
@@ -97,7 +97,7 @@
 
 .tipo-transacao:pressed {
     -fx-translate-y: 1px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
 }
 
 /***** Área de Histórico *****/
@@ -125,7 +125,7 @@
     -fx-background-color: white;
     -fx-background-radius: 8px;
     -fx-padding: 10px 15px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 3, 0, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 3, 0, 0, 1);
     -fx-spacing: 15px;
 }
 
@@ -158,7 +158,7 @@
     -fx-alignment: center;
     -fx-padding: 0 15px;
     -fx-spacing: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, -3);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, -3);
     -fx-pref-height: 65px;
     -fx-pref-width: 320px;
 }
@@ -179,11 +179,11 @@
     -fx-background-color: rgba(0, 0, 0, 0.1);
     -fx-scale-x: 0.95;
     -fx-scale-y: 0.95;
-    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
 }
 
 .toolbar-button > .image-view {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
 }
 
 /***** Estilos Específicos para Login/Cadastro *****/
@@ -232,4 +232,87 @@
 .form-button,
 .link-button {
     -fx-transition: all 0.3s ease;
+}
+
+/* Estilo completo para ComboBox -  (linha única) */
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: #8E8E8E;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-style: none none solid none;
+    -fx-padding: 5px 0 5px 0;
+    -fx-font-size: 14px;
+}
+
+/* Remove bordas internas do ComboBox */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0 5px 0 0;
+}
+
+/* Remove borda do editor interno */
+.combo-box .text-field {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-padding: 5px 0 5px 5px;
+}
+
+/* Remove a borda do popup (opcional) */
+.combo-box .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+}
+
+/* Efeito de foco */
+.combo-box:focused,
+.combo-box:showing,
+.combo-box:armed {
+    -fx-border-color: #1e90ff;
+    -fx-border-width: 0 0 2px 0;
+    -fx-background-color: transparent;
+}
+
+/* Remove a borda do botão de seta quando pressionado */
+.combo-box .arrow-button:armed,
+.combo-box .arrow-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* Remove o efeito 3D interno do ComboBox */
+.combo-box .arrow {
+    -fx-background-color: #8E8E8E;
+}
+
+.combo-box .arrow-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo dos itens da lista suspensa */
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.combo-box-popup .list-cell {
+    -fx-padding: 8px 15px;
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+}
+
+.combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: #f0f8ff; /* Azul clarinho ao passar mouse */
+}
+
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #e1f0fa; /* Azul mais forte quando selecionado */
+    -fx-text-fill: #1e90ff;
 }
