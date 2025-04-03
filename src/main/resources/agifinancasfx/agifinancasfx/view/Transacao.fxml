@@ -53,7 +53,7 @@
         </DatePicker>
 
         <!-- Botão adicionar -->
-        <Button fx:id="btnAdicionar" alignment="CENTER" styleClass="form-button" text="Adicionar">
+        <Button fx:id="btnAdicionar" alignment="CENTER" onAction="#adiconartransacao" styleClass="form-button" text="Adicionar">
          <VBox.margin>
             <Insets left="65.0" right="65.0" top="20.0" />
          </VBox.margin></Button>
@@ -68,7 +68,7 @@
     </VBox>
     <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -77,7 +77,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -95,7 +95,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
