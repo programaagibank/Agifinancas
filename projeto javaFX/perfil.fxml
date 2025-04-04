@@ -38,7 +38,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="251.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
@@ -56,7 +55,7 @@
       <TextField floatText="Digite seu telefone" layoutX="41.0" layoutY="457.0" prefHeight="27.0" prefWidth="244.0" />
       <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../Downloads/Group%20103.png" />
+            <Image url="@images/Group%20103.png" />
          </image>
       </ImageView>
    </children>

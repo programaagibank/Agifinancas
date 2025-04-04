@@ -49,7 +49,7 @@
       <Button layoutX="14.0" layoutY="586.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../Downloads/Group%20121.png" />
+            <Image url="@images/Group%20121.png" />
          </image>
       </ImageView>
       <TextField floatText="Quanto deseja guardar?" layoutX="42.0" layoutY="409.0" prefHeight="27.0" prefWidth="236.0" />

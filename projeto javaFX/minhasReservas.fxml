@@ -38,12 +38,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../Downloads/Frame%2044.png" />
+            <Image url="@images/Frame%2044.png" />
          </image>
       </ImageView>
       <Button layoutX="9.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
@@ -60,6 +59,6 @@
       <Button layoutX="133.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <Button layoutX="70.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <Button layoutX="14.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <TextField floatText="R$ 0.00" layoutX="32.0" layoutY="283.0" prefHeight="27.0" prefWidth="130.0" />
+      <TextField floatText="R$ 0.00" layoutX="32.0" layoutY="283.0" prefHeight="27.0" prefWidth="130.0" style="-fx-background-image: transparent;" />
    </children>
 </Pane>
