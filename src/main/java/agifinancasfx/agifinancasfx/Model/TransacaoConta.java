@@ -16,6 +16,9 @@ public class TransacaoConta {
         this.tipo = tipo;
     }
 
+    public TransacaoConta(int idUsuario, int idConta) {
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }

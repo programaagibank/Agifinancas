@@ -5,28 +5,23 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MenuController {
-    public MenuController() {}
-
-    @FXML
-    private Label nomeUsuarioLabel;
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
-
-    public void setNomeUsuarioLabel(Label nomeUsuarioLabel, Usuario usuarioAutenticado) {
-        nomeUsuarioLabel.setText("Bem vindo de volta, " + usuarioAutenticado.getNome());
+    @FXML
+    Label nomeUsuarioLabel;
+    public MenuController() {}
+    @FXML
+    public void initialize() {
+        setNomeUsuarioLabel(nomeUsuarioLabel);
     }
 
-    public void initialize() {
-        setNomeUsuarioLabel(nomeUsuarioLabel, usuarioAutenticado);
-        System.out.println(usuarioAutenticado.getNome()
-        + " " + usuarioAutenticado.getSenha()
-        + " " + usuarioAutenticado.getEmail());
+    public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
+        nomeUsuarioLabel.setText("Bem vindo, " + usuarioAutenticado.getNome());
     }
 
     @FXML
@@ -34,9 +29,8 @@ public class MenuController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Categorias.fxml"));
             Parent categoriasRoot = loader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene categoriasScene = new Scene(categoriasRoot, 800, 600);
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene categoriasScene = new Scene(categoriasRoot, 320, 640);
             stage.setScene(categoriasScene);
             stage.setTitle("Categorias");
             stage.show();
@@ -55,7 +49,7 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/Transacoes.fxml"));
             Parent transacoesRoot = loader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             Scene transacoesScene = new Scene(transacoesRoot, 800, 600);
 
             stage.setScene(transacoesScene);
@@ -72,7 +66,7 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/Metas.fxml"));
             Parent metasRoot = loader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             Scene metasScene = new Scene(metasRoot, 800, 600);
 
             stage.setScene(metasScene);
@@ -89,7 +83,7 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/Relatorios.fxml"));
             Parent relatoriosRoot = loader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             Scene relatoriosScene = new Scene(relatoriosRoot, 800, 600);
 
             stage.setScene(relatoriosScene);

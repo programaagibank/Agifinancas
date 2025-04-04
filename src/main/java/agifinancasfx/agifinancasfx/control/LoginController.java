@@ -8,10 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -19,33 +20,22 @@ public class LoginController {
     private TextField emailText;
     @FXML
     private PasswordField passwordText;
-    @FXML private Label loginSucedidoLabel;
-    private UsuarioDAO usuarioDAO;
+    @FXML
+    private Button btnSair;
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
     Usuario usuarioAutenticado;
-
-    public void setLoginSucedidoLabel(Label loginSucedidoLabel, Usuario usuarioAutenticado) {
-        loginSucedidoLabel.setText("Login bem sucedido, bem vindo de volta " + usuarioAutenticado.getNome());
-    }
-    public void setLoginFalhoLabel(Label loginSucedidoLabel, Usuario usuarioAutenticado) {
-        loginSucedidoLabel.setText("Email ou senha inválidos!");
-    }
-
     public void setUsuarioDAO(UsuarioDAO dao) {
         this.usuarioDAO = dao;
     }
 
-    public LoginController(UsuarioDAO usuarioDAO) {
-        this.usuarioDAO = usuarioDAO;
-    }
-    public LoginController() {}
+    public LoginController() throws SQLException {}
     @FXML
-    private void fazerLogin(ActionEvent actionEvent) throws SQLException {
+    public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
         if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            setLoginSucedidoLabel(loginSucedidoLabel, usuario);
+            System.out.println("Login bem sucedido.");
             this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
             UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
-
             // Navegar para view Menu
             try {
                 // Carregar FXML do Menu
@@ -56,10 +46,7 @@ public class LoginController {
                 Stage stage = (Stage) emailText.getScene().getWindow();
 
                 // Criar nova scene com menu root
-                Scene menuScene = new Scene(menuRoot, 412, 912);
-
-
-
+                Scene menuScene = new Scene(menuRoot, 320, 640); 
 
                 // Settar nova scene
                 stage.setScene(menuScene);
@@ -69,18 +56,42 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            setLoginFalhoLabel(loginSucedidoLabel, usuarioAutenticado);
+            System.out.println("Email ou senha inválidos!");
         }
     }
 
     @FXML
     private void fazerCadastro(ActionEvent event) {
-        // TODO: Implement cadastro functionality
-        System.out.println("Cadastro clicked");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/CadastroUsuario.fxml"));
+            Parent cadastroRoot = loader.load();
+            Stage stage = (Stage) emailText.getScene().getWindow();
+            Scene cadastroScene = new Scene(cadastroRoot, 320, 640);
+            stage.setScene(cadastroScene);
+            stage.setTitle("Cadastro");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
+    }
+
+    public void esqueceuSenha(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/view/esqueceuSenha.fxml"));
+            Parent esqueceuSenhaRoot = loader.load();
+            Stage stage = (Stage) emailText.getScene().getWindow();
+            Scene esqueceuSenhaScene = new Scene(esqueceuSenhaRoot);
+            stage.setScene(esqueceuSenhaScene);
+            stage.setTitle("Alterar Senha");
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Erro ao efetuar troca de senha" + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
