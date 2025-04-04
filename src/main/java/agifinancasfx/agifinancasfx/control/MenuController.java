@@ -30,7 +30,7 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Categorias.fxml"));
             Parent categoriasRoot = loader.load();
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene categoriasScene = new Scene(categoriasRoot, 800, 600);
+            Scene categoriasScene = new Scene(categoriasRoot, 320, 640);
             stage.setScene(categoriasScene);
             stage.setTitle("Categorias");
             stage.show();

@@ -12,6 +12,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Carregar arquivo FXML
+        primaryStage.setWidth(320);
+        primaryStage.setHeight(640);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Login.fxml"));
         Parent root = loader.load();
 
@@ -21,7 +23,8 @@ public class Main extends Application {
 
         // Settar o stage
         primaryStage.setTitle("Login System");
-        primaryStage.setScene(new Scene(root, 386, 639));
+        primaryStage.setScene(new Scene(root, 320, 640));
+
         primaryStage.show();
     }
 

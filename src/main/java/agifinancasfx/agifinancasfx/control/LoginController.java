@@ -47,7 +47,7 @@ public class LoginController {
                 Stage stage = (Stage) emailText.getScene().getWindow();
 
                 // Criar nova scene com menu root
-                Scene menuScene = new Scene(menuRoot, 412, 912); // Adjust size as needed
+                Scene menuScene = new Scene(menuRoot, 320, 640); // Adjust size as needed
 
                 // Settar nova scene
                 stage.setScene(menuScene);
@@ -67,7 +67,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/CadastroUsuario.fxml"));
             Parent cadastroRoot = loader.load();
             Stage stage = (Stage) emailText.getScene().getWindow();
-            Scene cadastroScene = new Scene(cadastroRoot, 412, 912);
+            Scene cadastroScene = new Scene(cadastroRoot, 320, 640);
             stage.setScene(cadastroScene);
             stage.setTitle("Cadastro");
             stage.show();
