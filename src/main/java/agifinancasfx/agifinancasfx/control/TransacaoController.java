@@ -1,6 +1,7 @@
 package agifinancasfx.agifinancasfx.control;
 import agifinancasfx.agifinancasfx.Model.TransacaoConta;
 import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
+import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,14 +12,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import agifinancasfx.agifinancasfx.DAO.ContaBancariaDAO;
+
+
 
 public class TransacaoController {
+    Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
 
     @FXML
     private Button btnAdicionar;
@@ -82,7 +86,7 @@ public class TransacaoController {
             }
 
             // Obtendo valores da interface gráfica
-            int idUsuario = 1; // Substitua com o ID do usuário autenticado
+            int idUsuario = usuarioAutenticado.getIdUsuario(); // Substitua com o ID do usuário autenticado
             int idConta = 1; // Substitua com a conta correta
             String dataTransacao = dpData.getValue().toString();
             String tipo = toggleTipo.isSelected() ? "Despesa" : "Receita"; // desespesa ou receita?
