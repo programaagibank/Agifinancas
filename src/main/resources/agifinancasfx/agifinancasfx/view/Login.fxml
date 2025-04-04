@@ -33,7 +33,8 @@
             </font>
         </Button>
         <Label fx:id="lblPossuiCadastro" layoutX="50.0" layoutY="523.0" styleClass="label-informativa" text="Não possui cadastro?" />
-        <Button fx:id="btnCadastreSe" layoutX="178.0" layoutY="523.0" mnemonicParsing="false" onAction="#fazerCadastro" styleClass="link-button" text="Cadastre-se" />
+        <Button fx:id="btnCadastreSe" layoutX="192.0" layoutY="522.0" mnemonicParsing="false" onAction="#fazerCadastro" styleClass="link-button" text="Cadastre-se" />
         <Button fx:id="btnEsqueceuSenha" layoutX="171.0" layoutY="388.0" mnemonicParsing="false" onAction="#esqueceuSenha" styleClass="link-button" text="Esqueceu a senha?" />
+      <Button fx:id="btnSair" layoutX="148.0" layoutY="558.0" mnemonicParsing="false" onAction="#sairDoApp" styleClass="link-button" text="Sair" />
     </children>
 </Pane>

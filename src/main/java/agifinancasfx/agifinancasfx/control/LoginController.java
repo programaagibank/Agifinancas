@@ -8,10 +8,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -20,15 +20,14 @@ public class LoginController {
     private TextField emailText;
     @FXML
     private PasswordField passwordText;
+    @FXML
+    private Button btnSair;
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
     Usuario usuarioAutenticado;
     public void setUsuarioDAO(UsuarioDAO dao) {
         this.usuarioDAO = dao;
     }
 
-//    public LoginController(UsuarioDAO usuarioDAO) {
-//        this.usuarioDAO = usuarioDAO;
-//    }
     public LoginController() throws SQLException {}
     @FXML
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
@@ -47,7 +46,7 @@ public class LoginController {
                 Stage stage = (Stage) emailText.getScene().getWindow();
 
                 // Criar nova scene com menu root
-                Scene menuScene = new Scene(menuRoot, 320, 640); // Adjust size as needed
+                Scene menuScene = new Scene(menuRoot, 320, 640); 
 
                 // Settar nova scene
                 stage.setScene(menuScene);

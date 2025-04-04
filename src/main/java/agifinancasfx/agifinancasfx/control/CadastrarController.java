@@ -1,11 +1,10 @@
 package agifinancasfx.agifinancasfx.control;
 import agifinancasfx.agifinancasfx.DAO.UsuarioDAO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
-import agifinancasfx.agifinancasfx.control.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node; // Corrigido: Usando Node do JavaFX
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,7 +21,7 @@ public class CadastrarController {
     private Button btnCadastrar;
 
     @FXML
-    private Button btnFazerLoginCadastro;
+    private Button btnFazerLogin;
 
     @FXML
     private Label lblNovoUsuario;

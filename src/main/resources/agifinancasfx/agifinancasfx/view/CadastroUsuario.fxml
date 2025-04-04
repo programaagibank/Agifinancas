@@ -37,6 +37,6 @@
             </font>
         </Button>
         <Label fx:id="lblPossuiCadastro" layoutX="74.0" layoutY="557.0" styleClass="label-informativa" text="Já possui cadastro?" />
-        <Button fx:id="btnFazerLoginCadastro" layoutX="182.0" layoutY="557.0" mnemonicParsing="false" onAction="#fazerLogin" styleClass="link-button" text="Faça o login" />
+        <Button fx:id="btnFazerLogin" layoutX="182.0" layoutY="557.0" mnemonicParsing="false" onAction="#fazerLogin" styleClass="link-button" text="Faça o login" />
     </children>
 </Pane>
