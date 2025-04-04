@@ -48,17 +48,14 @@ public class TransacaoContaDAO {
     }
 
     public List<TransacaoConta> buscarTransacoesPorUsuario(int idUsuario) throws SQLException {
-        String sql = "SELECT * FROM transacao_conta WHERE id_usuario = ?";
+        String sql = "SELECT id_conta FROM transacao_conta WHERE id_usuario = ?";
         List<TransacaoConta> transacoes = new ArrayList<>();
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, idUsuario);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int idConta = rs.getInt("id_conta");
-                double valor = rs.getDouble("valor");
-                String data = rs.getString("data_transacao");
-                String tipo = rs.getString("tipo");
-                TransacaoConta transacaoConta = new TransacaoConta(idUsuario, idConta, valor, data, tipo);
+                TransacaoConta transacaoConta = new TransacaoConta(idUsuario, idConta);
                 transacoes.add(transacaoConta);
             }
         }

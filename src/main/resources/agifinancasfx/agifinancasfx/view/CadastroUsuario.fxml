@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.controller.CadastroController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CadastrarController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
@@ -37,6 +37,6 @@
             </font>
         </Button>
         <Label fx:id="lblPossuiCadastro" layoutX="74.0" layoutY="557.0" styleClass="label-informativa" text="Já possui cadastro?" />
-        <Button fx:id="btnFazerLoginCadastro" layoutX="182.0" layoutY="557.0" mnemonicParsing="false" onAction="#fazerLoginCadastro" styleClass="link-button" text="Faça o login" />
+        <Button fx:id="btnFazerLoginCadastro" layoutX="182.0" layoutY="557.0" mnemonicParsing="false" onAction="#fazerLogin" styleClass="link-button" text="Faça o login" />
     </children>
 </Pane>

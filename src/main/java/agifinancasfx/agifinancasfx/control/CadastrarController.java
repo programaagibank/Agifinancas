@@ -1,6 +1,7 @@
 package agifinancasfx.agifinancasfx.control;
 import agifinancasfx.agifinancasfx.DAO.UsuarioDAO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
+import agifinancasfx.agifinancasfx.control.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,7 +58,11 @@ public class CadastrarController {
         String sobrenome = txtSobrenome.getText().trim();
 
         // Criando um objeto Usuario
-        Usuario usuario = new Usuario(cpf, nome, sobrenome, email, password);
+        String senhaHash = "";
+        if (password.equals(passwordagain)) {
+            senhaHash = Senha.hashSenha(password);
+        }
+        Usuario usuario = new Usuario(cpf, nome, sobrenome, senhaHash, email);
 
         // Chamando o DAO e atribuindo o objeto Usuario
         UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -69,7 +74,6 @@ public class CadastrarController {
                 // Carregando o arquivo FXML
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Login.fxml"));
                 Parent arquivo = fxmlLoader.load();
-
                 // Obtendo a cena atual a partir do evento
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -95,13 +99,14 @@ public class CadastrarController {
         txtPassword.clear();
         txtPasswordAgain.clear();
     }
-
     @FXML
-    void fazerLoginCadastro(ActionEvent event) {
+    void fazerLogin(ActionEvent event) {
         try {
             // Carregando o arquivo FXML
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Login.fxml"));
             Parent arquivo = fxmlLoader.load();
+            LoginController loginController = fxmlLoader.getController();
+            loginController.setUsuarioDAO(new UsuarioDAO());
 
             // Obtendo a cena atual a partir do evento
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -115,6 +120,8 @@ public class CadastrarController {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }

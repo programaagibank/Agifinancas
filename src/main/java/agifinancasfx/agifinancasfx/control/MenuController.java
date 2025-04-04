@@ -1,20 +1,34 @@
 package agifinancasfx.agifinancasfx.control;
 
+import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MenuController {
+    Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
+    @FXML
+    Label nomeUsuarioLabel;
+    public MenuController() {}
+    @FXML
+    public void initialize() {
+        setNomeUsuarioLabel(nomeUsuarioLabel);
+    }
+
+    public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
+        nomeUsuarioLabel.setText("Bem vindo, " + usuarioAutenticado.getNome());
+    }
+
     @FXML
     private void abrirCategorias(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Categorias.fxml"));
             Parent categoriasRoot = loader.load();
-
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             Scene categoriasScene = new Scene(categoriasRoot, 800, 600);
             stage.setScene(categoriasScene);

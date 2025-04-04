@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.LoginController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
@@ -25,15 +25,15 @@
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <TextField fx:id="txtLoginCPF" layoutX="33.0" layoutY="293.0" promptText="Digite seu CPF" styleClass="text-field" />
-        <PasswordField fx:id="txtLoginPassword" layoutX="33.0" layoutY="338.0" promptText="Digite sua senha" styleClass="password-field" />
-        <Button fx:id="btnAcessar" layoutX="85.0" layoutY="471.0" mnemonicParsing="false" onAction="#Acessar" prefHeight="39.0" prefWidth="155.0" styleClass="button-acessar" text="Acessar">
+        <TextField fx:id="emailText" layoutX="33.0" layoutY="293.0" promptText="Digite seu Email" styleClass="text-field" />
+        <PasswordField fx:id="passwordText" layoutX="33.0" layoutY="338.0" promptText="Digite sua senha" styleClass="password-field" />
+        <Button fx:id="btnLogin" layoutX="85.0" layoutY="471.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="39.0" prefWidth="155.0" styleClass="button-acessar" text="Acessar">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
         <Label fx:id="lblPossuiCadastro" layoutX="70.0" layoutY="522.0" styleClass="label-informativa" text="Não possui cadastro?" />
-        <Button fx:id="btnCadastreSe" layoutX="187.0" layoutY="522.0" mnemonicParsing="false" onAction="#CadastreSe" styleClass="link-button" text="Cadastre-se" />
+        <Button fx:id="btnCadastreSe" layoutX="187.0" layoutY="522.0" mnemonicParsing="false" onAction="#fazerCadastro" styleClass="link-button" text="Cadastre-se" />
         <Button fx:id="btnEsqueceuSenha" layoutX="171.0" layoutY="388.0" mnemonicParsing="false" onAction="#esqueceuSenha" styleClass="link-button" text="Esqueceu a senha?" />
     </children>
 </Pane>
