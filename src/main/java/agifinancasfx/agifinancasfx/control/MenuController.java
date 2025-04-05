@@ -24,7 +24,7 @@ public class MenuController {
     }
 
     public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
-        nomeUsuarioLabel.setText("Bem vindo, " + usuarioAutenticado.getNome());
+        nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
     }
 
     @FXML
@@ -91,5 +91,14 @@ public class MenuController {
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
+    }
+
+    public void atualizarCategorias(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/EditarCategoria2.fxml", "Gerenciar Categorias", false, event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -5,6 +5,7 @@ import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -29,7 +30,7 @@ public class LoginController {
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
         if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            System.out.println("Login bem sucedido.");
+            CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!");
             this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
             UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
             // Navegar para view Menu
@@ -41,7 +42,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Email ou senha inválidos!");
+            CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!");
         }
     }
 

@@ -1,49 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.ToolBar?>
 
-<?import java.net.URL?>
-<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.CategoriaController">
+<VBox prefHeight="640.0" prefWidth="320.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.ExcluirCategoriaController">
+
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
 
-    <VBox fx:id="containerPrincipal" alignment="CENTER" layoutX="20.0" layoutY="30.0" prefHeight="450.0" prefWidth="280.0" spacing="20" styleClass="cartao-detalhes-container">
+    <!-- Conteúdo principal -->
+    <VBox fx:id="containerPrincipal" alignment="CENTER" prefHeight="575.0" prefWidth="320.0" spacing="20" styleClass="cartao-detalhes-container" VBox.vgrow="ALWAYS">
 
-        <Label styleClass="titulo-categoria" text="Editar Categoria">
+        <Label styleClass="titulo-categoria" text="Excluir Categoria">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
 
-        <TextField fx:id="txtNomeCategoria" promptText="Nome da categoria" styleClass="text-field">
-            <VBox.margin>
-                <Insets bottom="10.0" />
-            </VBox.margin>
-        </TextField>
+        <ComboBox fx:id="cbCategorias" prefHeight="32.0" prefWidth="274.0" promptText="Selecione" />
 
-        <TextField fx:id="txtLimiteCategoria" promptText="Limite da categoria" styleClass="text-field">
-            <VBox.margin>
-                <Insets bottom="20.0" />
-            </VBox.margin>
-        </TextField>
+<!--        <TextField fx:id="limiteCategoria" promptText="Limite da categoria" styleClass="text-field">-->
+<!--            <VBox.margin>-->
+<!--                <Insets bottom="20.0" />-->
+<!--            </VBox.margin>-->
+<!--        </TextField>-->
 
-        <Button fx:id="btnSalvar" mnemonicParsing="false" styleClass="button-acessar" text="Salvar">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Button>
-
-        <Button fx:id="btnExcluir" mnemonicParsing="false" styleClass="button-excluir" text="Excluir" onAction="#excluirCategoria">
+        <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#excluirCategoria" styleClass="button-excluir" text="Excluir">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -53,14 +44,14 @@
         </Button>
     </VBox>
 
-    <!-- Toolbar inferior (padrão do projeto) -->
-    <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
+    <!-- Toolbar inferior -->
+    <ToolBar prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
             <Button fx:id="btnVoltar" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/home.png" />
+                            <Image url="@/agifinancasfx/agifinancasfx/img/home.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -69,7 +60,7 @@
                 <graphic>
                     <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/file.png" />
+                            <Image url="@/agifinancasfx/agifinancasfx/img/file.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -78,7 +69,7 @@
                 <graphic>
                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/add.png" />
+                            <Image url="@/agifinancasfx/agifinancasfx/img/add.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -87,7 +78,7 @@
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/card.png" />
+                            <Image url="@/agifinancasfx/agifinancasfx/img/card.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -96,11 +87,11 @@
                 <graphic>
                     <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/exit.png" />
+                            <Image url="@/agifinancasfx/agifinancasfx/img/exit.png" />
                         </image>
                     </ImageView>
                 </graphic>
             </Button>
         </items>
     </ToolBar>
-</Pane>
+</VBox>

@@ -45,7 +45,7 @@
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin></TextField>
-        <Button fx:id="btnAddCategoria" layoutX="85.0" layoutY="506.0" mnemonicParsing="false" onAction="#adicionarCategoria" styleClass="button-acessar" text="Adicionar">
+        <Button fx:id="btnAdicionarCategoria" layoutX="85.0" layoutY="506.0" mnemonicParsing="false" onAction="#adicionarCategoria" styleClass="button-acessar" text="Adicionar">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

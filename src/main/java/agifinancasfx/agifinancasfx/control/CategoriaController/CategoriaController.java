@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 import static java.lang.Double.parseDouble;
 
@@ -26,6 +27,7 @@ import static java.lang.Double.parseDouble;
 public class CategoriaController implements Initializable {
     @FXML
     public ComboBox<String> cbDescricao;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cbDescricao.getItems().clear();
@@ -58,10 +60,7 @@ public class CategoriaController implements Initializable {
         GeradorCenas cenas = new GeradorCenas();
         cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, event);
     }
-    public void excluirCategoria(ActionEvent event) throws SQLException, ClassNotFoundException {
-//        dao.deletar(usuarioAutenticado, nome);
-//        System.out.println("Categoria excluida com sucesso!");
-    }
+
 
     public List<Categoria> exibirCategorias(ActionEvent event) throws SQLException, ClassNotFoundException {
         try {
@@ -89,9 +88,7 @@ public class CategoriaController implements Initializable {
 
         return List.of();
     }
-    public void atualizarCategoria(Usuario usuarioAutenticado, String propriedade, String nome, String novoValor) throws SQLException {
-        dao.atualizarCategoria(usuarioAutenticado, propriedade, nome, novoValor);
-    }
+
 
     public void voltarmenu(ActionEvent event) {
     }
