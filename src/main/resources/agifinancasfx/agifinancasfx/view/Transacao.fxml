@@ -80,6 +80,7 @@
          </VBox.margin>
         </ScrollPane>
     </VBox>
+    <!-- Toolbar inferior (igual às outras telas) -->
     <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
             <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
@@ -93,9 +94,9 @@
             </Button>
             <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
                 <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Icon.png" />
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/file.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -104,7 +105,7 @@
                 <graphic>
                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Frame.png" />
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/add.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -113,16 +114,16 @@
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/credit-card.png" />
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/card.png" />
                         </image>
                     </ImageView>
                 </graphic>
             </Button>
             <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
                 <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/user.png" />
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/exit.png" />
                         </image>
                     </ImageView>
                 </graphic>
