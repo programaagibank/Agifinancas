@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import agifinancasfx.agifinancasfx.DAO.ContaBancariaDAO;
+import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO.*;
 
 
 
@@ -72,7 +72,7 @@ public class TransacaoController {
         try {
             // Verifica se os campos obrigatórios estão preenchidos
             if (dpData.getValue() == null || txtValor.getText().isEmpty()) {
-                System.out.println("Preencha todos os campos obrigatórios.");
+
                 return;
             }
 
@@ -81,15 +81,16 @@ public class TransacaoController {
             try {
                 valor = Double.parseDouble(txtValor.getText().replace(",", "."));
             } catch (NumberFormatException e) {
-                System.out.println("Erro: O valor informado não é um número válido.");
+
                 return;
             }
 
             // Obtendo valores da interface gráfica
-            int idUsuario = usuarioAutenticado.getIdUsuario(); // Substitua com o ID do usuário autenticado
-            int idConta = 1; // Substitua com a conta correta
+            int idUsuario = usuarioAutenticado.getIdUsuario();
+            int idConta = transacaoDAO.buscarIdContaPorUsuario(idUsuario);
+
             String dataTransacao = dpData.getValue().toString();
-            String tipo = toggleTipo.isSelected() ? "Despesa" : "Receita"; // desespesa ou receita?
+            String tipo = toggleTipo.isSelected() ? "Despesa" : "Receita";
 
             // Criando objeto da transação
             TransacaoConta transacao = new TransacaoConta(idUsuario, idConta, valor, dataTransacao, tipo);
@@ -99,36 +100,40 @@ public class TransacaoController {
 
 
 
-
         } catch (SQLException e) {
             System.out.println("Erro ao cadastrar transação: " + e.getMessage());
         }
     }
+
+
+    private static Parent MenuView;
+    private static Scene MenuScene;
     @FXML
     void voltarmenu(ActionEvent event) {
         try {
-            // Carregando o arquivo FXML
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Menu.fxml"));
-            Parent arquivo = fxmlLoader.load();
-
-            // Obtendo a cena atual a partir do evento
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Criando uma nova cena com o FXML carregado
-            Scene scene = new Scene(arquivo);
-
-            // Definindo a nova cena no Stage
-            stage.setScene(scene);
-            stage.show();
-
+            if (MenuView == null) {
+                GeradorCenas cenas = new GeradorCenas();
+                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, event);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
+    private static Parent CartaoView;
+    private static Scene CartaoScene;
+
     @FXML
     void onCartao(ActionEvent event) {
+        try {
+            if (CartaoView == null) {
+                GeradorCenas cenas = new GeradorCenas();
+                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Cartao.fxml", "Cartao", false, event);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
