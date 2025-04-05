@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CadastrarController">
+<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.CategoriaController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
@@ -45,7 +45,7 @@
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin></TextField>
-        <Button fx:id="btnCadastrar" layoutX="85.0" layoutY="506.0" mnemonicParsing="false" onAction="#cadastrarUsuario" styleClass="button-acessar" text="Adicionar">
+        <Button fx:id="btnAddCategoria" layoutX="85.0" layoutY="506.0" mnemonicParsing="false" onAction="#adicionarCategoria" styleClass="button-acessar" text="Adicionar">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

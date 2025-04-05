@@ -7,11 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MenuController {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
+    @FXML
+    public Button categoriaBtn;
     @FXML
     Label nomeUsuarioLabel;
     public MenuController() {}
@@ -25,22 +28,13 @@ public class MenuController {
     }
 
     @FXML
-    private void abrirCategorias(ActionEvent event) {
+    private void gerenciarCategorias(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Categorias.fxml"));
-            Parent categoriasRoot = loader.load();
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene categoriasScene = new Scene(categoriasRoot, 320, 640);
-            stage.setScene(categoriasScene);
-            stage.setTitle("Categorias");
-            stage.show();
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Categoria.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @FXML
-    private void gerenciarCategorias(ActionEvent event) {
-
     }
 
     @FXML
