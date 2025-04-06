@@ -1,6 +1,7 @@
 package agifinancasfx.agifinancasfx.DAO;
 
 import agifinancasfx.agifinancasfx.Model.*;
+import agifinancasfx.agifinancasfx.control.UsuarioSessao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 
 
 public class ContaBancariaDAO {
+
     public void queryConta(ContaBancaria conta) {
         String query = "SELECT id_conta, id_usuario, saldo FROM Conta";
         try (Connection conn = JDBC_Connection.getConnection()) {
@@ -103,7 +105,6 @@ public class ContaBancariaDAO {
         }
 
     }
-
 
 
 }
