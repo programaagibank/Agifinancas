@@ -101,4 +101,12 @@ public class MenuController {
             e.printStackTrace();
         }
     }
+    public void excluirCategoria(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/ExcluirCategoria.fxml", "Excluir Categorias", false, event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

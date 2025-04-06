@@ -9,5 +9,6 @@
       <Button fx:id="categoriaBtn" layoutX="134.0" layoutY="278.0" mnemonicParsing="false" onAction="#gerenciarCategorias" style="-fx-background-color: blue;" text="Gerenciar Categorias" textFill="WHITE" />
       <Label fx:id="nomeUsuarioLabel" layoutX="65.0" layoutY="37.0" prefHeight="60.0" prefWidth="285.0" />
       <Button fx:id="atualizarCategoria" layoutX="134.0" layoutY="329.0" mnemonicParsing="false" onAction="#atualizarCategorias" style="-fx-background-color: blue;" text="Atualizar Categorias" textFill="WHITE" />
+      <Button fx:id="excluirCategoria" layoutX="134.0" layoutY="395.0" mnemonicParsing="false" onAction="#excluirCategoria" style="-fx-background-color: blue;" text="Excluir Categorias" textFill="WHITE" />
    </children>
 </AnchorPane>

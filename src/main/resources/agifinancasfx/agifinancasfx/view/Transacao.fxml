@@ -45,7 +45,7 @@
                     <String fx:value="Moradia" />
                     <String fx:value="Lazer" />
                     <String fx:value="Saúde" />
-                    <String fx:value="Educação" />
+                    <String fx:value="Educação"/>
                 </FXCollections>
             </items>
             <VBox.margin>
