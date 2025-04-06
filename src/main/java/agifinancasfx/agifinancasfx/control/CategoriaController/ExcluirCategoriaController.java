@@ -4,19 +4,22 @@ import agifinancasfx.agifinancasfx.DAO.CategoriaDAO;
 import agifinancasfx.agifinancasfx.Model.Categoria;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import agifinancasfx.agifinancasfx.control.CriarAlertas;
+import agifinancasfx.agifinancasfx.control.NavegarPeloApp;
 import agifinancasfx.agifinancasfx.control.UsuarioSessao;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.fxml.Initializable;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ExcluirCategoriaController implements Initializable {
+public class ExcluirCategoriaController implements Initializable, NavegarPeloApp{
     @FXML
     private ComboBox<String> cbCategorias;
     public Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
@@ -41,7 +44,6 @@ public class ExcluirCategoriaController implements Initializable {
 
     }
 
-
     public void excluirCategoria(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (nomeCategoriaSelecionada != null && !nomeCategoriaSelecionada.isEmpty()) {
             boolean confirmado = CriarAlertas.confirmarExclusao(nomeCategoriaSelecionada);
@@ -54,5 +56,13 @@ public class ExcluirCategoriaController implements Initializable {
         } else {
             CriarAlertas.CriarAlerta("Atenção", "Selecione uma categoria para excluir.");
         }
+    }
+    @FXML
+    private void sairDoApp(ActionEvent event) {
+        Platform.exit();
+    }
+    @FXML
+    private void voltarMenu(ActionEvent event) throws IOException {
+        NavegarPeloApp.voltarMenu(event);
     }
 }

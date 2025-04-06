@@ -11,7 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="640.0" prefWidth="320.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.ExcluirCategoriaController">
+<VBox maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.ExcluirCategoriaController">
 
     <stylesheets>
         <URL value="@style.css" />
@@ -47,7 +49,7 @@
     <!-- Toolbar inferior -->
     <ToolBar prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
-            <Button fx:id="btnVoltar" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button fx:id="btnVoltar" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button" onAction="#voltarMenu">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -83,7 +85,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button fx:id="btnSair" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button" onAction="#sairDoApp">
                 <graphic>
                     <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                         <image>

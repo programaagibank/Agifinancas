@@ -4,8 +4,9 @@ import agifinancasfx.agifinancasfx.DAO.CategoriaDAO;
 import agifinancasfx.agifinancasfx.Model.Categoria;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import agifinancasfx.agifinancasfx.control.CriarAlertas;
-import agifinancasfx.agifinancasfx.control.GeradorCenas;
+import agifinancasfx.agifinancasfx.control.NavegarPeloApp;
 import agifinancasfx.agifinancasfx.control.UsuarioSessao;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,7 @@ import java.util.List;
 import javafx.fxml.Initializable;
 import static java.lang.Double.parseDouble;
 
-public class EditarCategoriaController implements Initializable {
+public class EditarCategoriaController implements Initializable, NavegarPeloApp {
     private final Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     private final CategoriaDAO dao = new CategoriaDAO();
     private List<Categoria> listaCategorias = new ArrayList<>();
@@ -44,7 +45,6 @@ public class EditarCategoriaController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
     private void preencherCampos() {
         String nomeSelecionado = cbCategorias.getSelectionModel().getSelectedItem();
@@ -65,7 +65,13 @@ public class EditarCategoriaController implements Initializable {
         limiteCategoria.clear();
         cbCategorias.getSelectionModel().clearSelection();
         CriarAlertas.CriarAlerta("Sucesso", "Categoria atualizada com sucesso!");
-        GeradorCenas cenas = new GeradorCenas();
-        cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, event);
+    }
+    @FXML
+    private void sairDoApp(ActionEvent event) {
+        Platform.exit();
+    }
+    @FXML
+    private void voltarMenu(ActionEvent event) throws IOException {
+        NavegarPeloApp.voltarMenu(event);
     }
 }

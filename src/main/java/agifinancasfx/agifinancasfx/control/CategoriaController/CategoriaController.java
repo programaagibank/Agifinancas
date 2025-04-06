@@ -11,8 +11,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import agifinancasfx.agifinancasfx.Model.Usuario;
+import agifinancasfx.agifinancasfx.control.CriarAlertas;
 import agifinancasfx.agifinancasfx.control.GeradorCenas;
+import agifinancasfx.agifinancasfx.control.NavegarPeloApp;
 import agifinancasfx.agifinancasfx.control.UsuarioSessao;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,11 +55,7 @@ public class CategoriaController implements Initializable {
         txtNomeCategoria.clear();
         txtLimiteCategoria.clear();
         cbDescricao.getSelectionModel().clearSelection();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Sucesso");
-        alert.setHeaderText(null);
-        alert.setContentText("Categoria cadastrada com sucesso!");
-        alert.showAndWait();
+        CriarAlertas.CriarAlerta("Sucesso", "Categoria cadastrada com sucesso!");
         GeradorCenas cenas = new GeradorCenas();
         cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, event);
     }
@@ -89,14 +88,18 @@ public class CategoriaController implements Initializable {
         return List.of();
     }
 
-
-    public void voltarmenu(ActionEvent event) {
+    @FXML
+    public void voltarMenu(ActionEvent event) throws IOException {
+        NavegarPeloApp.voltarMenu(event);
     }
 
     public void voltarrelatorio(ActionEvent event) {
     }
 
     public void onCartao(ActionEvent event) {
+    }
+    public void sairDoApp(ActionEvent event) {
+        Platform.exit();
     }
 
 }
