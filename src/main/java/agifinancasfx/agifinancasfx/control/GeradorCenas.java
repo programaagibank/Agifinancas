@@ -9,9 +9,6 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class GeradorCenas {
-    String fxmlPath;
-    String titulo;
-    Boolean resizable;
     public void gerarNovoStage(String fxmlPath, String titulo, Boolean resizable, ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/agifinancasfx/agifinancasfx/view/" + fxmlPath));
         Parent root = loader.load();

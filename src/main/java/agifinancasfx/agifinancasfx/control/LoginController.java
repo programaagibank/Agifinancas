@@ -38,7 +38,7 @@ public class LoginController {
                 UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
                 try {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("Menu.fxml", "Menu", false, actionEvent);
+                    cenas.gerarNovoStage("TemplateTeste.fxml", "Menu", false, actionEvent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

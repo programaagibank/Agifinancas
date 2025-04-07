@@ -1,34 +1,38 @@
 package agifinancasfx.agifinancasfx.control;
 
+import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
+import agifinancasfx.agifinancasfx.DAO.TransacaoDTO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 public class MenuController implements NavegarPeloApp {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     @FXML
-    public Button categoriaBtn;
+    Label nomeUsuario;
+    public MenuController() throws SQLException {}
     @FXML
-    Label nomeUsuarioLabel;
-    public MenuController() {}
+    public void setNomeUsuario(Label nomeUsuario) {
+        nomeUsuario.setText("Olá, " + usuarioAutenticado.getNome() + "!");
+    }
     @FXML
     public void initialize() {
-        setNomeUsuarioLabel(nomeUsuarioLabel);
+        setNomeUsuario(nomeUsuario);
+        carregarTransacoes(usuarioAutenticado.getIdUsuario());
     }
-
-    public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
-        nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
-    }
+    @FXML
+    private VBox listaTransacao;
 
     @FXML
     private void gerenciarCategorias(ActionEvent event) {
@@ -39,6 +43,26 @@ public class MenuController implements NavegarPeloApp {
             e.printStackTrace();
         }
     }
+    @FXML
+    public void carregarTransacoes(int idUsuario) {
+        listaTransacao.getChildren().clear();
+
+        List<TransacaoDTO> transacoes = TransacaoContaDAO.listarTransacoesPorUsuario(idUsuario);
+
+        for (TransacaoDTO t : transacoes) {
+            Label label = new Label(
+                    t.getCategoria() + "\n" +
+                            "R$ " + t.getValor() + "\n" +
+                            new SimpleDateFormat("dd/MM/yyyy").format(t.getDataTransacao())
+            );
+
+            label.setStyle("-fx-font-size: 14px; -fx-padding: 8px; -fx-background-color: #e8e8e8; -fx-background-radius: 8; -fx-min-width: 250px");
+            label.setTextFill(t.getTipo().equalsIgnoreCase("DESPESA") ? Color.RED : Color.GREEN);
+
+            listaTransacao.getChildren().add(label);
+        }
+    }
+
 
     @FXML
     private void abrirTransacoes(ActionEvent event) {

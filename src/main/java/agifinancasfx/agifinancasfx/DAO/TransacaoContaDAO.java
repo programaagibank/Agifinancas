@@ -4,7 +4,6 @@ import agifinancasfx.agifinancasfx.Model.Categoria;
 import agifinancasfx.agifinancasfx.Model.JDBC_Connection;
 import agifinancasfx.agifinancasfx.Model.TransacaoConta;
 import agifinancasfx.agifinancasfx.Model.Usuario;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,4 +116,39 @@ public class TransacaoContaDAO {
             throw new RuntimeException(e);
         }
     }
+    public static List<TransacaoDTO> listarTransacoesPorUsuario(int idUsuario) {
+        List<TransacaoDTO> transacoes = new ArrayList<>();
+
+        String sql = """
+        SELECT c.nome AS categoria, t.valor, t.data_transacao, t.tipo
+        FROM transacao_conta t
+        LEFT JOIN categoria c ON t.id_categoria = c.id_categoria
+        WHERE t.id_usuario = ?
+        ORDER BY t.data_transacao DESC
+    """;
+
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                TransacaoDTO transacao = new TransacaoDTO();
+                transacao.setCategoria(rs.getString("categoria"));
+                transacao.setValor(rs.getBigDecimal("valor"));
+                transacao.setDataTransacao(rs.getDate("data_transacao"));
+                transacao.setTipo(rs.getString("tipo"));
+
+                transacoes.add(transacao);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Ou use logging
+        }
+
+        return transacoes;
+    }
+
+
 }

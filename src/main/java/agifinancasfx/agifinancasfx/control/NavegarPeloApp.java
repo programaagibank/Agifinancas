@@ -7,6 +7,6 @@ import java.io.IOException;
 public interface NavegarPeloApp {
     static void voltarMenu(ActionEvent event) throws IOException {
         GeradorCenas cenas = new GeradorCenas();
-        cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
+        cenas.gerarNovoStage("TemplateTeste.fxml", "Menu", false, event);
     }
 }
