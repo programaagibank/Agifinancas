@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import java.net.URL?>
+<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <!-- CSS PRINCIPAL + CSS ESPECÍFICO -->
+    <stylesheets>
+        <URL value="@style.css" />
+        <URL value="@Categoria.css" />
+    </stylesheets>
+
+    <VBox fx:id="containerPrincipal" styleClass="container-principal" layoutX="20.0" layoutY="30.0" prefHeight="500.0" prefWidth="280.0" spacing="15">        <!-- Título -->
+        <Label text="Minhas Categorias" styleClass="titulo-categoria">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+        </Label>
+
+        <!-- Categorias Padrão -->
+        <Label text="Padrão" styleClass="adicionar-cartao"/>
+
+        <FlowPane fx:id="padraoFlowPane" hgap="10" vgap="10" prefWrapLength="260" style="-fx-background-color: transparent;">
+            <!-- Categorias fixas no FXML -->
+            <Button text="Alimentação" styleClass="botao-categoria" />
+            <Button text="Transporte" styleClass="botao-categoria " />
+            <Button text="Moradia" styleClass="botao-categoria " />
+            <Button text="Lazer" styleClass="botao-categoria " />
+            <Button text="Saúde" styleClass="botao-categoria" />
+            <Button text="Educação" styleClass="botao-categoria" />
+        </FlowPane>
+
+        <!-- Separador -->
+        <Separator styleClass="separador-categorias"/>
+
+        <!-- Categorias Cadastradas -->
+        <Label text="Cadastradas" styleClass="adicionar-cartao"/>
+
+        <ScrollPane fx:id="scrollUsuario" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-categorias">
+            <content>
+                <FlowPane fx:id="userFlowPane" hgap="10" vgap="10" prefWrapLength="260" style="-fx-background-color: transparent;"/>
+            </content>
+        </ScrollPane>
+    </VBox>
+
+    <!-- Toolbar inferior padrão -->
+    <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
+        <items>
+            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/home.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/file.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/add.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/card.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/exit.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </items>
+    </ToolBar>
+</Pane>

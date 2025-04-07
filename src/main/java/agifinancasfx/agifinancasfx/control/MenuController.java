@@ -1,32 +1,43 @@
 package agifinancasfx.agifinancasfx.control;
 
+import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class MenuController {
-    @FXML
-    private void abrirCategorias(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Categorias.fxml"));
-            Parent categoriasRoot = loader.load();
+import java.io.IOException;
 
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene categoriasScene = new Scene(categoriasRoot, 800, 600);
-            stage.setScene(categoriasScene);
-            stage.setTitle("Categorias");
-            stage.show();
+public class MenuController implements NavegarPeloApp {
+    Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
+    @FXML
+    public Button categoriaBtn;
+    @FXML
+    Label nomeUsuarioLabel;
+    public MenuController() {}
+    @FXML
+    public void initialize() {
+        setNomeUsuarioLabel(nomeUsuarioLabel);
+    }
+
+    public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
+        nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
+    }
+
+    @FXML
+    private void gerenciarCategorias(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("Categoria.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @FXML
-    private void gerenciarCategorias(ActionEvent event) {
-
     }
 
     @FXML
@@ -80,6 +91,26 @@ public class MenuController {
         }
     }
 
+    public void atualizarCategorias(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("EditarCategoria2.fxml", "Gerenciar Categorias", false, event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void excluirCategoria(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("ExcluirCategoria.fxml", "Excluir Categorias", false, event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void voltarMenu(ActionEvent event) throws IOException {
+        NavegarPeloApp.voltarMenu(event);
+    }
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();

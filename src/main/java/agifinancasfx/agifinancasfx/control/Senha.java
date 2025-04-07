@@ -14,7 +14,6 @@ public class Senha {
         boolean senhaVerificada = false;
         if (null == senhaArmazenada) {
             throw new SQLException("Erro ao consultar senha");
-
         }
         senhaVerificada = BCrypt.checkpw(senha, senhaArmazenada);
         return senhaVerificada;

@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD:src/main/resources/view/Login.fxml
 <AnchorPane prefHeight="639.0" prefWidth="386.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.LoginController">
+=======
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.LoginController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+>>>>>>> feature/fxAnderson:src/main/resources/agifinancasfx/agifinancasfx/view/Login.fxml
     <children>
-        <Label layoutX="58.0" layoutY="272.0" text="Email" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Label layoutX="56.0" layoutY="332.0" text="Senha" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField fx:id="emailText" layoutX="120.0" layoutY="267.0" style="-fx-border-color: #0757eb;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-      <ButtonBar layoutX="214.0" layoutY="240.0" prefHeight="27.0" prefWidth="78.0" />
-    <Button fx:id="btnLogin" contentDisplay="CENTER" layoutX="140.0" layoutY="484.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0757eb;" text="Login" textFill="WHITE" />
-      <Label alignment="CENTER" layoutX="129.0" layoutY="194.0" prefHeight="40.0" prefWidth="152.0" text="Bem vindo!">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnCadastro" alignment="CENTER" layoutX="139.0" layoutY="432.0" mnemonicParsing="false" onAction="#fazerCadastro" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0757eb;" text="Cadastro" textFill="WHITE" />
-      <PasswordField fx:id="passwordText" layoutX="120.0" layoutY="327.0" style="-fx-border-color: #0757eb;" />
-      <ImageView fitHeight="89.0" fitWidth="122.0" layoutX="46.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../Downloads/download.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="173.0" layoutY="91.0" prefHeight="40.0" prefWidth="161.0" text="Finanças" textFill="#0757eb">
-         <font>
-            <Font name="Comfortaa Light" size="30.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnSair" alignment="CENTER" layoutX="139.0" layoutY="534.0" mnemonicParsing="false" onAction="#sairDoApp" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #0757eb;" text="Sair" textFill="WHITE" />
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="43.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@/agifinancasfx/agifinancasfx/img/logo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="lblNovoUsuario" layoutX="33.0" layoutY="228.0" styleClass="titulo-login" text="Entrar">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="emailText" layoutX="33.0" layoutY="293.0" promptText="Digite seu Email" styleClass="text-field" />
+        <PasswordField fx:id="passwordText" layoutX="33.0" layoutY="338.0" promptText="Digite sua senha" styleClass="password-field" />
+        <Button fx:id="btnLogin" layoutX="85.0" layoutY="471.0" mnemonicParsing="false" onAction="#fazerLogin" prefHeight="39.0" prefWidth="155.0" styleClass="button-acessar" text="Acessar">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Label fx:id="lblPossuiCadastro" layoutX="50.0" layoutY="523.0" styleClass="label-informativa" text="Não possui cadastro?" />
+        <Button fx:id="btnCadastreSe" layoutX="192.0" layoutY="522.0" mnemonicParsing="false" onAction="#fazerCadastro" styleClass="link-button" text="Cadastre-se" />
+        <Button fx:id="btnEsqueceuSenha" layoutX="171.0" layoutY="388.0" mnemonicParsing="false" onAction="#esqueceuSenha" styleClass="link-button" text="Esqueceu a senha?" />
+      <Button fx:id="btnSair" layoutX="148.0" layoutY="558.0" mnemonicParsing="false" onAction="#sairDoApp" styleClass="link-button" text="Sair" />
     </children>
-</AnchorPane>
+</Pane>

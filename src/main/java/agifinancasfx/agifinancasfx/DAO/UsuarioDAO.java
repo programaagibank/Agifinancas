@@ -37,17 +37,18 @@ public class UsuarioDAO {
         return false;
     }
     public Usuario buscarPorEmail (String email) {
-        String selectUsuario = "SELECT id_usuario, email_usuario, senha_usuario FROM Agifinancas.usuario WHERE email_usuario = ?";
+        String selectUsuario = "SELECT id_usuario, nome_usuario, email_usuario, senha_usuario FROM Agifinancas.usuario WHERE email_usuario = ?";
         try (Connection conn = JDBC_Connection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(selectUsuario)) {
             stmt.setString(1, email);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     int id = rs.getInt("id_usuario");
+                    String nome = rs.getString("nome_usuario");
                     String Email = rs.getString("email_usuario");
                     String senha = rs.getString("senha_usuario");
                     return new Usuario(
-                        id, Email, senha
+                        id, nome, Email, senha
                     );
                 }
             }
