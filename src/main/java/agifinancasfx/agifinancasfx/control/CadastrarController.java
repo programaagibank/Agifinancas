@@ -3,16 +3,12 @@ import agifinancasfx.agifinancasfx.DAO.UsuarioDAO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -70,19 +66,8 @@ public class CadastrarController {
         if (sucesso) {
             limparCampos();
             try {
-                // Carregando o arquivo FXML
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Login.fxml"));
-                Parent arquivo = fxmlLoader.load();
-                // Obtendo a cena atual a partir do evento
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                // Criando uma nova cena com o FXML carregado
-                Scene scene = new Scene(arquivo, 320, 640);
-
-                // Definindo a nova cena no Stage
-                stage.setScene(scene);
-                stage.show();
-
+                GeradorCenas cenas = new GeradorCenas();
+                cenas.gerarNovoStage("Login.fxml", "Login", false, event);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -105,45 +90,12 @@ public class CadastrarController {
     void fazerLogin(ActionEvent event) {
         try {
             if (loginView == null) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Login.fxml"));
-                loginView = fxmlLoader.load();
-                loginScene = new Scene(loginView, 320, 640);
+                GeradorCenas cenas = new GeradorCenas();
+                cenas.gerarNovoStage("Login.fxml", "Login", false, event);
             }
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(loginScene);
-            stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-//    @FXML
-//    void fazerLogin(ActionEvent event) {
-//        try {
-//            // Carregando o arquivo FXML
-//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Login.fxml"));
-//            Parent arquivo = fxmlLoader.load();
-//            LoginController loginController = fxmlLoader.getController();
-//            loginController.setUsuarioDAO(new UsuarioDAO());
-//
-//            // Obtendo a cena atual a partir do evento
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            // Criando uma nova cena com o FXML carregado
-//            Scene scene = new Scene(arquivo, 320, 640);
-//
-//            // Definindo a nova cena no Stage
-//            stage.setScene(scene);
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//    }
 }
 

@@ -1,50 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <!-- CSS PRINCIPAL + CSS ESPECÍFICO -->
+    <stylesheets>
+        <URL value="@style.css" />
+        <URL value="@Categoria.css" />
+    </stylesheets>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox fx:id="containerPrincipal" styleClass="container-principal" layoutX="20.0" layoutY="30.0" prefHeight="500.0" prefWidth="280.0" spacing="15">        <!-- Título -->
+        <Label text="Minhas Categorias" styleClass="titulo-categoria">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+        </Label>
 
-    <!-- Imagem de fundo -->
-    <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
-        <image>
-            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/cartao.png" />
-        </image>
-    </ImageView>
+        <!-- Categorias Padrão -->
+        <Label text="Padrão" styleClass="adicionar-cartao"/>
 
-    <VBox fx:id="cartaoPreview" layoutX="30.0" layoutY="50.0" prefHeight="160.0" prefWidth="260.0" spacing="10" styleClass="cartao-preview">
-        <Label fx:id="previewNome" styleClass="cartao-preview-nome" text="NOME DO CARTÃO" />
-        <Label fx:id="previewLimite" styleClass="cartao-preview-detalhe" text="LIMITE: R$ 0,00" />
-        <Label fx:id="previewVencimento" styleClass="cartao-preview-detalhe" text="VENCIMENTO: --" />
+        <FlowPane fx:id="padraoFlowPane" hgap="10" vgap="10" prefWrapLength="260" style="-fx-background-color: transparent;">
+            <!-- Categorias fixas no FXML -->
+            <Button text="Alimentação" styleClass="botao-categoria" />
+            <Button text="Transporte" styleClass="botao-categoria " />
+            <Button text="Moradia" styleClass="botao-categoria " />
+            <Button text="Lazer" styleClass="botao-categoria " />
+            <Button text="Saúde" styleClass="botao-categoria" />
+            <Button text="Educação" styleClass="botao-categoria" />
+        </FlowPane>
+
+        <!-- Separador -->
+        <Separator styleClass="separador-categorias"/>
+
+        <!-- Categorias Cadastradas -->
+        <Label text="Cadastradas" styleClass="adicionar-cartao"/>
+
+        <ScrollPane fx:id="scrollUsuario" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-categorias">
+            <content>
+                <FlowPane fx:id="userFlowPane" hgap="10" vgap="10" prefWrapLength="260" style="-fx-background-color: transparent;"/>
+            </content>
+        </ScrollPane>
     </VBox>
 
-    <!-- Formulário de cadastro (ajustado) -->
-    <VBox layoutX="20.0" layoutY="230.0" prefWidth="280.0" spacing="15">
-        <Label alignment="CENTER" styleClass="adicionar-cartao" text="Adicionar Cartão" />
-
-        <TextField fx:id="txtNomeCartao" promptText="Nome do Cartão" styleClass="form-field" />
-        <TextField fx:id="txtLimite" promptText="Limite (R$)" styleClass="form-field" />
-        <DatePicker fx:id="dpData" promptText="Data de vencimento" styleClass="date-picker">  <!-- SÓ date-picker -->
-            <VBox.margin>
-                <Insets bottom="5.0" top="5.0" />
-            </VBox.margin>
-        </DatePicker>
-
-        <Button fx:id="btnSalvarCartao" styleClass="form-button" text="Salvar">
-            <VBox.margin>
-                <Insets left="65.0" right="65.0" top="20.0" />
-            </VBox.margin>
-        </Button>
-    </VBox>
-    <!-- Toolbar inferior (igual às outras telas) -->
+    <!-- Toolbar inferior padrão -->
     <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
             <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">

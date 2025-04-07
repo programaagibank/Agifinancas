@@ -5,13 +5,10 @@ import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -33,43 +30,27 @@ public class LoginController {
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
         if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            System.out.println("Login bem sucedido.");
+            CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!", Alert.AlertType.INFORMATION);
             this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
             UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
             // Navegar para view Menu
             try {
                 // Carregar FXML do Menu
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Menu.fxml"));
-                Parent menuRoot = loader.load();
-
-                // buscar stage atual
-                Stage stage = (Stage) emailText.getScene().getWindow();
-
-                // Criar nova scene com menu root
-                Scene menuScene = new Scene(menuRoot, 320, 640); 
-
-                // Settar nova scene
-                stage.setScene(menuScene);
-                stage.setTitle("Menu Principal");
-                stage.show();
+                GeradorCenas cenas = new GeradorCenas();
+                cenas.gerarNovoStage("Menu.fxml", "Menu", false, actionEvent);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Email ou senha inválidos!");
+            CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     private void fazerCadastro(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/CadastroUsuario.fxml"));
-            Parent cadastroRoot = loader.load();
-            Stage stage = (Stage) emailText.getScene().getWindow();
-            Scene cadastroScene = new Scene(cadastroRoot, 320, 640);
-            stage.setScene(cadastroScene);
-            stage.setTitle("Cadastro");
-            stage.show();
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("CadastroUsuario.fxml", "Cadastro", false, event);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -82,13 +63,8 @@ public class LoginController {
 
     public void esqueceuSenha(ActionEvent event) {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/view/esqueceuSenha.fxml"));
-            Parent esqueceuSenhaRoot = loader.load();
-            Stage stage = (Stage) emailText.getScene().getWindow();
-            Scene esqueceuSenhaScene = new Scene(esqueceuSenhaRoot);
-            stage.setScene(esqueceuSenhaScene);
-            stage.setTitle("Alterar Senha");
-            stage.show();
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("esqueceuSenha.fxml", "Esqueceu senha", false, event);
         } catch (Exception e) {
             System.out.println("Erro ao efetuar troca de senha" + e.getMessage());
             e.printStackTrace();

@@ -15,7 +15,7 @@
 }
 
 .form-button, .button-acessar {
-    -fx-background-color: #1e90ff;
+    -fx-background-color: #062E55;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-size: 18px; /* Reduzi o tamanho da fonte */
@@ -216,9 +216,66 @@
 }
 
 .titulo-login {
-    -fx-text-fill: dodgerblue;
+    -fx-text-fill: #062E55;
     -fx-font-weight: bold;
     -fx-font-size: 20px;
+}
+/* **** CATEGORIA *** */
+.titulo-categoria {
+    -fx-text-fill: #062E55;
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+/* Estilo do botão de excluir */
+.button-excluir {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px; /* Reduzi o tamanho da fonte */
+    -fx-padding: 6px 10px; /* Padding menor (vertical horizontal) */
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-pref-width: 150px; /* Largura reduzida */
+    -fx-pref-height: 40px; /* Altura definida */
+    -fx-min-width: -fx-pref-width; /* Garante que não estique */
+    -fx-min-height: -fx-pref-height;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+}
+
+.button-excluir:hover {
+    -fx-background-color: #c0392b;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 0, 2);
+}
+
+.button-excluir:pressed {
+    -fx-background-color: #a93226;
+    -fx-translate-y: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 0);
+}
+
+.button-excluir:disabled {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #9e9e9e;
+    -fx-effect: none;
+    -fx-cursor: default;
+}
+
+/* Estilo para os campos de edição */
+.text-field-edicao {
+    -fx-background-color: transparent;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #8E8E8E;
+    -fx-padding: 10px;
+    -fx-pref-width: 250px;
+    -fx-font-size: 16px;
+}
+
+.text-field-edicao:focused {
+    -fx-border-color: #1e90ff;
 }
 
 .label-informativa {

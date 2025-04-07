@@ -16,6 +16,22 @@ public class TransacaoContaDAO {
         connection = JDBC_Connection.getConnection();
     }
 
+    public int buscarIdContaPorUsuario(int idUsuario) throws SQLException {
+        String sql = "SELECT id_conta FROM conta_bancaria WHERE id_usuario = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id_conta");
+            } else {
+                throw new SQLException("Conta bancária não encontrada para o usuário com ID: " + idUsuario);
+            }
+        }
+    }
+
+
+
+
     public void inserirTransacao(TransacaoConta transacaoConta) throws SQLException {
         String sql = "INSERT INTO transacao_conta (id_usuario, id_conta, valor, data_transacao, tipo) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
