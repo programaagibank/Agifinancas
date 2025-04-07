@@ -16,22 +16,14 @@ public class CategoriaDAO {
     public CategoriaDAO() throws SQLException {
     }
 
-    public void atualizarCategoria(Usuario usuarioAutenticado, String propriedade, String nome, String novoValor) throws SQLException {
-        if (!propriedade.equals("nome") && !propriedade.equals("tipo") && !propriedade.equals("limite")) {
-            System.out.println(usuarioAutenticado.getIdUsuario() +  propriedade  + nome + novoValor);
-            throw new IllegalArgumentException("Atributo inválido. Use 'nome', 'tipo' ou 'limite'.");
-        }
-
-        String sql = "UPDATE Agifinancas.categoria SET " + propriedade + " = ? WHERE id_usuario = ? AND nome = ?";
-
+    public void atualizarCategoria(Usuario usuarioAutenticado,  String nomeAntigo, String nome, Double novoValor) throws SQLException {
+        String sql = "UPDATE Agifinancas.categoria SET nome = ?, limite = ? WHERE id_usuario = ? AND nome = ?";
         try (PreparedStatement stm = conn.prepareStatement(sql)) {
-            if (propriedade.equals("limite")) {
-                stm.setDouble(1, Double.parseDouble(novoValor));
-            } else {
-                stm.setString(1, novoValor);
-            }
-            stm.setInt(2, usuarioAutenticado.getIdUsuario());
-            stm.setString(3, nome);
+//            ResultSet rs = stm.executeQuery();
+            stm.setString(1, nome);
+            stm.setDouble(2, novoValor);
+            stm.setInt(3, usuarioAutenticado.getIdUsuario());
+            stm.setString(4, nomeAntigo);
             stm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -94,9 +86,11 @@ public class CategoriaDAO {
                         rs.getString("tipo"),
                         rs.getDouble("limite")
                 );
-                //categoria.setId_categoria(rs.getInt("id_categoria"));
                 categorias.add(categoria);
             }
+//            rs.close();
+//            stm.close();
+//            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao buscar categorias do usuário: " + e.getMessage(), e);
         }

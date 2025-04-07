@@ -1,32 +1,40 @@
 package agifinancasfx.agifinancasfx.control;
 
+import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MenuController {
+    Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     @FXML
-    private void abrirCategorias(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/agifinancasfx/agifinancasfx/view/Categorias.fxml"));
-            Parent categoriasRoot = loader.load();
+    public Button categoriaBtn;
+    @FXML
+    Label nomeUsuarioLabel;
+    public MenuController() {}
+    @FXML
+    public void initialize() {
+        setNomeUsuarioLabel(nomeUsuarioLabel);
+    }
 
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene categoriasScene = new Scene(categoriasRoot, 800, 600);
-            stage.setScene(categoriasScene);
-            stage.setTitle("Categorias");
-            stage.show();
+    public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
+        nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
+    }
+
+    @FXML
+    private void gerenciarCategorias(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Categoria.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @FXML
-    private void gerenciarCategorias(ActionEvent event) {
-
     }
 
     @FXML
@@ -83,5 +91,14 @@ public class MenuController {
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
+    }
+
+    public void atualizarCategorias(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/EditarCategoria2.fxml", "Gerenciar Categorias", false, event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
