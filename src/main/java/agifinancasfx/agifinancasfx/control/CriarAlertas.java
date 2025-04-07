@@ -14,7 +14,7 @@ public class CriarAlertas {
         Alert alert = new Alert(tipo);
         alert.getDialogPane().setPrefWidth(250);
         alert.getDialogPane().setPrefHeight(100);
-        alert.getDialogPane().getStylesheets().add(CriarAlertas.class.getResource("/agifinancasfx/agifinancasfx/view/style.css").toExternalForm());
+        alert.getDialogPane().getStylesheets().add(CriarAlertas.class.getResource("/view/style.css").toExternalForm());
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
@@ -22,8 +22,11 @@ public class CriarAlertas {
     }
     public static boolean confirmarExclusao(String nomeCategoria) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        String mensagem = ("Tem certeza que deseja excluir a categoria \"" + nomeCategoria + "\"?");
-        CriarAlertas.CriarAlerta("Aviso", mensagem, Alert.AlertType.CONFIRMATION);
+        alert.getDialogPane().setPrefWidth(250);
+        alert.getDialogPane().setPrefHeight(100);
+        alert.setTitle("Confirmar Exclusão");
+        alert.setHeaderText(null);
+        alert.setContentText("Tem certeza que deseja excluir a categoria \"" + nomeCategoria + "\"?");
         ButtonType btnSim = new ButtonType("Sim");
         ButtonType btnCancelar = new ButtonType("Cancelar", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(btnSim, btnCancelar);

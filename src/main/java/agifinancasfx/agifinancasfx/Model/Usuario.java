@@ -25,12 +25,6 @@ public class Usuario {
     public Usuario(String cpfUsuario, String nomeUsuario, String sobrenomeUsuario, String emailUsuario, String senhaUsuario, int idUsuario) {
     }
 
-    public Usuario(int id, String nome, String email, String senha) {
-        this.idUsuario = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-    }
 
     public int getIdUsuario() {
         return idUsuario;
