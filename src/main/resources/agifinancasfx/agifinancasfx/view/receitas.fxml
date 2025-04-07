@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -40,23 +39,19 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="251.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="195.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="133.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="71.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="14.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="38.0" layoutY="500.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="244.0" style="-fx-background-color: transparent;" />
-      <Button layoutX="8.0" layoutY="28.0" minWidth="37.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: transparent;" />
-      <Button layoutX="121.0" layoutY="543.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" />
-      <TextField floatText="Digite seu nome" layoutX="41.0" layoutY="204.0" prefHeight="27.0" prefWidth="244.0" />
-      <TextField floatText="Digite seu sobrenome" layoutX="41.0" layoutY="268.0" prefHeight="27.0" prefWidth="244.0" />
-      <TextField floatText="Data de nascimento" layoutX="41.0" layoutY="395.0" prefHeight="27.0" prefWidth="244.0" />
-      <TextField floatText="Digite seu e-mail" layoutX="41.0" layoutY="332.0" prefHeight="27.0" prefWidth="244.0" />
-      <TextField floatText="Digite seu telefone" layoutX="41.0" layoutY="457.0" prefHeight="27.0" prefWidth="244.0" />
       <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@images/Group%20103.png" />
+            <Image url="@../../../../../../projeto%20javaFX/images/Group%2074.png" />
          </image>
       </ImageView>
+      <Button layoutX="22.0" layoutY="25.0" minWidth="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="21.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="263.0" layoutY="588.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="32.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="202.0" layoutY="588.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="39.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="132.0" layoutY="588.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="78.0" layoutY="588.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="32.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="24.0" layoutY="588.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="39.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="218.0" layoutY="165.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="124.0" layoutY="165.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="32.0" layoutY="165.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
    </children>
 </Pane>

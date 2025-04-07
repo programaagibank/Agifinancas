@@ -8,23 +8,18 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
-            <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Group%2066.png" />
-            </image>
-        </ImageView>
         <Button layoutX="218.0" layoutY="167.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
         <Button layoutX="125.0" layoutY="167.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
         <Button layoutX="32.0" layoutY="167.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
-        <Button layoutX="14.0" layoutY="589.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+        <Button layoutX="14.0" layoutY="589.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </Button>
-        <Button layoutX="74.0" layoutY="589.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-        <Button layoutX="132.0" layoutY="589.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-        <Button layoutX="191.0" layoutY="589.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-        <Button layoutX="252.0" layoutY="589.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+        <Button layoutX="74.0" layoutY="589.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" style="-fx-background-color: transparent;" />
+        <Button layoutX="132.0" layoutY="589.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
+        <Button layoutX="198.0" layoutY="589.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
+        <Button layoutX="252.0" layoutY="589.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" />
         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="135.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Frame.png" />
@@ -79,5 +74,10 @@
                 <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Group%2067.png" />
             </image>
         </ImageView>
+      <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../../../../../../Downloads/Group%20123.png" />
+         </image>
+      </ImageView>
     </children>
 </Pane>
