@@ -30,14 +30,13 @@ public class LoginController {
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
         if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!");
             this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
             UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
             // Navegar para view Menu
             try {
                 // Carregar FXML do Menu
                 GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, actionEvent);
+                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Home.fxml", "Home", false, actionEvent);
             } catch (Exception e) {
                 e.printStackTrace();
             }

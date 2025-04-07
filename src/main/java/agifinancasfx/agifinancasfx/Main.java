@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setWidth(320);
-        primaryStage.setHeight(640);
+        primaryStage.setHeight(670);
         LoginController controller = GeradorCenas.trocarScene(primaryStage, "/agifinancasfx/agifinancasfx/view/Login.fxml", "Login", false); //loader.getController();
         controller.setUsuarioDAO(new UsuarioDAO());
     }
