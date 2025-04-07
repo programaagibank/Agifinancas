@@ -113,7 +113,7 @@ public class TransacaoController {
         try {
             if (MenuView == null) {
                 GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, event);
+                cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -129,7 +129,7 @@ public class TransacaoController {
         try {
             if (CartaoView == null) {
                 GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Cartao.fxml", "Cartao", false, event);
+                cenas.gerarNovoStage("Cartao.fxml", "Cartao", false, event);
             }
         } catch (IOException e) {
             e.printStackTrace();

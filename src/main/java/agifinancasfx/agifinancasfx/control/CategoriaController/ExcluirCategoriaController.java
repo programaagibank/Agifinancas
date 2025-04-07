@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.fxml.Initializable;
 import java.io.IOException;
@@ -49,12 +50,12 @@ public class ExcluirCategoriaController implements Initializable, NavegarPeloApp
             boolean confirmado = CriarAlertas.confirmarExclusao(nomeCategoriaSelecionada);
             if (confirmado) {
                 dao.deletar(usuarioAutenticado, nomeCategoriaSelecionada);
-                CriarAlertas.CriarAlerta("Sucesso", "Categoria \"" + nomeCategoriaSelecionada + "\" excluída com sucesso!");
+                CriarAlertas.CriarAlerta("Sucesso", "Categoria \"" + nomeCategoriaSelecionada + "\" excluída com sucesso!", Alert.AlertType.INFORMATION);
                 cbCategorias.getItems().remove(nomeCategoriaSelecionada);
                 nomeCategoriaSelecionada = null;
             }
         } else {
-            CriarAlertas.CriarAlerta("Atenção", "Selecione uma categoria para excluir.");
+            CriarAlertas.CriarAlerta("Atenção", "Selecione uma categoria para excluir.", Alert.AlertType.INFORMATION);
         }
     }
     @FXML

@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -64,7 +65,7 @@ public class EditarCategoriaController implements Initializable, NavegarPeloApp 
         nomeCategoria.clear();
         limiteCategoria.clear();
         cbCategorias.getSelectionModel().clearSelection();
-        CriarAlertas.CriarAlerta("Sucesso", "Categoria atualizada com sucesso!");
+        CriarAlertas.CriarAlerta("Sucesso", "Categoria atualizada com sucesso!", Alert.AlertType.CONFIRMATION);
     }
     @FXML
     private void sairDoApp(ActionEvent event) {

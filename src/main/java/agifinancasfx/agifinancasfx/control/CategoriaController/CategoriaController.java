@@ -51,13 +51,12 @@ public class CategoriaController implements Initializable {
     public void adicionarCategoria(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         Categoria categoria = new Categoria(usuarioAutenticado.getIdUsuario(), txtNomeCategoria.getText(), cbDescricao.getValue(), Double.parseDouble(txtLimiteCategoria.getText()));
         dao.CriarCategoria(usuarioAutenticado, categoria);
-        System.out.println("Categoria cadastrada com sucesso!");
         txtNomeCategoria.clear();
         txtLimiteCategoria.clear();
         cbDescricao.getSelectionModel().clearSelection();
-        CriarAlertas.CriarAlerta("Sucesso", "Categoria cadastrada com sucesso!");
+        CriarAlertas.CriarAlerta("Sucesso", "Categoria cadastrada com sucesso!", Alert.AlertType.INFORMATION);
         GeradorCenas cenas = new GeradorCenas();
-        cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, event);
+        cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
     }
 
 

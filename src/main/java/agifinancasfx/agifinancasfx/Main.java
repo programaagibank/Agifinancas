@@ -11,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setWidth(320);
         primaryStage.setHeight(640);
-        LoginController controller = GeradorCenas.trocarScene(primaryStage, "/agifinancasfx/agifinancasfx/view/Login.fxml", "Login", false); //loader.getController();
+        LoginController controller = GeradorCenas.trocarScene(primaryStage, "Login.fxml", "Login", false); //loader.getController();
         controller.setUsuarioDAO(new UsuarioDAO());
     }
 

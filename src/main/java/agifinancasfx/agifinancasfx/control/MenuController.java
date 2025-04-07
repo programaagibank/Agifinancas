@@ -34,7 +34,7 @@ public class MenuController implements NavegarPeloApp {
     private void gerenciarCategorias(ActionEvent event) {
         try {
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Categoria.fxml", "Gerenciar Categorias", false, event);
+            cenas.gerarNovoStage("Categoria.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,7 +94,7 @@ public class MenuController implements NavegarPeloApp {
     public void atualizarCategorias(ActionEvent event) {
         try {
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/EditarCategoria2.fxml", "Gerenciar Categorias", false, event);
+            cenas.gerarNovoStage("EditarCategoria2.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,7 +102,7 @@ public class MenuController implements NavegarPeloApp {
     public void excluirCategoria(ActionEvent event) {
         try {
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/ExcluirCategoria.fxml", "Excluir Categorias", false, event);
+            cenas.gerarNovoStage("ExcluirCategoria.fxml", "Excluir Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }

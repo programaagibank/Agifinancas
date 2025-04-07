@@ -30,19 +30,19 @@ public class LoginController {
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
         if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!");
+            CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!", Alert.AlertType.INFORMATION);
             this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
             UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
             // Navegar para view Menu
             try {
                 // Carregar FXML do Menu
                 GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/Menu.fxml", "Menu", false, actionEvent);
+                cenas.gerarNovoStage("Menu.fxml", "Menu", false, actionEvent);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!");
+            CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!", Alert.AlertType.ERROR);
         }
     }
 
@@ -50,7 +50,7 @@ public class LoginController {
     private void fazerCadastro(ActionEvent event) {
         try {
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("/agifinancasfx/agifinancasfx/view/CadastroUsuario.fxml", "Cadastro", false, event);
+            cenas.gerarNovoStage("CadastroUsuario.fxml", "Cadastro", false, event);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -64,7 +64,7 @@ public class LoginController {
     public void esqueceuSenha(ActionEvent event) {
         try{
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("/agifinancasfx/view/esqueceuSenha.fxml", "Esqueceu senha", false, event);
+            cenas.gerarNovoStage("esqueceuSenha.fxml", "Esqueceu senha", false, event);
         } catch (Exception e) {
             System.out.println("Erro ao efetuar troca de senha" + e.getMessage());
             e.printStackTrace();
