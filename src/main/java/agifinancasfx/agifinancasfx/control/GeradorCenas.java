@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import java.io.IOException;
-import java.net.URL;
 
 public class GeradorCenas {
     String fxmlPath;
@@ -18,13 +17,12 @@ public class GeradorCenas {
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setWidth(320);
-        stage.setHeight(640);//new Stage();
+        stage.setHeight(640);
         stage.setScene(new Scene(root));
         stage.setTitle(titulo);
         stage.setResizable(resizable);
         stage.show();
     }
-
     public static <T> T trocarScene(Stage stage, String fxmlPath, String titulo, boolean resizable) throws IOException {
         FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/agifinancasfx/agifinancasfx/view/"+ fxmlPath));
         Parent root = loader.load();
@@ -34,5 +32,4 @@ public class GeradorCenas {
         stage.show();
         return loader.getController();
     }
-
 }

@@ -28,6 +28,7 @@ public class ExcluirCategoriaController implements Initializable, NavegarPeloApp
     private String nomeCategoriaSelecionada;
     public ExcluirCategoriaController() throws SQLException {
     }
+
     public void initialize(URL location, ResourceBundle resources){
         try {
             List<Categoria> listaCategorias = dao.consultarCategorias(usuarioAutenticado);
@@ -39,6 +40,7 @@ public class ExcluirCategoriaController implements Initializable, NavegarPeloApp
             cbCategorias.setOnAction(e -> {
                 nomeCategoriaSelecionada = cbCategorias.getSelectionModel().getSelectedItem();
             });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,6 +60,7 @@ public class ExcluirCategoriaController implements Initializable, NavegarPeloApp
             CriarAlertas.CriarAlerta("Atenção", "Selecione uma categoria para excluir.", Alert.AlertType.INFORMATION);
         }
     }
+
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();

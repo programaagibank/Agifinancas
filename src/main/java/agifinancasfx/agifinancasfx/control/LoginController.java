@@ -29,20 +29,22 @@ public class LoginController {
     @FXML
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
-        if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-            CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!", Alert.AlertType.INFORMATION);
-            this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
-            UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
-            // Navegar para view Menu
-            try {
-                // Carregar FXML do Menu
-                GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("Menu.fxml", "Menu", false, actionEvent);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if(emailText.getText().isEmpty() || passwordText.getText().isEmpty()) {
+            CriarAlertas.CriarAlerta("Erro", "Campos não podem ser vazios!", Alert.AlertType.ERROR);
         } else {
-            CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!", Alert.AlertType.ERROR);
+            if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
+                CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!", Alert.AlertType.CONFIRMATION);
+                this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
+                UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
+                try {
+                    GeradorCenas cenas = new GeradorCenas();
+                    cenas.gerarNovoStage("Menu.fxml", "Menu", false, actionEvent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!", Alert.AlertType.ERROR);
+            }
         }
     }
 
@@ -55,18 +57,16 @@ public class LoginController {
             throw new RuntimeException(e);
         }
     }
-
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
     }
-
     public void esqueceuSenha(ActionEvent event) {
         try{
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("esqueceuSenha.fxml", "Esqueceu senha", false, event);
+            cenas.gerarNovoStage("esqueceuSenha.fxml", "Redefinir senha", false, event);
         } catch (Exception e) {
-            System.out.println("Erro ao efetuar troca de senha" + e.getMessage());
+            CriarAlertas.CriarAlerta("Erro", "Erro na solicitação", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
     }

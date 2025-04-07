@@ -51,15 +51,11 @@ public class CadastrarController {
         String password = txtPassword.getText();
         String passwordagain = txtPasswordAgain.getText();
         String sobrenome = txtSobrenome.getText().trim();
-
-        // Criando um objeto Usuario
         String senhaHash = "";
         if (password.equals(passwordagain)) {
             senhaHash = Senha.hashSenha(password);
         }
         Usuario usuario = new Usuario(cpf, nome, sobrenome, senhaHash, email);
-
-        // Chamando o DAO e atribuindo o objeto Usuario
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         boolean sucesso = usuarioDAO.criarUsuario(usuario);
 
@@ -72,7 +68,6 @@ public class CadastrarController {
                 e.printStackTrace();
             }
         }
-
     }
     // Método para limpar os campos após um cadastro bem-sucedido
     private void limparCampos() {
