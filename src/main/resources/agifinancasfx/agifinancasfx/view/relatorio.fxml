@@ -10,7 +10,7 @@
     <children>
         <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Group%2066.png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/Group66.png" />
             </image>
         </ImageView>
         <Button layoutX="218.0" layoutY="167.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
@@ -27,56 +27,56 @@
         <Button layoutX="252.0" layoutY="589.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="135.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Frame.png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/Frame.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="208.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/credit-card.png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/credit-card.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="84.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Bar%20chart%20(1).png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/Barchart(1).png" />
             </image>
         </ImageView>
         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="261.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/user.png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/user.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="23.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/home%20(2).png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/home(2).png" />
             </image>
         </ImageView>
         <Button layoutX="14.0" layoutY="37.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/chevron-left.png" />
+                        <Image url="@/agifinancasfx/agifinancasfx/img/chevron-left.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Button>
         <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="125.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Relatório%20(1).png" />
+                <Image url="@/agifinancasfx/agifinancasfx/img/Relatório(1).png" />
             </image>
         </ImageView>
           <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="215.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
               <image>
-                  <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Group%2068.png" />
+                  <Image url="@/agifinancasfx/agifinancasfx/img/Group68.png" />
               </image>
           </ImageView>
           <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="125.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
               <image>
-                  <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Group%2069.png" />
+                  <Image url="@/agifinancasfx/agifinancasfx/img/Group69.png" />
               </image>
           </ImageView>
           <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="32.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
               <image>
-                  <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/Group%2067.png" />
+                  <Image url="@/agifinancasfx/agifinancasfx/img/Group67.png" />
               </image>
           </ImageView>
     </children>
