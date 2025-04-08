@@ -38,21 +38,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="670.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/Group%20131.png" />
+            <Image url="@../img/ReceitasA.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnPerfil" layoutX="249.0" layoutY="617.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnCartao" layoutX="195.0" layoutY="617.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnAdiciona" layoutX="133.0" layoutY="617.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnRelatoio" layoutX="76.0" layoutY="617.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnHome" layoutX="14.0" layoutY="617.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button id="navigation-perfil" fx:id="btnPerfil" layoutX="268.0" layoutY="617.0" mnemonicParsing="false" onAction="#menuClick" style="-fx-background-color: transparent;" styleClass="navigation-button" />
+      <Button id="navigation-cartao" fx:id="btnCartao" layoutX="213.0" layoutY="617.0" mnemonicParsing="false" onAction="#menuClick" style="-fx-background-color: transparent;" styleClass="navigation-button" />
+      <Button id="navigation-adicionar" fx:id="btnAdiciona" layoutX="151.0" layoutY="617.0" mnemonicParsing="false" onAction="#menuClick" style="-fx-background-color: transparent;" styleClass="navigation-button" />
+      <Button id="navigation-relatorio" fx:id="btnRelatoio" layoutX="91.0" layoutY="617.0" mnemonicParsing="false" onAction="#menuClick" style="-fx-background-color: transparent;" styleClass="navigation-button" />
+      <Button id="navigation-home" fx:id="btnHome" layoutX="32.0" layoutY="624.0" mnemonicParsing="false" onAction="#menuClick" style="-fx-background-color: transparent;" styleClass="navigation-button" />
       <Button fx:id="btnMinhasDespesas" layoutX="29.0" layoutY="169.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="79.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnSair" layoutX="259.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnSair" layoutX="277.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <Button fx:id="btnVoltar" layoutX="6.0" layoutY="32.0" minWidth="34.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="34.0" style="-fx-background-color: transparent;" />
       <Button fx:id="btnMinhasReceitas" layoutX="120.0" layoutY="169.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="79.0" style="-fx-background-color: transparent;" />
       <Button fx:id="btnMinhasReservas" layoutX="213.0" layoutY="169.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="79.0" style="-fx-background-color: transparent;" />

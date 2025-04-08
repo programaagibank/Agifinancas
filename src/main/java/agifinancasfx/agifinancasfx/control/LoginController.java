@@ -33,12 +33,11 @@ public class LoginController {
             CriarAlertas.CriarAlerta("Erro", "Campos não podem ser vazios!", Alert.AlertType.ERROR);
         } else {
             if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-                CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!", Alert.AlertType.CONFIRMATION);
                 this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
                 UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
                 try {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("TemplateTeste.fxml", "Menu", false, actionEvent);
+                    cenas.gerarNovoStage("Home.fxml", "Home", false, actionEvent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
