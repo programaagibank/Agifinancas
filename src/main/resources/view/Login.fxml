@@ -20,7 +20,7 @@
     <children>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="43.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@/agifinancasfx/agifinancasfx/img/logo.png" />
+                <Image url="@/img/logo.png" />
             </image>
         </ImageView>
         <Label fx:id="lblNovoUsuario" layoutX="33.0" layoutY="228.0" styleClass="titulo-login" text="Entrar">

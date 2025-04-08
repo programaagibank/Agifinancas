@@ -5,6 +5,7 @@ import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,13 +17,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
+
 import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO.*;
 
 
 
-public class TransacaoController {
+public class TransacaoController implements Initializable {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
+    public static String tipoTransacao;
 
     @FXML
     private Button btnAdicionar;
@@ -90,7 +95,7 @@ public class TransacaoController {
             int idConta = transacaoDAO.buscarIdContaPorUsuario(idUsuario);
 
             String dataTransacao = dpData.getValue().toString();
-            String tipo = toggleTipo.isSelected() ? "Despesa" : "Receita";
+            String tipo = tipoTransacao;
 
             // Criando objeto da transação
             TransacaoConta transacao = new TransacaoConta(idUsuario, idConta, valor, dataTransacao, tipo);
@@ -98,7 +103,7 @@ public class TransacaoController {
             // Inserindo no banco de dados
             transacaoDAO.inserirTransacao(transacao);
 
-
+            txtValor.clear();
 
         } catch (SQLException e) {
             System.out.println("Erro ao cadastrar transação: " + e.getMessage());
@@ -143,7 +148,25 @@ public class TransacaoController {
     }
 
 
+    public void alterarTipo(ActionEvent actionEvent) {
+        if (tipoTransacao.equals("Receita")){
+            toggleTipo.setText("Despesa");
+            toggleTipo.setStyle("-fx-text-fill: red;");
+            tipoTransacao = "Despesa";
+        }else {
+            toggleTipo.setText("Receita");
+            toggleTipo.setStyle("-fx-text-fill: green;");
+            tipoTransacao = "Receita";
+        }
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        toggleTipo.setText("Receita");
+        toggleTipo.setStyle("-fx-text-fill: green;");
+        tipoTransacao = "Receita";
+    }
 }
 
 

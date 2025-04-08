@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0"
+      prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.ExtratoCartaoController">
 
     <!-- Container principal com efeito 3D -->
     <VBox fx:id="containerPrincipal" layoutX="20.0" layoutY="30.0" prefHeight="520.0" prefWidth="280.0" spacing="20" styleClass="cartao-detalhes-container">
@@ -21,7 +22,7 @@
         <!-- Cartão 3D (VBox com efeito) -->
         <VBox alignment="CENTER_LEFT" spacing="15" styleClass="cartao-3d">
             <Label fx:id="lblNomeCartao" styleClass="cartao-detalhes-nome" text="NOME DO CARTÃO" />
-            <Label fx:id="lblLimite" styleClass="cartao-detalhes-texto" text="LIMITE: R$ 0,00" />
+            <Label fx:id="lblLimiteCartao" styleClass="cartao-detalhes-texto" text="LIMITE: R$ 0,00" />
             <Label fx:id="lblFatura" styleClass="cartao-detalhes-texto" text="FATURA ATUAL: R$ 0,00" />
         </VBox>
 
@@ -38,20 +39,20 @@
     <!-- Toolbar inferior (igual às outras telas) -->
     <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
-            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
+            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/home.png" />
+                            <Image url="@../img/home.png" />
                         </image>
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
+            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/file.png" />
+                            <Image url="@../img/file.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -60,25 +61,25 @@
                 <graphic>
                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/add.png" />
+                            <Image url="@../img/add.png" />
                         </image>
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
+            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/card.png" />
+                            <Image url="@../img/card.png" />
                         </image>
                     </ImageView>
                 </graphic>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button fx:id="btnSair" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button" onAction="#sairDoApp">
                 <graphic>
                     <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/exit.png" />
+                            <Image url="@../img/exit.png" />
                         </image>
                     </ImageView>
                 </graphic>

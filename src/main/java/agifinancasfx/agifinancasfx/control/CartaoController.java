@@ -142,11 +142,10 @@ public class CartaoController implements Initializable {
     @FXML
     public void adicionarCartao(ActionEvent event) {
         try {
-            GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("CadastroCartao.fxml", "Adicionar Cartão", false, event);
-        } catch (IOException e) {
-            CriarAlertas.CriarAlerta("Erro", "Erro ao abrir a tela de cadastro de cartões: " + e.getMessage(), Alert.AlertType.ERROR);
-            e.printStackTrace();
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "CadastroCartao");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 

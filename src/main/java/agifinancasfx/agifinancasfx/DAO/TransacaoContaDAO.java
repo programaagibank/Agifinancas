@@ -14,6 +14,41 @@ public class TransacaoContaDAO {
     public TransacaoContaDAO() throws SQLException {
         connection = JDBC_Connection.getConnection();
     }
+    public double calcularTotalReceitas(int idUsuario) {
+        String sql = "SELECT SUM(valor) FROM transacao_conta WHERE id_usuario = ? AND tipo = 'Receita'";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public double calcularTotalDespesas(int idUsuario) {
+        String sql = "SELECT SUM(valor) FROM transacao_conta WHERE id_usuario = ? AND tipo = 'Despesa'";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public double calcularSaldoGeral(int idUsuario) {
+        double receitas = calcularTotalReceitas(idUsuario);
+        double despesas = calcularTotalDespesas(idUsuario);
+        return receitas - despesas;
+    }
+
+
 
     public int buscarIdContaPorUsuario(int idUsuario) throws SQLException {
         String sql = "SELECT id_conta FROM conta_bancaria WHERE id_usuario = ?";

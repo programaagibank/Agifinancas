@@ -50,6 +50,15 @@
     -fx-border-color: #1e90ff;
 }
 
+.toggle-verde {
+    -fx-text-fill: green;
+}
+
+/* estilo para texto vermelho */
+.toggle-vermelho {
+    -fx-text-fill: red;
+}
+
 /* Remove a borda interna do editor de texto do DatePicker */
 .date-picker .text-field {
     -fx-background-color: transparent;
@@ -86,18 +95,9 @@
     -fx-alignment: center;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
-    -fx-text-fill: #F44336; /* Vermelho */
+    -fx-text-fill: black;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
-}
-
-.tipo-transacao:selected {
-    -fx-text-fill: #4CAF50; /* Verde */
-}
-
-.tipo-transacao:pressed {
-    -fx-translate-y: 1px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
 }
 
 /***** Área de Histórico *****/

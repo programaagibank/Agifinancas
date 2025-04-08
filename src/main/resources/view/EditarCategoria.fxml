@@ -13,7 +13,7 @@
 <Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.CriarCategoriaController">
+      fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.CategoriaController">
 
     <VBox fx:id="containerPrincipal" alignment="CENTER" layoutX="20.0" layoutY="30.0" prefHeight="450.0" prefWidth="280.0" spacing="20" styleClass="cartao-detalhes-container">
 
