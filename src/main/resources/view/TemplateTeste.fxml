@@ -28,7 +28,7 @@
             <Label fx:id="despesaUsuario" layoutX="147.0" layoutY="81.0" prefHeight="25.0" prefWidth="117.0" textFill="RED" />
          </children>
       </Pane>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #062E55">
           <content>
               <VBox fx:id="listaTransacao" spacing="10"/>
               <padding>
