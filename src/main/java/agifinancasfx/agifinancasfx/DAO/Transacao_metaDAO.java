@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Transacao_metaDAO {
     public void inserirTransacao (Transacao_meta transacao){
@@ -80,4 +82,32 @@ public class Transacao_metaDAO {
             e.printStackTrace();
         }
     }
+
+    public List<Transacao_meta> listarTransacoes() {
+        List<Transacao_meta> lista = new ArrayList<>();
+        String sql = "SELECT * FROM transacao_meta";
+
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Transacao_meta t = new Transacao_meta(
+                        rs.getInt("id_transacao"),
+                        rs.getInt("id_meta"),
+                        rs.getInt("id_conta"),
+                        rs.getDouble("valor"),
+                        rs.getDate("data"),
+                        rs.getString("tipo")
+                );
+                lista.add(t);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar transações: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
 }

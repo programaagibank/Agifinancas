@@ -7,37 +7,45 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 public class MenuController implements NavegarPeloApp {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     // Lista de botões
     List<Button> listButton = new ArrayList<>();
 
     @FXML
-    Label nomeUsuario;
-    public MenuController() throws SQLException {}
+    private VBox listaTransacao;
+
     @FXML
-    public void setNomeUsuario(Label nomeUsuario) {
-        nomeUsuario.setText("Olá, " + usuarioAutenticado.getNome() + "!");
-    }
+    public Button categoriaBtn;
+    @FXML
+    Label nomeUsuarioLabel;
+    public MenuController() {}
     @FXML
     public void initialize() {
-        setNomeUsuario(nomeUsuario);
+        setNomeUsuarioLabel(nomeUsuarioLabel);
         carregarTransacoes(usuarioAutenticado.getIdUsuario());
     }
-    @FXML
-    private VBox listaTransacao;
+
+    public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
+        nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
+    }
 
     @FXML
     private void gerenciarCategorias(ActionEvent event) {

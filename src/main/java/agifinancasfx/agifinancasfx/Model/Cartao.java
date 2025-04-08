@@ -1,6 +1,8 @@
 
 package agifinancasfx.agifinancasfx.Model;
 
+import java.time.LocalDate;
+
 public class Cartao {
     private String nome;
     private double limite;
@@ -8,6 +10,12 @@ public class Cartao {
     private String dataValidade;
     private int idCartao;
     private int idUsuario;
+    private String bandeira;
+    private int diaVencimento;
+    private LocalDate dataVencimento;
+
+    public Cartao() {}
+
 
     public Cartao(String nome, double limite, String dataFechamento, String dataValidade, int idCartao, int idUsuario){
         this.nome = nome;
@@ -30,6 +38,14 @@ public class Cartao {
         return dataFechamento;
     }
 
+    public void setBandeira(String bandeira) {
+        this.bandeira = bandeira;
+    }
+
+    public void setDiaVencimento(int diaVencimento) {
+        this.diaVencimento = diaVencimento;
+    }
+
     public Cartao(String nome, double limite, String dataFechamento, String dataValidade, int idUsuario) {
         this.nome = nome;
         this.limite = limite;
@@ -42,7 +58,7 @@ public class Cartao {
         this.nome = nome;
     }
 
-    public void setLimite(int limite) {
+    public void setLimite(double limite) {
         this.limite = limite;
     }
 
@@ -73,4 +89,16 @@ public class Cartao {
     public int getIdUsuario(){
         return idUsuario;
     }
+
+    public String getBandeira() {
+        return bandeira;
+    }
+    public LocalDate getDataVencimento() {
+        return dataVencimento;
+    }
+    public void setDataVencimento(LocalDate dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
+
+
 }
