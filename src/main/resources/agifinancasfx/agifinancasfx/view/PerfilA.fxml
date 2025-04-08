@@ -38,12 +38,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="670.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../../../../../../../../../../../Downloads/Group%20134.png" />
+            <Image url="@../img/PerfilA.png" />
          </image>
       </ImageView>
       <Button fx:id="btnVoltar" layoutX="7.0" layoutY="23.0" minWidth="36.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: transparent;" />
