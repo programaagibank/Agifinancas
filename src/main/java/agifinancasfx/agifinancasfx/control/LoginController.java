@@ -37,8 +37,8 @@ public class LoginController {
                 this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
                 UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
                 try {
-                    GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("TemplateTeste.fxml", "Menu", false, actionEvent);
+                    GeradorCenas.primaryStage.setResizable(true);
+                    GeradorCenas.loadScene(GeradorCenas.primaryStage, "Home");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

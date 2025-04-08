@@ -57,7 +57,7 @@
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@/agifinancasfx/agifinancasfx/img/home.png" />
+                            <Image url="@/img/home.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -66,7 +66,7 @@
                 <graphic>
                     <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@/agifinancasfx/agifinancasfx/img/file.png" />
+                            <Image url="@/img/file.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -75,7 +75,7 @@
                 <graphic>
                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@/agifinancasfx/agifinancasfx/img/add.png" />
+                            <Image url="@/img/add.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -84,7 +84,7 @@
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@/agifinancasfx/agifinancasfx/img/card.png" />
+                            <Image url="@/img/card.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -93,7 +93,7 @@
                 <graphic>
                     <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@/agifinancasfx/agifinancasfx/img/exit.png" />
+                            <Image url="@/img/exit.png" />
                         </image>
                     </ImageView>
                 </graphic>

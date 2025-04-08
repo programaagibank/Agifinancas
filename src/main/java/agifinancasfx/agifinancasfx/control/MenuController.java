@@ -1,5 +1,6 @@
 package agifinancasfx.agifinancasfx.control;
 
+import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -8,24 +9,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class MenuController implements NavegarPeloApp {
+public class MenuController implements Initializable {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     @FXML
+    private Label labelSaldo;
+    @FXML
+    private Label nameUser;
+    @FXML
+    private Label labelReceita;
+    @FXML
+    private Label labelDespesas;
+    @FXML
     public Button categoriaBtn;
-    @FXML
-    Label nomeUsuarioLabel;
+
     public MenuController() {}
-    @FXML
-    public void initialize() {
-        setNomeUsuarioLabel(nomeUsuarioLabel);
-    }
 
     public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
         nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
@@ -115,5 +121,24 @@ public class MenuController implements NavegarPeloApp {
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            TransacaoContaDAO dao = new TransacaoContaDAO();
+            int idUsuario = usuarioAutenticado.getIdUsuario();
+            double receitas = dao.calcularTotalReceitas(idUsuario);
+            double despesas = dao.calcularTotalDespesas(idUsuario);
+            double saldo = dao.calcularSaldoGeral(idUsuario);
+
+            labelSaldo.setText(String.format("R$ %.2f", saldo));
+            labelReceita.setText(String.format("R$ %.2f", receitas));
+            labelDespesas.setText(String.format("R$ %.2f", despesas));
+            nameUser.setText("Olá, "+usuarioAutenticado.getNome());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

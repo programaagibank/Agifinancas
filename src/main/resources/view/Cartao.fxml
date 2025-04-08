@@ -12,12 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0"
+      prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CartaoController">
 
     <!-- Imagem de fundo -->
     <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
         <image>
-            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/cartao.png" />
+            <Image url="@../img/cartao.png" />
         </image>
     </ImageView>
 
@@ -41,7 +42,7 @@
         </ListView>
 
         <!-- Botão Adicionar -->
-        <Button fx:id="btnAdicionarCartao" styleClass="form-button" text="Adicionar">
+        <Button fx:id="btnAdicionarCartao" styleClass="form-button" text="Adicionar" onAction="#adicionarCartao">
             <VBox.margin>
                 <Insets bottom="15.0" left="65.0" right="65.0" top="10.0" />
             </VBox.margin>
@@ -56,11 +57,12 @@
     <!-- Toolbar inferior (igual às outras telas) -->
     <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
         <items>
-            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
+            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarMenu"
+                    styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/home.png" />
+                            <Image url="@../img/home.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -69,7 +71,7 @@
                 <graphic>
                     <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/file.png" />
+                            <Image url="@../img/file.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -78,7 +80,7 @@
                 <graphic>
                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/add.png" />
+                            <Image url="@../img/add.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -87,16 +89,16 @@
                 <graphic>
                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/card.png" />
+                            <Image url="@../img/card.png" />
                         </image>
                     </ImageView>
                 </graphic>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button" onAction="#sairDoApp">
                 <graphic>
                     <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/exit.png" />
+                            <Image url="@../img/exit.png" />
                         </image>
                     </ImageView>
                 </graphic>
