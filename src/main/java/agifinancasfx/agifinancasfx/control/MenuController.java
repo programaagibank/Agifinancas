@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -108,9 +109,28 @@ public class MenuController implements NavegarPeloApp {
         }
     }
     @FXML
-    public void voltarMenu(ActionEvent event) throws IOException {
-        NavegarPeloApp.voltarMenu(event);
+    public void voltarMenu(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("Home.fxml", "Home", false, event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    @FXML
+    public void onCartao(ActionEvent event) {
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            cenas.gerarNovoStage("Cartao.fxml", "Meus Cartões", false, event);
+        } catch (IOException e) {
+            CriarAlertas.CriarAlerta("Erro", "Erro ao abrir a tela de cartões: " + e.getMessage(), Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
+    }
+
+
+
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();

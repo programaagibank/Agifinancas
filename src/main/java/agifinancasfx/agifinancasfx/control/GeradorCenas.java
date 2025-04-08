@@ -12,10 +12,10 @@ public class GeradorCenas {
     String fxmlPath;
     String titulo;
     Boolean resizable;
-    public void gerarNovoStage(String fxmlPath, String titulo, Boolean resizable, ActionEvent event) throws IOException {
+    public void gerarNovoStage(String fxmlPath, String titulo, Boolean resizable) throws IOException {
         FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/agifinancasfx/agifinancasfx/view/" + fxmlPath));
         Parent root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = new Stage(); // Cria um novo Stage, já que não há evento
         stage.setWidth(320);
         stage.setHeight(640);
         stage.setScene(new Scene(root));
@@ -23,6 +23,19 @@ public class GeradorCenas {
         stage.setResizable(resizable);
         stage.show();
     }
+
+    public void gerarNovoStage(String fxmlPath, String titulo, Boolean resizable, ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/agifinancasfx/agifinancasfx/view/" + fxmlPath));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Usa o evento para obter o Stage atual
+        stage.setWidth(320);
+        stage.setHeight(640);
+        stage.setScene(new Scene(root));
+        stage.setTitle(titulo);
+        stage.setResizable(resizable);
+        stage.show();
+    }
+
     public static <T> T trocarScene(Stage stage, String fxmlPath, String titulo, boolean resizable) throws IOException {
         FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/agifinancasfx/agifinancasfx/view/"+ fxmlPath));
         Parent root = loader.load();
