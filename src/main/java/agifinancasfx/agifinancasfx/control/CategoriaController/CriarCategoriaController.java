@@ -48,7 +48,7 @@ public class CriarCategoriaController implements Initializable {
         cbDescricao.getSelectionModel().clearSelection();
         CriarAlertas.CriarAlerta("Sucesso", "Categoria cadastrada com sucesso!", Alert.AlertType.CONFIRMATION);
         GeradorCenas cenas = new GeradorCenas();
-        cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
+        cenas.gerarNovoStage("Home.fxml", "Home", false, event);
     }
 
     @FXML

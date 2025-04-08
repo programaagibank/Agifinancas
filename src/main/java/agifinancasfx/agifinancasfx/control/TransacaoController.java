@@ -113,7 +113,7 @@ public class TransacaoController {
         try {
             if (MenuView == null) {
                 GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
+                cenas.gerarNovoStage("Home.fxml", "Home", false, event);
             }
         } catch (IOException e) {
             e.printStackTrace();

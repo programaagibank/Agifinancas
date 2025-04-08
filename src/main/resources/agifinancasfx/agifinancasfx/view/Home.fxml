@@ -12,7 +12,8 @@
 
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.HBox?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.HomeController">
+
     <children>
         <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
             <image>
@@ -29,56 +30,8 @@
         </ScrollPane>
 
         <!-- Toolbar inferior padrão -->
-        <HBox layoutY="585.0" prefHeight="50.0" prefWidth="320.0" spacing="10" alignment="CENTER"
-              styleClass="custom-toolbar">
-            <children>
-                <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#menuClick" styleClass="toolbar-button">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../resources/agifinancasfx/agifinancasfx/img/home(2).png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#menuClick" styleClass="toolbar-button">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../resources/agifinancasfx/agifinancasfx/img/Barchart(1).png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                    <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../resources/agifinancasfx/agifinancasfx/img/Frame.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#menuClick" styleClass="toolbar-button">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../resources/agifinancasfx/agifinancasfx/img/credit-card.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../resources/agifinancasfx/agifinancasfx/img/user.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-            </children>
-        </HBox>
+        <fx:include fx:id="toolbar" source="Toolbar.fxml" />
+
         <Label fx:id="nomeUsuarioLabel" layoutX="24.0" layoutY="36.0" textFill="WHITE">
             <font>
                 <Font size="14.0" />

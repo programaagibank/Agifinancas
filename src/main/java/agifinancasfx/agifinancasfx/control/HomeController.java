@@ -7,24 +7,19 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuController implements NavegarPeloApp {
+public class HomeController implements NavegarPeloApp {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     // Lista de botões
     List<Button> listButton = new ArrayList<>();
@@ -36,7 +31,7 @@ public class MenuController implements NavegarPeloApp {
     public Button categoriaBtn;
     @FXML
     Label nomeUsuarioLabel;
-    public MenuController() {}
+    public HomeController() {}
     @FXML
     public void initialize() {
         setNomeUsuarioLabel(nomeUsuarioLabel);
@@ -148,21 +143,5 @@ public class MenuController implements NavegarPeloApp {
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
-    }
-
-    // Função que é executada ao clicar/tocar em um dos botões de navegação
-    @FXML
-    public void menuClick(ActionEvent event) {
-        Button button = (Button)event.getSource(); //pegando o botao que foi clicado
-        if(!listButton.contains(button)) {
-            listButton.add(button);
-        }
-        for (Button otherButton : listButton) {
-            if (otherButton.equals(button)) {
-                button.setStyle("-fx-border-color: #062E55");
-            } else {
-                otherButton.setStyle("-fx-border-color: transparent");
-            }
-        }
     }
 }
