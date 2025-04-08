@@ -1,7 +1,6 @@
 package agifinancasfx.agifinancasfx.control;
 
 import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
-import agifinancasfx.agifinancasfx.DAO.TransacaoDTO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -11,37 +10,27 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ResourceBundle;
 
-public class MenuController implements NavegarPeloApp {
+public class MenuController implements Initializable {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
-    // Lista de botões
-    List<Button> listButton = new ArrayList<>();
-
     @FXML
-    private VBox listaTransacao;
-
+    private Label labelSaldo;
+    @FXML
+    private Label nameUser;
+    @FXML
+    private Label labelReceita;
+    @FXML
+    private Label labelDespesas;
     @FXML
     public Button categoriaBtn;
-    @FXML
-    Label nomeUsuarioLabel;
+
     public MenuController() {}
-    @FXML
-    public void initialize() {
-        setNomeUsuarioLabel(nomeUsuarioLabel);
-        carregarTransacoes(usuarioAutenticado.getIdUsuario());
-    }
 
     public void setNomeUsuarioLabel(Label nomeUsuarioLabel) {
         nomeUsuarioLabel.setText("Olá, " + usuarioAutenticado.getNome() + "!");
@@ -54,23 +43,6 @@ public class MenuController implements NavegarPeloApp {
             cenas.gerarNovoStage("Categoria.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-    @FXML
-    public void carregarTransacoes(int idUsuario) {
-        listaTransacao.getChildren().clear();
-
-        List<TransacaoDTO> transacoes = TransacaoContaDAO.listarTransacoesPorUsuario(idUsuario);
-
-        for (TransacaoDTO t : transacoes) {
-            Label label = new Label(
-                    t.getCategoria() + "\n" +
-                            "R$ " + t.getValor() + "\n" +
-                            new SimpleDateFormat("dd/MM/yyyy").format(t.getDataTransacao())
-
-            );
-            label.setTextFill(t.getTipo().equalsIgnoreCase("DESPESA") ? Color.RED : Color.GREEN);
-            listaTransacao.getChildren().add(label);
         }
     }
 
@@ -150,19 +122,49 @@ public class MenuController implements NavegarPeloApp {
         Platform.exit();
     }
 
-    // Função que é executada ao clicar/tocar em um dos botões de navegação
-    @FXML
-    public void menuClick(ActionEvent event) {
-        Button button = (Button)event.getSource(); //pegando o botao que foi clicado
-        if(!listButton.contains(button)) {
-            listButton.add(button);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            TransacaoContaDAO dao = new TransacaoContaDAO();
+            int idUsuario = usuarioAutenticado.getIdUsuario();
+            double receitas = dao.calcularTotalReceitas(idUsuario);
+            double despesas = dao.calcularTotalDespesas(idUsuario);
+            double saldo = dao.calcularSaldoGeral(idUsuario);
+
+            labelSaldo.setText(String.format("R$ %.2f", saldo));
+            labelReceita.setText(String.format("R$ %.2f", receitas));
+            labelDespesas.setText(String.format("R$ %.2f", despesas));
+            nameUser.setText("Olá, "+usuarioAutenticado.getNome());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        for (Button otherButton : listButton) {
-            if (otherButton.equals(button)) {
-                button.setStyle("-fx-border-color: #062E55");
-            } else {
-                otherButton.setStyle("-fx-border-color: transparent");
-            }
+    }
+
+    public void acessarTransacao(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Transacao");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void entrarCartao(ActionEvent actionEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Cartao");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void acessarRelatorio(ActionEvent actionEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }
