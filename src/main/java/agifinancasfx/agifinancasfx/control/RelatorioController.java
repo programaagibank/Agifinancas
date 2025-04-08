@@ -62,7 +62,7 @@ public class RelatorioController {
             try {
                 if (despesaView == null) {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("DespesasA.fxml", "Despesa", false, event);
+                    cenas.gerarNovoStage("despesa.fxml", "Despesa", false, event);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -78,7 +78,7 @@ public class RelatorioController {
             try {
                 if (MenuView == null) {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("Home.fxml", "Home", false, event);
+                    cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -94,7 +94,7 @@ public class RelatorioController {
             try {
                 if (receitasView == null) {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("ReceitasA.fxml", "Receitas", false, event);
+                    cenas.gerarNovoStage("receitas.fxml", "Receitas", false, event);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -110,7 +110,7 @@ public class RelatorioController {
             try {
                 if (despesaView == null) {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("MetasA.fxml", "Minhas Reservas", false, event);
+                    cenas.gerarNovoStage("minhasReservas.fxml", "Minhas Reservas", false, event);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

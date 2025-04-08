@@ -15,6 +15,8 @@ public class GeradorCenas {
         FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/view/" + fxmlPath));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setWidth(320);
+        stage.setHeight(640);
         stage.setScene(new Scene(root));
         stage.setTitle(titulo);
         stage.setResizable(resizable);

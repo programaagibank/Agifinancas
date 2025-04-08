@@ -4,12 +4,16 @@ import agifinancasfx.agifinancasfx.control.GeradorCenas;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import static agifinancasfx.agifinancasfx.control.GeradorCenas.primaryStage;
+
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
+        primaryStage = stage;
         primaryStage.setWidth(320);
-        primaryStage.setHeight(670);
-        GeradorCenas.trocarScene(primaryStage, "Login.fxml", "Login", false); //loader.getController();
+        primaryStage.setHeight(640);
+        primaryStage.setResizable(false);
+        GeradorCenas.loadScene(primaryStage, "Login"); //loader.getController();
     }
     public static void main(String[] args) {
         launch(args);
