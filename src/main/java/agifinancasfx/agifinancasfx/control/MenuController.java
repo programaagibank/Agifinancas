@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -139,6 +138,33 @@ public class MenuController implements Initializable {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void acessarTransacao(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Transacao");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void entrarCartao(ActionEvent actionEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Cartao");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void acessarRelatorio(ActionEvent actionEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }

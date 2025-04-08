@@ -30,7 +30,7 @@
 
         <!-- Container do toggle button -->
         <StackPane>
-            <ToggleButton fx:id="toggleTipo" mnemonicParsing="false" styleClass="tipo-transacao" text="DESPESA" />
+            <ToggleButton fx:id="toggleTipo" mnemonicParsing="false" onAction="#alterarTipo" styleClass="tipo-transacao" text="DESPESA" />
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -45,7 +45,7 @@
                     <String fx:value="Moradia" />
                     <String fx:value="Lazer" />
                     <String fx:value="Saúde" />
-                    <String fx:value="Educação"/>
+                    <String fx:value="Educação" />
                 </FXCollections>
             </items>
             <VBox.margin>

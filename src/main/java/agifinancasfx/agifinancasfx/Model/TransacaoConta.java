@@ -4,6 +4,7 @@ public class TransacaoConta {
     private int id;
     private int idUsuario;
     private int idConta;
+    private int idCategoria;
     private double valor;
     private String data;
     private String tipo;
@@ -11,6 +12,14 @@ public class TransacaoConta {
     public TransacaoConta(int idUsuario, int idConta, double valor, String data, String tipo) {
         this.idUsuario = idUsuario;
         this.idConta = idConta;
+        this.valor = valor;
+        this.data = data;
+        this.tipo = tipo;
+    }
+    public TransacaoConta(int idUsuario, int idConta, int idCategoria, double valor, String data, String tipo) {
+        this.idUsuario = idUsuario;
+        this.idConta = idConta;
+        this.idCategoria = idCategoria;
         this.valor = valor;
         this.data = data;
         this.tipo = tipo;

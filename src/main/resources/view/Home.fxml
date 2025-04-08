@@ -50,7 +50,7 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <Button id="navigation-cartao" fx:id="navigationCartao" layoutX="201.0" layoutY="583.0" mnemonicParsing="false" styleClass="navigation-button">
+      <Button id="navigation-cartao" fx:id="navigationCartao" layoutX="201.0" layoutY="583.0" mnemonicParsing="false" onAction="#entrarCartao" styleClass="navigation-button">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
@@ -58,11 +58,11 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button id="navigation-relatorio" fx:id="navigationRelatorio" layoutX="74.0" layoutY="586.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="100.0" styleClass="navigation-button">
+      <Button id="navigation-relatorio" fx:id="navigationRelatorio" layoutX="74.0" layoutY="586.0" mnemonicParsing="false" onAction="#acessarRelatorio" prefHeight="72.0" prefWidth="100.0" styleClass="navigation-button">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button id="navigation-adicionar" fx:id="navigationAdicionar" layoutX="140.0" layoutY="584.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="navigation-button">
+      <Button id="navigation-adicionar" fx:id="navigationAdicionar" layoutX="140.0" layoutY="584.0" mnemonicParsing="false" onMouseClicked="#acessarTransacao" prefHeight="42.0" prefWidth="42.0" styleClass="navigation-button">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
