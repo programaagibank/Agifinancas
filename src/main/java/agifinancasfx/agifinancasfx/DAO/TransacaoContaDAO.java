@@ -67,13 +67,14 @@ public class TransacaoContaDAO {
 
 
     public void inserirTransacao(TransacaoConta transacaoConta) throws SQLException {
-        String sql = "INSERT INTO transacao_conta (id_usuario, id_conta, valor, data_transacao, tipo) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO transacao_conta (id_usuario, id_conta, id_categoria, valor, data_transacao, tipo) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, transacaoConta.getIdUsuario());
             stmt.setInt(2, transacaoConta.getIdConta());
-            stmt.setDouble(3, transacaoConta.getValor());
-            stmt.setString(4, transacaoConta.getData());
-            stmt.setString(5, transacaoConta.getTipo());
+            stmt.setInt(3, transacaoConta.getIdCategoria());
+            stmt.setDouble(4, transacaoConta.getValor());
+            stmt.setString(5, transacaoConta.getData());
+            stmt.setString(6, transacaoConta.getTipo());
             stmt.executeUpdate();
         }
     }

@@ -56,6 +56,14 @@ public class TransacaoConta {
         return valor;
     }
 
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
     public void setValor(double valor) {
         this.valor = valor;
     }

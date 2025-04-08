@@ -1,7 +1,10 @@
 package agifinancasfx.agifinancasfx.control;
+import agifinancasfx.agifinancasfx.DAO.CategoriaDAO;
+import agifinancasfx.agifinancasfx.Model.Categoria;
 import agifinancasfx.agifinancasfx.Model.TransacaoConta;
 import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
 import agifinancasfx.agifinancasfx.Model.Usuario;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,16 +12,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO.*;
@@ -28,6 +31,10 @@ import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO.*;
 public class TransacaoController implements Initializable {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
     public static String tipoTransacao;
+
+
+    @FXML
+    private ComboBox<String> cbDescricao;
 
     @FXML
     private Button btnAdicionar;
@@ -76,6 +83,7 @@ public class TransacaoController implements Initializable {
     private void cadastrarTransacao() {
         try {
             // Verifica se os campos obrigatórios estão preenchidos
+            CategoriaDAO catDAO = new CategoriaDAO();
             if (dpData.getValue() == null || txtValor.getText().isEmpty()) {
 
                 return;
@@ -93,12 +101,15 @@ public class TransacaoController implements Initializable {
             // Obtendo valores da interface gráfica
             int idUsuario = usuarioAutenticado.getIdUsuario();
             int idConta = transacaoDAO.buscarIdContaPorUsuario(idUsuario);
+            String nomeCategoria = cbDescricao.getValue();
+            int idCategoria = catDAO.buscarIdPorNomeECodigoUsuario(nomeCategoria, idUsuario);
+
 
             String dataTransacao = dpData.getValue().toString();
             String tipo = tipoTransacao;
 
             // Criando objeto da transação
-            TransacaoConta transacao = new TransacaoConta(idUsuario, idConta, valor, dataTransacao, tipo);
+            TransacaoConta transacao = new TransacaoConta(idUsuario, idConta, idCategoria, valor, dataTransacao, tipo);
 
             // Inserindo no banco de dados
             transacaoDAO.inserirTransacao(transacao);
@@ -116,12 +127,10 @@ public class TransacaoController implements Initializable {
     @FXML
     void voltarmenu(ActionEvent event) {
         try {
-            if (MenuView == null) {
-                GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Home");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
 
     }
@@ -163,9 +172,27 @@ public class TransacaoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        toggleTipo.setText("Receita");
-        toggleTipo.setStyle("-fx-text-fill: green;");
-        tipoTransacao = "Receita";
+        CategoriaDAO catDAO = null;
+        try {
+            catDAO = new CategoriaDAO();
+            toggleTipo.setText("Receita");
+            toggleTipo.setStyle("-fx-text-fill: green;");
+            tipoTransacao = "Receita";
+
+            List<Categoria> categoriaList = catDAO.listarCategorias(usuarioAutenticado.getIdUsuario());
+            List<String> nomes = new ArrayList<>();
+            for (Categoria c : categoriaList) {
+                nomes.add(c.getNome());
+            }
+            cbDescricao.setItems(FXCollections.observableArrayList(nomes));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void clickReturnHome(MouseEvent mouseEvent) {
+
     }
 }
 

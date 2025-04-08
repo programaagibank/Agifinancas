@@ -55,6 +55,26 @@ public class CategoriaDAO {
         }
     }
 
+    public List<Categoria> listarCategorias(int id_usuario) {
+        List<Categoria> categorias = new ArrayList<>();
+        String sql = "SELECT * FROM categoria WHERE id_usuario = ?";
+        try (PreparedStatement stm = conn.prepareStatement(sql)) {
+            stm.setInt(1, id_usuario);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                categorias.add(new Categoria(
+                        rs.getInt("id_categoria"),
+                        rs.getString("nome"),
+                        rs.getString("tipo"),
+                        rs.getDouble("limite")
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao listar categorias: " + e.getMessage(), e);
+        }
+        return categorias;
+    }
+
     public Categoria buscarPorId(int id_categoria) {
         String sql = "SELECT * FROM categoria WHERE id_usuario = ?";
         try (PreparedStatement stm = conn.prepareStatement(sql)) {
@@ -163,6 +183,23 @@ public class CategoriaDAO {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public Integer buscarIdPorNomeECodigoUsuario(String nomeCategoria, int idUsuario) {
+        String sql = "SELECT id_categoria FROM categoria WHERE nome = ? AND id_usuario = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nomeCategoria);
+            stmt.setInt(2, idUsuario);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id_categoria");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // ou loga o erro de outra forma
+        }
+        return null; // ou lança exceção, dependendo da lógica da sua aplicação
     }
 }
 
