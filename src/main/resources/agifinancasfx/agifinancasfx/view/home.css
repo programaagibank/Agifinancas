@@ -10,15 +10,3 @@
     -fx-max-height: 40px;
     -fx-cursor: hand;
 }
-
-
-/* exemplo de como marcar como selecionado / fazer via programacao no controller quando o botao for clicado*/
-#navigation-home {
-    -fx-border-color: #062E55;
-}
-
-
-.list {
-    -fx-background-color: red;
-
-}

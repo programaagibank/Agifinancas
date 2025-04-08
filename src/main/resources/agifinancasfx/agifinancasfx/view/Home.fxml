@@ -34,41 +34,66 @@
 
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.ToolBar?>
+
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">
-   <children>
-      <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
-         <image>
-            <Image url="@../img/Home2.png" />
-         </image>
-         <viewport>
-            <Rectangle2D />
-         </viewport>
-      </ImageView>
-      <Button id="navigation-cartao" fx:id="navigationCartao" layoutX="201.0" layoutY="583.0" mnemonicParsing="false" styleClass="navigation-button">
+    <children>
+        <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
+            <image>
+                <Image url="@../img/Home2.png" />
+            </image>
+            <viewport>
+                <Rectangle2D />
+            </viewport>
+        </ImageView>
+            <ScrollPane layoutX="23.0" layoutY="240.0" prefHeight="329.0" prefWidth="274.0" style="-fx-background-color: transparent;">
+                <content>
+                    <VBox fx:id="listaTransacao" spacing="10" />
+                </content>
+            </ScrollPane>
+        <Button id="navigation-cartao" fx:id="btnCartao" layoutX="201.0" layoutY="583.0" mnemonicParsing="false" onAction="#menuClick" styleClass="navigation-button">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></Button>
+        <Button id="navigation-perfil" fx:id="btnPerfil" layoutX="255.0" layoutY="584.0" mnemonicParsing="false" onAction="#menuClick" styleClass="navigation-button">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></Button>
+        <Button id="navigation-relatorio" fx:id="btnRelatorio" layoutX="74.0" layoutY="586.0" mnemonicParsing="false" onAction="#menuClick" prefHeight="72.0" prefWidth="100.0" styleClass="navigation-button">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></Button>
+        <Button id="navigation-adicionar" fx:id="btnAdicionar" layoutX="140.0" layoutY="584.0" mnemonicParsing="false" onAction="#menuClick" prefHeight="42.0" prefWidth="42.0" styleClass="navigation-button">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></Button>
+        <Button id="navigation-home" fx:id="btnHome" layoutX="23.0" layoutY="585.0" minHeight="7.0" minWidth="28.0" mnemonicParsing="false" onAction="#menuClick" prefHeight="21.0" prefWidth="28.0" styleClass="navigation-button">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Button>
+      <Label fx:id="nomeUsuario" layoutX="24.0" layoutY="36.0" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Button>
-      <Button id="navigation-perfil" fx:id="navigationPerfil" layoutX="255.0" layoutY="584.0" mnemonicParsing="false" styleClass="navigation-button">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Button>
-      <Button id="navigation-relatorio" fx:id="navigationRelatorio" layoutX="74.0" layoutY="586.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="100.0" styleClass="navigation-button">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Button>
-      <Button id="navigation-adicionar" fx:id="navigationAdicionar" layoutX="140.0" layoutY="584.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="navigation-button">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Button>
-      <Button id="navigation-home" fx:id="navigationHome" layoutX="23.0" layoutY="585.0" minHeight="7.0" minWidth="28.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="28.0" styleClass="navigation-button">
-         <font>
-            <Font name="System Bold" size="13.0" />
+            <Font size="14.0" />
          </font>
-      </Button>
-   </children>
+      </Label>
+      <Label fx:id="receitaUsuario" layoutX="38.0" layoutY="187.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="despesaUsuario" layoutX="193.0" layoutY="187.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSair" layoutX="275.0" layoutY="32.0" mnemonicParsing="false" onAction="#sairDoApp" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnWhatsapp" layoutX="249.0" layoutY="32.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: transparent;" />
+    </children>
 </Pane>

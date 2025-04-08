@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -16,9 +17,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 public class MenuController implements NavegarPeloApp {
     Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
+    // Lista de botões
+    List<Button> listButton = new ArrayList<>();
+
     @FXML
     Label nomeUsuario;
     public MenuController() throws SQLException {}
@@ -55,9 +60,6 @@ public class MenuController implements NavegarPeloApp {
                             "R$ " + t.getValor() + "\n" +
                             new SimpleDateFormat("dd/MM/yyyy").format(t.getDataTransacao())
             );
-
-            label.setStyle("-fx-font-size: 14px; -fx-padding: 8px; -fx-background-color: #e8e8e8; -fx-background-radius: 8; -fx-min-width: 250px");
-            label.setTextFill(t.getTipo().equalsIgnoreCase("DESPESA") ? Color.RED : Color.GREEN);
 
             listaTransacao.getChildren().add(label);
         }
@@ -138,5 +140,21 @@ public class MenuController implements NavegarPeloApp {
     @FXML
     private void sairDoApp(ActionEvent event) {
         Platform.exit();
+    }
+
+    // Função que é executada ao clicar/tocar em um dos botões de navegação
+    @FXML
+    public void menuClick(ActionEvent event) {
+        Button button = (Button)event.getSource(); //pegando o botao que foi clicado
+        if(!listButton.contains(button)) {
+            listButton.add(button);
+        }
+        for (Button otherButton : listButton) {
+            if (otherButton.equals(button)) {
+                button.setStyle("-fx-border-color: #062E55");
+            } else {
+                otherButton.setStyle("-fx-border-color: transparent");
+            }
+        }
     }
 }
