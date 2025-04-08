@@ -7,19 +7,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,12 +62,12 @@ public class MenuController implements NavegarPeloApp {
                     t.getCategoria() + "\n" +
                             "R$ " + t.getValor() + "\n" +
                             new SimpleDateFormat("dd/MM/yyyy").format(t.getDataTransacao())
-            );
 
+            );
+            label.setTextFill(t.getTipo().equalsIgnoreCase("DESPESA") ? Color.RED : Color.GREEN);
             listaTransacao.getChildren().add(label);
         }
     }
-
 
     @FXML
     private void abrirTransacoes(ActionEvent event) {

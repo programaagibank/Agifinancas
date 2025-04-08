@@ -33,9 +33,7 @@ public class ExcluirCategoriaController implements Initializable, NavegarPeloApp
         try {
             List<Categoria> listaCategorias = dao.consultarCategorias(usuarioAutenticado);
             List<String> nomesCategorias = new ArrayList<>();
-            for (Categoria c : listaCategorias) {
-                nomesCategorias.add(c.getNome());
-            }
+            for (Categoria c : listaCategorias) nomesCategorias.add(c.getNome());
             cbCategorias.setItems(FXCollections.observableArrayList(nomesCategorias));
             cbCategorias.setOnAction(e -> {
                 nomeCategoriaSelecionada = cbCategorias.getSelectionModel().getSelectedItem();
