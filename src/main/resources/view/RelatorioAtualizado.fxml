@@ -51,12 +51,19 @@
       <Button layoutX="217.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <Button layoutX="271.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <ScrollPane fx:id="scrollPane" layoutX="19.0" layoutY="214.0" prefHeight="364.0" prefWidth="280.0">
+      <ScrollPane fx:id="scrollPane" layoutX="25.0" layoutY="214.0" prefHeight="364.0" prefWidth="263.0" styleClass="scroll-geral" stylesheets="@new-style.css">
          <content>
-            <VBox fx:id="vbox" prefHeight="362.0" prefWidth="280.0" />
+            <VBox fx:id="vbox" prefWidth="280.0" style="-fx-padding: 0; -fx-spacing: 0;" />
          </content>
       </ScrollPane>
-      <DatePicker fx:id="datePicker" layoutX="25.0" layoutY="179.0" />
-      <Button fx:id="idPesquisar" layoutX="207.0" layoutY="176.0" mnemonicParsing="false" onAction="#buscarTransacoes" text="Pesquisar" />
+      <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="179.0" styleClass="date-picker" stylesheets="@new-style.css" />
+      <Button fx:id="idPesquisar" contentDisplay="GRAPHIC_ONLY" layoutX="213.0" layoutY="170.0" mnemonicParsing="false" onAction="#buscarTransacoes" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/lupa.png"/>
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </Pane>

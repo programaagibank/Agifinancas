@@ -1,0 +1,66 @@
+.scroll-geral {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 0;
+}
+
+/* Remove espaços internos da área visível */
+.scroll-geral .viewport {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+/* Remove padding do conteúdo */
+.scroll-geral .content {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+}
+
+/* Estilo da barra de rolagem */
+.scroll-geral .scroll-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Thumb (a parte que desliza) */
+.scroll-geral .thumb {
+    -fx-background-color: transparent;
+}
+
+/* Track (trilho da barra) */
+.scroll-geral .track {
+    -fx-background-color: transparent;
+}
+
+/* Alinha conteúdo no canto superior esquerdo */
+.scroll-pane > .viewport > .content {
+    -fx-alignment: top-left;
+}
+
+/***** Estilo específico para DatePicker *****/
+.date-picker, .date-picker:focused {
+    -fx-background-color: transparent;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #8E8E8E;
+    -fx-padding: 0 0 3px 0; /* Ajuste fino no padding */
+}
+
+.date-picker:focused {
+    -fx-border-color: #1e90ff;
+}
+/* Remove a borda interna do editor de texto do DatePicker */
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 5px 0 5px 5px; /* Ajuste de padding interno */
+}
+
+/* Remove o ícone padrão duplicado (seta) se necessário */
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
