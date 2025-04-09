@@ -12,7 +12,7 @@ public class Main extends Application {
         primaryStage = stage;
         primaryStage.setWidth(320);
         primaryStage.setHeight(640);
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         GeradorCenas.loadScene(primaryStage, "Login"); //loader.getController();
     }
     public static void main(String[] args) {

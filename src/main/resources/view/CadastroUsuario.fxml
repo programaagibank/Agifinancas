@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CadastrarController">
+<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CadastrarController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="43.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="158.0" layoutX="102.0" layoutY="60.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@/img/logo.png" />
+                <Image url="@../img/logo.png" />
             </image>
         </ImageView>
         <Label fx:id="lblNovoUsuario" layoutX="35.0" layoutY="191.0" styleClass="titulo-login" text="Novo usuário">
