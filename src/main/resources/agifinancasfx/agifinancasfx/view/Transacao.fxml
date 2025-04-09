@@ -21,7 +21,7 @@
     <!-- Imagem de fundo -->
     <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
         <image>
-            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/transacao.png" />
+            <Image url="@../img/transacao.png" />
         </image>
     </ImageView>
 
@@ -81,53 +81,5 @@
         </ScrollPane>
     </VBox>
     <!-- Toolbar inferior (igual às outras telas) -->
-    <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
-        <items>
-            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/home.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/file.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/add.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/card.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../java/agifinancasfx/agifinancasfx/img/exit.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-        </items>
-    </ToolBar>
+    <fx:include source="Toolbar.fxml" />
 </Pane>

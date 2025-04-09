@@ -37,7 +37,7 @@ public class LoginController {
                 UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
                 try {
                     GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("Home.fxml", "Home", false, actionEvent);
+                    cenas.gerarNovoStage("HomeAtualizado.fxml", "Home", false, actionEvent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

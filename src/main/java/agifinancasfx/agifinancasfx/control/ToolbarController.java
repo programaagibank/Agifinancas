@@ -17,6 +17,7 @@ public class ToolbarController implements NavegarPeloApp {
     @FXML
     public void menuClick(ActionEvent event) {
         Button button = (Button)event.getSource(); //pegando o botao que foi clicado
+        String id = button.getId();
         if(!listButton.contains(button)) {
             listButton.add(button);
         }
@@ -27,5 +28,31 @@ public class ToolbarController implements NavegarPeloApp {
                 otherButton.setStyle("-fx-background-color: transparent");
             }
         }
+
+        try {
+            GeradorCenas cenas = new GeradorCenas();
+            switch (id) {
+                case "btnmenu":
+                    cenas.gerarNovoStage("HomeAtualizado.fxml", "Home", false, event);
+                    break;
+                case "btnRelatorio":
+                    cenas.gerarNovoStage("Cateforia.fxml", "Categoria", false, event);
+                    break;
+                case "btnAdicionar":
+                    cenas.gerarNovoStage("Transacao.fxml", "Transação", false, event);
+                    break;
+                case "btnCartao":
+                    cenas.gerarNovoStage("AdicionarCartaoAtualizado.fxml", "Adicionar Cartão", false, event);
+                    break;
+                case "btnPerfil":
+                default:
+                    cenas.gerarNovoStage("PerfilAtualizado.fxml", "Perfil", false, event);
+                    break;
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
