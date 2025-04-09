@@ -103,18 +103,18 @@
 <!--   </children>-->
 <!--</Pane>-->
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="309.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">
 
    <children>
-      <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
+      <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../img/Home2.png" />
+            <Image url="@../img/HomeAtualizado.png" />
          </image>
          <viewport>
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <ScrollPane layoutX="23.0" layoutY="240.0" prefHeight="329.0" prefWidth="274.0" style="-fx-background-color: transparent;">
+      <ScrollPane layoutX="17.0" layoutY="263.0" prefHeight="329.0" prefWidth="274.0" style="-fx-background-color: transparent;">
          <content>
             <VBox fx:id="listaTransacao" spacing="10" />
          </content>
@@ -128,12 +128,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="labelReceita" layoutX="38.0" layoutY="187.0" textFill="WHITE">
+      <Label fx:id="labelReceita" layoutX="38.0" layoutY="197.0" prefHeight="20.0" prefWidth="109.0" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="labelDespesas" layoutX="193.0" layoutY="187.0" textFill="WHITE">
+      <Label fx:id="labelDespesas" layoutX="192.0" layoutY="197.0" prefHeight="20.0" prefWidth="99.0" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

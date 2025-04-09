@@ -8,21 +8,22 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.TransacaoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="309.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.TransacaoController">
 
     <!-- Imagem de fundo -->
-    <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
+    <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false">
         <image>
             <Image url="@../img/transacao.png" />
         </image>
     </ImageView>
+
+    <fx:include fx:id="toolbar" source="Toolbar.fxml" />
 
     <!-- Área do formulário -->
     <VBox layoutX="20" layoutY="30" prefWidth="280" spacing="15">
@@ -71,54 +72,4 @@
             <Insets left="65.0" right="65.0" top="20.0" />
          </VBox.margin></Button>
     </VBox>
-    <!-- Toolbar inferior (igual às outras telas) -->
-    <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
-        <items>
-            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarmenu" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/home.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/file.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/add.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/card.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/exit.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-        </items>
-    </ToolBar>
 </Pane>

@@ -26,6 +26,7 @@
       </children>
    </Pane>
    <ComboBox fx:id="comBoxCard" layoutX="68.0" layoutY="320.0" prefHeight="31.0" prefWidth="183.0" />
-    <Button fx:id="btnAtualizarCartao" layoutX="130.0" layoutY="360.0" mnemonicParsing="false" text="atualizar" />
+    <Button fx:id="btnAtualizarCartao" layoutX="33.0" layoutY="368.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="245.0" style="-fx-background-color: transparent;" />
     <fx:include fx:id="toolbar" source="Toolbar.fxml" />
+   <Button fx:id="btnAdicionarCartao" layoutX="32.0" layoutY="264.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="245.0" style="-fx-background-color: transparent;" />
 </Pane>
