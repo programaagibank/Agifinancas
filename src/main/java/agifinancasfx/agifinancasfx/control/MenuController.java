@@ -1,20 +1,26 @@
 package agifinancasfx.agifinancasfx.control;
 
 import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
+import agifinancasfx.agifinancasfx.DAO.TransacaoDTO;
+import agifinancasfx.agifinancasfx.Model.TransacaoConta;
 import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
@@ -29,6 +35,8 @@ public class MenuController implements Initializable {
     private Label labelDespesas;
     @FXML
     public Button categoriaBtn;
+    @FXML
+    private VBox listaTransacao;
 
     public MenuController() {}
 
@@ -113,11 +121,40 @@ public class MenuController implements Initializable {
             double receitas = dao.calcularTotalReceitas(idUsuario);
             double despesas = dao.calcularTotalDespesas(idUsuario);
             double saldo = dao.calcularSaldoGeral(idUsuario);
+            List<TransacaoDTO> contaList = TransacaoContaDAO.listarTransacoesPorUsuario(idUsuario);
+
 
             labelSaldo.setText(String.format("R$ %.2f", saldo));
             labelReceita.setText(String.format("R$ %.2f", receitas));
             labelDespesas.setText(String.format("R$ %.2f", despesas));
             nameUser.setText("Olá, "+usuarioAutenticado.getNome());
+
+            for (TransacaoDTO transacao : contaList) {
+                Label tipo = new Label("Tipo: " + transacao.getTipo());
+                Label data = new Label("Data: " + transacao.getDataTransacao());
+                Label valor = new Label(String.format("Valor: R$ %.2f", transacao.getValor()));
+
+                // Estilo único para todos os textos
+                String estiloTexto = "-fx-text-fill: white; -fx-font-weight: bold;";
+                tipo.setStyle(estiloTexto);
+                data.setStyle(estiloTexto);
+                valor.setStyle(estiloTexto);
+
+                tipo.setPrefWidth(120);
+                data.setPrefWidth(120);
+                valor.setPrefWidth(120);
+
+                HBox linha = new HBox(10, tipo, data, valor);
+                linha.setStyle("""
+        -fx-padding: 5px;
+        -fx-background-color: #1c93fc;
+        -fx-border-radius: 5px;
+        -fx-background-radius: 5px;
+    """);
+
+                listaTransacao.getChildren().add(linha);
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

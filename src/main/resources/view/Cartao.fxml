@@ -55,54 +55,5 @@
     </VBox>
 
     <!-- Toolbar inferior (igual às outras telas) -->
-    <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
-        <items>
-            <Button fx:id="btnmenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarMenu"
-                    styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/home.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/file.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/add.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
-                <graphic>
-                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/card.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button" onAction="#sairDoApp">
-                <graphic>
-                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../img/exit.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
-        </items>
-    </ToolBar>
+    <fx:include source="Toolbar.fxml" />
 </Pane>
