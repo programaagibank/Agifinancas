@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ToolBar?>
+<?import java.net.URL?>
+
+<Pane maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.CategoriaController">
+
+    <VBox fx:id="containerPrincipal" alignment="CENTER" layoutX="20.0" layoutY="30.0" prefHeight="450.0" prefWidth="280.0" spacing="20" styleClass="cartao-detalhes-container">
+
+        <Label styleClass="titulo-categoria" text="Atualizar Categoria">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+
+        <ComboBox fx:id="cbCategorias" promptText="Selecione a categoria" styleClass="text-field"/>
+
+        <TextField fx:id="txtNovoNome" promptText="Novo nome da categoria" styleClass="text-field"/>
+        <TextField fx:id="txtNovoLimite" promptText="Novo limite da categoria" styleClass="text-field"/>
+
+        <Button fx:id="btnSalvar" text="Salvar Alterações" onAction="#salvarAlteracoes" styleClass="button-acessar">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </Button>
+
+        <Button fx:id="btnVoltar" text="Voltar" onAction="#voltarMenu" styleClass="button-excluir">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </Button>
+
+    </VBox>
+
+    <ToolBar layoutY="575.0" prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
+        <!-- Opcional: adicionar os mesmos botões de navegação -->
+    </ToolBar>
+</Pane>

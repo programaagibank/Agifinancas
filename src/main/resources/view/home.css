@@ -1,0 +1,24 @@
+.navigation-button{
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+    -fx-cursor: hand;
+}
+
+
+/* exemplo de como marcar como selecionado / fazer via programacao no controller quando o botao for clicado*/
+#navigation-home {
+    -fx-border-color: #062E55;
+}
+
+
+.list {
+    -fx-background-color: red;
+
+}

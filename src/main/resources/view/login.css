@@ -1,0 +1,16 @@
+
+.btn-login{
+  -fx-text-fill: white;
+    -fx-background-color: #1E90FF;
+}
+
+/* Hover (mouse sobre o botão) */
+.btn-login:hover {
+    -fx-background-color: #3b9bf7; /* Leve destaque no fundo */
+}
+
+/* Pressed (quando clica) */
+.btn-login:pressed {
+    -fx-background-color: #0664c2; /* Leve destaque no fundo */
+
+}

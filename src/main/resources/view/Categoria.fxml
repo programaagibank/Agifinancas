@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="640.0" maxWidth="320.0" minHeight="640.0" minWidth="320.0" prefHeight="640.0" prefWidth="320.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="agifinancasfx.agifinancasfx.control.CategoriaController.CategoriaController">    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    <VBox fx:id="containerPrincipal"
+          alignment="CENTER"
+          spacing="20"
+          VBox.vgrow="ALWAYS"
+          styleClass="cartao-detalhes-container"
+          prefHeight="575.0" prefWidth="320.0">
+
+        <Label fx:id="lblCategoria" layoutX="35.0" layoutY="191.0" styleClass="titulo-categoria" text="Nova categoria">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="cbDescricao" editable="false" promptText="Selecione o tipo" styleClass="form-field">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Receita" />
+                    <String fx:value="Despesa" />
+                </FXCollections>
+            </items>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+        </ComboBox>
+        <TextField fx:id="txtNomeCategoria" layoutX="36.0" layoutY="231.0" promptText="Nome da categoria" styleClass="text-field">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin></TextField>
+        <TextField fx:id="txtLimiteCategoria" layoutX="37.0" layoutY="309.0" promptText="Limite da categoria" styleClass="text-field">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin></TextField>
+        <Button fx:id="btnAdicionarCategoria" layoutX="85.0" layoutY="506.0" mnemonicParsing="false" onAction="#adicionarCategoria" styleClass="button-acessar" text="Adicionar">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+        </Button>
+    </VBox>
+    <!-- Toolbar inferior (igual às outras telas) -->
+    <ToolBar prefHeight="65.0" prefWidth="320.0" styleClass="custom-toolbar">
+        <items>
+            <Button fx:id="btnMenu" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarMenu" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/img/home.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnRelatorio" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#voltarrelatorio" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/img/file.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/img/add.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnCartao" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onCartao" styleClass="toolbar-button">
+                <graphic>
+                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/img/card.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="btnSair" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" styleClass="toolbar-button" onAction="#sairDoApp">
+                <graphic>
+                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/img/exit.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </items>
+    </ToolBar>
+</VBox>
