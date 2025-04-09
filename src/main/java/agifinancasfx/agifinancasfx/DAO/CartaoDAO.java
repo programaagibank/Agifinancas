@@ -125,13 +125,4 @@ public class CartaoDAO {
         }
         return cartoes;
     }
-
-    public static void main(String[] args) {
-        Cartao cr = new Cartao("cartao numero1", 1000, "2026-01-01", "2026-02-01", 1, 1);
-        CartaoDAO crdao = new CartaoDAO();
-        crdao.deletarCartao(cr);
-        ;
-
-
-    }
 }

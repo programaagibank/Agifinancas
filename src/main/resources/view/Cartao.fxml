@@ -1,59 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0"
-      prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CartaoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CartaoController">
 
     <!-- Imagem de fundo -->
     <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
         <image>
-            <Image url="@../img/cartao.png" />
+            <Image url="@../img/AdicionarCartaoAtualizado.png" />
         </image>
     </ImageView>
 
-    <!-- Área de cartões - VBox ajustada -->
-    <VBox layoutX="20.0" layoutY="20.0" prefHeight="540.0" prefWidth="280.0" spacing="10">
-        <!-- Label centralizada e branca -->
-        <Label alignment="CENTER" styleClass="titulo-cartao" text="Meus Cartões">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-            <VBox.margin>
-                <Insets bottom="15.0" />
-            </VBox.margin>
-        </Label>
-
-        <!-- Lista de cartões (ListView ajustado) -->
-        <ListView fx:id="listaCartoes" prefHeight="300.0" styleClass="cartao-scroll">
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </ListView>
-
-        <!-- Botão Adicionar -->
-        <Button fx:id="btnAdicionarCartao" styleClass="form-button" text="Adicionar" onAction="#adicionarCartao">
-            <VBox.margin>
-                <Insets bottom="15.0" left="65.0" right="65.0" top="10.0" />
-            </VBox.margin>
-        </Button>
-
-        <!-- ScrollPane de transações ajustado -->
-        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="historico-scroll" vbarPolicy="AS_NEEDED" vvalue="1.0">
-            <VBox fx:id="transacoesContainer" spacing="8" />
-        </ScrollPane>
-    </VBox>
-
     <!-- Toolbar inferior (igual às outras telas) -->
     <fx:include source="Toolbar.fxml" />
+   <Pane layoutX="21.0" layoutY="82.0" prefHeight="151.0" prefWidth="278.0">
+      <children>
+         <Label fx:id="nomeCartao" layoutX="79.0" layoutY="21.0" textFill="WHITE" />
+         <Label fx:id="dataVencimento" layoutX="107.0" layoutY="61.0" textFill="WHITE" />
+         <Label fx:id="limiteDisponivel" layoutX="135.0" layoutY="103.0" textFill="WHITE" />
+      </children>
+   </Pane>
+   <ComboBox fx:id="comBoxCard" layoutX="68.0" layoutY="320.0" prefHeight="31.0" prefWidth="183.0" />
+    <Button fx:id="btnAtualizarCartao" layoutX="130.0" layoutY="360.0" mnemonicParsing="false" text="atualizar" />
+   <ScrollPane layoutX="11.0" layoutY="407.0" prefHeight="166.0" prefWidth="297.0">
+     <content>
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+     </content>
+   </ScrollPane>
 </Pane>
