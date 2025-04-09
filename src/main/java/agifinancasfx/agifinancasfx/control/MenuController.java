@@ -80,23 +80,6 @@ public class MenuController implements Initializable {
         }
     }
 
-    @FXML
-    private void abrirRelatorios(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/Relatorios.fxml"));
-            Parent relatoriosRoot = loader.load();
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene relatoriosScene = new Scene(relatoriosRoot, 800, 600);
-
-            stage.setScene(relatoriosScene);
-            stage.setTitle("Relatórios");
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void atualizarCategorias(ActionEvent event) {
         try {
             GeradorCenas cenas = new GeradorCenas();
@@ -161,8 +144,8 @@ public class MenuController implements Initializable {
 
     public void acessarRelatorio(ActionEvent actionEvent) {
         try {
-            GeradorCenas.primaryStage.setResizable(false);
-            GeradorCenas.loadScene(GeradorCenas.primaryStage, "");
+            GeradorCenas.primaryStage.setResizable(true);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "RelatorioAtualizado");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

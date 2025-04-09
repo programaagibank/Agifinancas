@@ -1,21 +1,25 @@
 package agifinancasfx.agifinancasfx.control;
-import agifinancasfx.agifinancasfx.DAO.Transacao_metaDAO;
-import agifinancasfx.agifinancasfx.Model.Transacao_meta;
+import agifinancasfx.agifinancasfx.DAO.TransacaoContaDAO;
+import agifinancasfx.agifinancasfx.DAO.TransacaoDTO;
+import agifinancasfx.agifinancasfx.Model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class RelatorioController {
 
-
+    private final Usuario usuarioAutenticado = UsuarioSessao.getInstance().getUsuario();
 
 
         @FXML
@@ -26,6 +30,12 @@ public class RelatorioController {
 
         @FXML
         private Button btnMenu;
+
+        @FXML
+        private DatePicker datePicker;
+
+        @FXML
+        private Button idPesquisar;
 
         @FXML
         private Button btnReceitas;
@@ -76,12 +86,10 @@ public class RelatorioController {
         @FXML
         void irMenu(ActionEvent event) {
             try {
-                if (MenuView == null) {
-                    GeradorCenas cenas = new GeradorCenas();
-                    cenas.gerarNovoStage("Menu.fxml", "Menu", false, event);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+                GeradorCenas.primaryStage.setResizable(true);
+                GeradorCenas.loadScene(GeradorCenas.primaryStage, "Home");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
 
         }
@@ -119,23 +127,38 @@ public class RelatorioController {
         }
 
     @FXML
-    public void initialize() {
-        Transacao_metaDAO dao = new Transacao_metaDAO();
-        List<Transacao_meta> transacoes = dao.listarTransacoes();
+    private void buscarTransacoes() {
+        LocalDate dataSelecionada = datePicker.getValue();
 
-        for (Transacao_meta t : transacoes) {
-            // Aqui você pode criar visualmente um bloco para cada transação
-            Label lbl = new Label("ID: " + t.getIdTransacao()
-                    + " | Meta: " + t.getIdMeta()
-                    + " | Conta: " + t.getIdConta()
-                    + " | Valor: R$" + t.getValor()
-                    + " | Data: " + t.getDataTransacao()
-                    + " | Tipo: " + t.getTipoTransacao());
+        if (dataSelecionada == null) {
+            System.out.println("Selecione uma data para filtrar.");
+            return;
+        }
 
-            lbl.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-color: #ccc;");
+        Date dataSql = Date.valueOf(dataSelecionada);
+        List<TransacaoDTO> transacoes = TransacaoContaDAO.listarTransacoesPorUsuarioEData(usuarioAutenticado.getIdUsuario(), dataSql);
+
+        vbox.getChildren().clear();
+
+        if (transacoes.isEmpty()) {
+            Label vazio = new Label("Nenhuma transação encontrada.");
+            vbox.getChildren().add(vazio);
+            return;
+        }
+
+        for (TransacaoDTO t : transacoes) {
+            Label lbl = new Label(
+                    "Data: " + t.getDataTransacao() +
+                            " | Valor: R$ " + t.getValor() +
+                            " | Tipo: " + t.getTipo() +
+                            " | Categoria: " + t.getCategoria()
+            );
+            lbl.setStyle("-fx-padding: 8; -fx-background-color: #eef; -fx-border-color: #ddd;");
             vbox.getChildren().add(lbl);
         }
     }
+
+
 
 
 

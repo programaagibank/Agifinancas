@@ -186,5 +186,40 @@ public class TransacaoContaDAO {
         return transacoes;
     }
 
+    public static List<TransacaoDTO> listarTransacoesPorUsuarioEData(int idUsuario, Date dataInicio) {
+        List<TransacaoDTO> transacoes = new ArrayList<>();
+
+        String sql = """
+        SELECT c.nome AS categoria, t.valor, t.data_transacao, t.tipo
+        FROM transacao_conta t
+        LEFT JOIN categoria c ON t.id_categoria = c.id_categoria
+        WHERE t.id_usuario = ? AND t.data_transacao >= ?
+        ORDER BY t.data_transacao DESC
+    """;
+
+        try (Connection conn = JDBC_Connection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idUsuario);
+            stmt.setDate(2, dataInicio);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                TransacaoDTO transacao = new TransacaoDTO();
+                transacao.setCategoria(rs.getString("categoria"));
+                transacao.setValor(rs.getBigDecimal("valor"));
+                transacao.setDataTransacao(rs.getDate("data_transacao"));
+                transacao.setTipo(rs.getString("tipo"));
+
+                transacoes.add(transacao);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return transacoes;
+    }
+
 
 }

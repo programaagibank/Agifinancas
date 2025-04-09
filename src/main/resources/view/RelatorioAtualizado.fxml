@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2017, Gluon and/or its affiliates.
+    All rights reserved. Use is subject to license terms.
+
+    This file is available and licensed under the following license:
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the distribution.
+   - Neither the name of Oracle Corporation and Gluon nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1 " fx:controller="agifinancasfx.agifinancasfx.control.RelatorioController">
+   <children>
+      <ImageView fitHeight="670.0" fitWidth="320.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../img/Group139.jpeg" />
+         </image>
+      </ImageView>
+      <Button layoutX="133.0" layoutY="624.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button layoutX="244.0" layoutY="624.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button layoutX="217.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button layoutX="271.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnCartao" layoutX="190.0" layoutY="615.0" mnemonicParsing="false" onAction="#irCartao" style="-fx-background-color: transparent;" />
+      <Button layoutX="75.0" layoutY="624.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnMenu" layoutX="14.0" layoutY="624.0" minWidth="36.0" mnemonicParsing="false" onAction="#irMenu" prefHeight="30.0" prefWidth="36.0" style="-fx-background-color: transparent;" />
+      <ScrollPane fx:id="scrollPane" layoutX="19.0" layoutY="214.0" prefHeight="364.0" prefWidth="280.0">
+         <content>
+            <VBox fx:id="vbox" prefHeight="362.0" prefWidth="280.0" />
+         </content>
+      </ScrollPane>
+      <DatePicker fx:id="datePicker" layoutX="25.0" layoutY="179.0" />
+      <Button fx:id="idPesquisar" layoutX="207.0" layoutY="176.0" mnemonicParsing="false" onAction="#buscarTransacoes" text="Pesquisar" />
+   </children>
+</Pane>
