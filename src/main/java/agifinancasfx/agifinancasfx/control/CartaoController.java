@@ -224,8 +224,8 @@ public class CartaoController implements Initializable {
     @FXML
     public void onCartao(ActionEvent event) {
         try {
-            GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("Cartao.fxml", "Meus Cartões", false, event);
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Cartao");
         } catch (IOException e) {
             CriarAlertas.CriarAlerta("Erro", "Não foi possível abrir a tela de cartões.", Alert.AlertType.ERROR);
         }

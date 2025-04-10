@@ -3,33 +3,6 @@
 <!--
     Copyright (c) 2017, Gluon and/or its affiliates.
     All rights reserved. Use is subject to license terms.
-
-    This file is available and licensed under the following license:
-
-    Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions
-    are met:
-
-   - Redistributions of source code must retain the above copyright
-     notice, this list of conditions and the following disclaimer.
-   - Redistributions in binary form must reproduce the above copyright
-     notice, this list of conditions and the following disclaimer in
-     the documentation and/or other materials provided with the distribution.
-   - Neither the name of Oracle Corporation and Gluon nor the names of its
-     contributors may be used to endorse or promote products derived
-     from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
 <?import javafx.scene.control.Button?>
@@ -37,33 +10,62 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.RelatorioController">
+<AnchorPane prefHeight="670.0" prefWidth="309.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="agifinancasfx.agifinancasfx.control.RelatorioController">
+
    <children>
-      <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false">
+
+      <!-- Imagem de fundo -->
+      <ImageView fitHeight="670.0" fitWidth="309.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@../img/Group139.jpeg" />
+            <Image url="@../img/Group139.jpeg"/>
          </image>
       </ImageView>
-      <fx:include fx:id="toolbar" source="Toolbar.fxml" />
-      <Button layoutX="217.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="271.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-      <ScrollPane fx:id="scrollPane" layoutX="25.0" layoutY="214.0" prefHeight="364.0" prefWidth="263.0" styleClass="scroll-geral" stylesheets="@new-style.css">
-         <content>
-            <VBox fx:id="vbox" prefWidth="280.0" style="-fx-padding: 0; -fx-spacing: 0;" />
-         </content>
-      </ScrollPane>
-      <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="179.0" styleClass="date-picker" stylesheets="@new-style.css" />
-      <Button fx:id="idPesquisar" contentDisplay="GRAPHIC_ONLY" layoutX="213.0" layoutY="170.0" mnemonicParsing="false" onAction="#buscarTransacoes" style="-fx-background-color: transparent;">
+
+      <!-- Toolbar -->
+      <fx:include fx:id="toolbar" source="Toolbar.fxml"/>
+
+      <!-- Botões de navegação -->
+      <Button layoutX="217.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;"/>
+      <Button layoutX="271.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;"/>
+      <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: transparent;"/>
+
+      <!-- Campo de data -->
+      <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="179.0"
+                  styleClass="date-picker" stylesheets="@new-style.css"/>
+
+      <!-- Botão de busca -->
+      <Button fx:id="idPesquisar" layoutX="213.0" layoutY="170.0"
+              mnemonicParsing="false" onAction="#buscarTransacoes"
+              contentDisplay="GRAPHIC_ONLY" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/lupa.png"/>
                </image>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+      </Button>
+
+      <!-- Scroll com lista de transações -->
+      <ScrollPane fx:id="scrollPane"
+                  layoutX="25.0" layoutY="214.0"
+                  prefHeight="364.0" prefWidth="263.0"
+                  fitToWidth="true"
+                  pannable="true"
+                  styleClass="scroll-geral"
+                  stylesheets="@new-style.css">
+         <content>
+            <VBox fx:id="vbox"
+                  prefWidth="263.0"
+                  style="-fx-padding: 0; -fx-spacing: 0;" />
+         </content>
+      </ScrollPane>
+
    </children>
-</Pane>
+</AnchorPane>

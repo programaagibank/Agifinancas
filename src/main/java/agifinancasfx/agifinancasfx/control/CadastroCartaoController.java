@@ -69,8 +69,8 @@ public class CadastroCartaoController implements Initializable {
             // Fechar a janela atual e recarregar Cartao.fxml
             ((javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()).close();
 
-            GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("Cartao.fxml", "Meus Cartões", false, event);
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Cartao");
 
         } catch (NumberFormatException e) {
             CriarAlertas.CriarAlerta("Erro", "Informe um valor válido para o limite.", Alert.AlertType.ERROR);

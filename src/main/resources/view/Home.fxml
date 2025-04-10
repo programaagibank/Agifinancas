@@ -1,149 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--&lt;!&ndash;-->
-<!--    Copyright (c) 2017, Gluon and/or its affiliates.-->
-<!--    All rights reserved. Use is subject to license terms.-->
-<!--    This file is available and licensed under the following license:-->
-<!--    Redistribution and use in source and binary forms, with or without-->
-<!--    modification, are permitted provided that the following conditions-->
-<!--    are met:-->
-<!--   - Redistributions of source code must retain the above copyright-->
-<!--     notice, this list of conditions and the following disclaimer.-->
-<!--   - Redistributions in binary form must reproduce the above copyright-->
-<!--     notice, this list of conditions and the following disclaimer in-->
-<!--     the documentation and/or other materials provided with the distribution.-->
-<!--   - Neither the name of Oracle Corporation and Gluon nor the names of its-->
-<!--     contributors may be used to endorse or promote products derived-->
-<!--     from this software without specific prior written permission.-->
-<!--  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS-->
-<!--  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT-->
-<!--  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR-->
-<!--  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT-->
-<!--  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,-->
-<!--  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT-->
-<!--  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,-->
-<!--  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY-->
-<!--  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT-->
-<!--  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE-->
-<!--  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
-<!--&ndash;&gt;-->
-<!--<?import javafx.geometry.Rectangle2D?>-->
-<!--<?import javafx.scene.control.Button?>-->
-<!--<?import javafx.scene.control.Label?>-->
-<!--<?import javafx.scene.image.Image?>-->
-<!--<?import javafx.scene.image.ImageView?>-->
-<!--<?import javafx.scene.layout.Pane?>-->
-<!--<?import javafx.scene.text.Font?>-->
-<!--<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="320.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">-->
-<!--   <children>-->
-<!--      <ImageView fitHeight="640.0" fitWidth="320.0" pickOnBounds="true" smooth="false">-->
-<!--         <image>-->
-<!--            <Image url="@../img/Home2.png" />-->
-<!--         </image>-->
-<!--         <viewport>-->
-<!--            <Rectangle2D />-->
-<!--         </viewport>-->
-<!--      </ImageView>-->
-<!--      <Button id="navigation-cartao" fx:id="navigationCartao" layoutX="201.0" layoutY="583.0" mnemonicParsing="false" onAction="#entrarCartao" styleClass="navigation-button">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="13.0" />-->
-<!--         </font></Button>-->
-<!--      <Button id="navigation-perfil" fx:id="navigationPerfil" layoutX="255.0" layoutY="584.0" mnemonicParsing="false" styleClass="navigation-button">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="13.0" />-->
-<!--         </font></Button>-->
-<!--      <Button id="navigation-relatorio" fx:id="navigationRelatorio" layoutX="74.0" layoutY="586.0" mnemonicParsing="false" onAction="#acessarRelatorio" prefHeight="72.0" prefWidth="100.0" styleClass="navigation-button">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="13.0" />-->
-<!--         </font></Button>-->
-<!--      <Button id="navigation-adicionar" fx:id="navigationAdicionar" layoutX="140.0" layoutY="584.0" mnemonicParsing="false" onMouseClicked="#acessarTransacao" prefHeight="42.0" prefWidth="42.0" styleClass="navigation-button">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="13.0" />-->
-<!--         </font></Button>-->
-<!--      <Button id="navigation-home" fx:id="navigationHome" layoutX="23.0" layoutY="585.0" minHeight="7.0" minWidth="28.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="28.0" styleClass="navigation-button">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="13.0" />-->
-<!--         </font>-->
-<!--      </Button>-->
-<!--      <Label fx:id="labelSaldo" alignment="TOP_CENTER" layoutX="116.0" layoutY="124.0" prefHeight="22.0" prefWidth="88.0" text="0,00" textFill="WHITE">-->
-<!--         <font>-->
-<!--            <Font name="Poppins Regular" size="18.0" />-->
-<!--         </font></Label>-->
-<!--      <Label fx:id="labelReceita" alignment="TOP_CENTER" layoutX="14.0" layoutY="190.0" prefHeight="27.0" prefWidth="127.0" text="0,00" textFill="WHITE">-->
-<!--         <font>-->
-<!--            <Font name="Poppins Regular" size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-<!--      <Label fx:id="labelDespesas" alignment="TOP_CENTER" layoutX="178.0" layoutY="190.0" prefHeight="27.0" prefWidth="127.0" text="0,00" textFill="WHITE">-->
-<!--         <font>-->
-<!--            <Font name="Poppins Regular" size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-<!--      <Label fx:id="nameUser" alignment="TOP_LEFT" layoutX="63.0" layoutY="29.0" prefHeight="27.0" prefWidth="175.0" text="Olá, Matheus" textFill="WHITE">-->
-<!--         <font>-->
-<!--            <Font name="Poppins Bold" size="18.0" />-->
-<!--         </font>-->
-<!--      </Label>-->
-<!--      <ImageView fitHeight="64.0" fitWidth="56.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">-->
-<!--         <image>-->
-<!--            <Image url="@../img/user-circle.png" />-->
-<!--         </image>-->
-<!--      </ImageView>-->
-<!--   </children>-->
-<!--</Pane>-->
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="309.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">
+<AnchorPane prefHeight="670.0" prefWidth="309.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.MenuController">
 
    <children>
-      <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false">
+
+      <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../img/HomeAtualizado.png" />
          </image>
-         <viewport>
-            <Rectangle2D />
-         </viewport>
       </ImageView>
-      <ScrollPane layoutX="17.0" layoutY="263.0" prefHeight="329.0" prefWidth="274.0" style="-fx-background-color: transparent;">
+
+      <ScrollPane layoutX="17.0" layoutY="263.0" prefHeight="306.0" prefWidth="274.0" style="-fx-background-color: transparent;">
          <content>
             <VBox fx:id="listaTransacao" spacing="10" />
          </content>
       </ScrollPane>
 
-      <!-- Toolbar inferior padrão -->
-      <fx:include fx:id="toolbar" source="Toolbar.fxml" />
+      <!-- Toolbar fixada no fundo -->
+      <fx:include fx:id="toolbar" source="Toolbar.fxml" AnchorPane.bottomAnchor="0.0" />
 
-      <Label fx:id="nameUser" layoutX="24.0" layoutY="36.0" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
+      <Label fx:id="nameUser" layoutX="17.0" layoutY="33.0" text="Olá matheus" textFill="WHITE">
+         <font><Font name="Poppins Bold" size="18.0" /></font>
       </Label>
+
       <Label fx:id="labelReceita" layoutX="38.0" layoutY="197.0" prefHeight="20.0" prefWidth="109.0" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
+         <font><Font size="14.0" /></font>
       </Label>
+
       <Label fx:id="labelDespesas" layoutX="192.0" layoutY="197.0" prefHeight="20.0" prefWidth="99.0" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
+         <font><Font size="14.0" /></font>
       </Label>
-      <Button fx:id="btnSair" layoutX="275.0" layoutY="32.0" mnemonicParsing="false" onAction="#sairDoApp" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnWhatsapp" layoutX="249.0" layoutY="32.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: transparent;" />
+
+      <Button fx:id="btnSair" layoutX="270.0" layoutY="33.0" mnemonicParsing="false" onAction="#sairDoApp" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnRelatorio" layoutX="235.0" layoutY="32.0" mnemonicParsing="false" onAction="#goRelatorio" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: transparent;" />
+
       <Label fx:id="labelSaldo" layoutX="38.0" layoutY="126.0" prefHeight="20.0" prefWidth="124.0" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
+         <font><Font size="14.0" /></font>
       </Label>
+
    </children>
-</Pane>
+</AnchorPane>

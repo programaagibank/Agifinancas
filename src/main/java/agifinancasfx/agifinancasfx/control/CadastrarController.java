@@ -62,8 +62,8 @@ public class CadastrarController {
         if (sucesso) {
             limparCampos();
             try {
-                GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("Login.fxml", "Login", false, event);
+                GeradorCenas.primaryStage.setResizable(false);
+                GeradorCenas.loadScene(GeradorCenas.primaryStage, "Login");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -85,8 +85,8 @@ public class CadastrarController {
     void fazerLogin(ActionEvent event) {
         try {
             if (loginView == null) {
-                GeradorCenas cenas = new GeradorCenas();
-                cenas.gerarNovoStage("Login.fxml", "Login", false, event);
+                GeradorCenas.primaryStage.setResizable(false);
+                GeradorCenas.loadScene(GeradorCenas.primaryStage, "Login");
             }
         } catch (IOException e) {
             e.printStackTrace();

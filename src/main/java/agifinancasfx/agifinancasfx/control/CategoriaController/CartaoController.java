@@ -139,16 +139,16 @@ public class CartaoController implements Initializable {
         listaCartoes.getItems().addAll(cartoes);
     }
 
-    @FXML
-    public void adicionarCartao(ActionEvent event) {
-        try {
-            GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("CadastroCartao.fxml", "Adicionar Cartão", false, event);
-        } catch (IOException e) {
-            CriarAlertas.CriarAlerta("Erro", "Erro ao abrir a tela de cadastro de cartões: " + e.getMessage(), Alert.AlertType.ERROR);
-            e.printStackTrace();
-        }
-    }
+//    @FXML
+//    public void adicionarCartao(ActionEvent event) {
+//        try {
+//            GeradorCenas cenas = new GeradorCenas();
+//            cenas.gerarNovoStage("CadastroCartao.fxml", "Adicionar Cartão", false, event);
+//        } catch (IOException e) {
+//            CriarAlertas.CriarAlerta("Erro", "Erro ao abrir a tela de cadastro de cartões: " + e.getMessage(), Alert.AlertType.ERROR);
+//            e.printStackTrace();
+//        }
+//    }
 
 
     @FXML
@@ -161,15 +161,15 @@ public class CartaoController implements Initializable {
         NavegarPeloApp.voltarRelatorio(event);
     }
 
-    @FXML
-    public void onCartao(ActionEvent event) {
-        try {
-            GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("Cartao.fxml", "Meus Cartões", false, event);
-        } catch (IOException e) {
-            CriarAlertas.CriarAlerta("Erro", "Não foi possível abrir a tela de cartões.", Alert.AlertType.ERROR);
-        }
-    }
+//    @FXML
+//    public void onCartao(ActionEvent event) {
+//        try {
+//            GeradorCenas cenas = new GeradorCenas();
+//            cenas.gerarNovoStage("Cartao.fxml", "Meus Cartões", false, event);
+//        } catch (IOException e) {
+//            CriarAlertas.CriarAlerta("Erro", "Não foi possível abrir a tela de cartões.", Alert.AlertType.ERROR);
+//        }
+//    }
 
     @FXML
     public void sairDoApp(ActionEvent event) {

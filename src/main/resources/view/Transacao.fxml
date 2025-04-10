@@ -10,61 +10,73 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="309.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.TransacaoController">
+<AnchorPane prefHeight="670.0" prefWidth="309.0" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="agifinancasfx.agifinancasfx.control.TransacaoController">
 
-    <!-- Imagem de fundo -->
-    <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false">
-        <image>
-            <Image url="@../img/Transacao-new.png" />
-        </image>
-    </ImageView>
+    <children>
 
-    <fx:include fx:id="toolbar" source="Toolbar.fxml" />
+        <!-- Imagem de fundo -->
+        <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../img/Transacao-new.png" />
+            </image>
+        </ImageView>
 
-    <!-- Área do formulário -->
-    <VBox layoutX="20" layoutY="30" prefWidth="280" spacing="15">
+        <!-- Área do formulário -->
+        <VBox layoutX="20" layoutY="30" prefWidth="280" spacing="15">
 
-        <!-- Container do toggle button -->
-        <StackPane>
-            <ToggleButton fx:id="toggleTipo" mnemonicParsing="false" onAction="#alterarTipo" styleClass="tipo-transacao" text="DESPESA" />
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-        </StackPane>
+            <!-- Container do toggle button -->
+            <StackPane>
+                <ToggleButton fx:id="toggleTipo" mnemonicParsing="false" onAction="#alterarTipo" styleClass="tipo-transacao" text="DESPESA" />
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </StackPane>
 
-        <!-- Campo descrição -->
-        <ComboBox fx:id="cbDescricao" editable="true" promptText="Descrição da transação" styleClass="form-field">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Alimentação" />
-                    <String fx:value="Transporte" />
-                    <String fx:value="Moradia" />
-                    <String fx:value="Lazer" />
-                    <String fx:value="Saúde" />
-                    <String fx:value="Educação" />
-                </FXCollections>
-            </items>
-            <VBox.margin>
-                <Insets left="10.0" right="10.0" top="30.0" />
-            </VBox.margin>
-        </ComboBox>
+            <!-- Campo descrição -->
+            <ComboBox fx:id="cbDescricao" editable="true" promptText="Descrição da transação" styleClass="form-field">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Alimentação" />
+                        <String fx:value="Transporte" />
+                        <String fx:value="Moradia" />
+                        <String fx:value="Lazer" />
+                        <String fx:value="Saúde" />
+                        <String fx:value="Educação" />
+                    </FXCollections>
+                </items>
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0" top="30.0" />
+                </VBox.margin>
+            </ComboBox>
 
-        <!-- Campo valor -->
-        <TextField fx:id="txtValor" promptText="Valor (R$)" styleClass="form-field">
-         <VBox.margin>
-            <Insets left="10.0" right="15.0" />
-         </VBox.margin></TextField>
+            <!-- Campo valor -->
+            <TextField fx:id="txtValor" promptText="Valor (R$)" styleClass="form-field">
+                <VBox.margin>
+                    <Insets left="10.0" right="15.0" />
+                </VBox.margin>
+            </TextField>
 
-        <!-- Campo data -->
-        <DatePicker fx:id="dpData" promptText="Selecione a data" styleClass="date-picker">  <!-- SÓ date-picker -->
-            <VBox.margin>
-                <Insets bottom="5.0" left="10.0" right="15.0" top="5.0" />
-            </VBox.margin>
-        </DatePicker>
-    </VBox>
-   <Button layoutX="35.0" layoutY="337.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" style="-fx-background-color: transparent;" />
-</Pane>
+            <!-- Campo data -->
+            <DatePicker fx:id="dpData" promptText="Selecione a data" styleClass="date-picker">
+                <VBox.margin>
+                    <Insets bottom="5.0" left="10.0" right="15.0" top="5.0" />
+                </VBox.margin>
+            </DatePicker>
+
+        </VBox>
+
+        <!-- Botão invisível/overlay -->
+        <Button layoutX="35.0" layoutY="337.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" style="-fx-background-color: transparent;" />
+
+        <!-- Toolbar fixada no fundo -->
+        <fx:include fx:id="toolbar" source="Toolbar.fxml" AnchorPane.bottomAnchor="0.0"/>
+
+    </children>
+</AnchorPane>

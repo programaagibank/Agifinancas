@@ -48,7 +48,7 @@ public class MenuController implements Initializable {
     private void gerenciarCategorias(ActionEvent event) {
         try {
             GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("Categoria.fxml", "Gerenciar Categorias", false, event);
+            cenas.gerarNovoStage("CardCategoria.fxml", "Gerenciar Categorias", false, event);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -182,6 +182,15 @@ public class MenuController implements Initializable {
     public void acessarRelatorio(ActionEvent actionEvent) {
         try {
             GeradorCenas.primaryStage.setResizable(true);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "RelatorioAtualizado");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void goRelatorio(ActionEvent actionEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
             GeradorCenas.loadScene(GeradorCenas.primaryStage, "RelatorioAtualizado");
         } catch (IOException ex) {
             throw new RuntimeException(ex);

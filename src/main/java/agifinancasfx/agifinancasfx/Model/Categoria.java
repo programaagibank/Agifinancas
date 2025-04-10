@@ -14,6 +14,12 @@ public class Categoria {
         this.tipo = tipo;
         this.limite = limite;
     }
+    public Categoria(int id_categoria, String nome, double limite) {
+        this.id_categoria = id_categoria;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.limite = limite;
+    }
 
     public Categoria(String nome, String tipo) {
         this.nome = nome;
@@ -25,6 +31,10 @@ public class Categoria {
         this.nome = nome;
         this.tipo = tipo;
         this.limite = limite;
+    }
+
+    public Categoria() {
+
     }
 
     public int getId_categoria() {

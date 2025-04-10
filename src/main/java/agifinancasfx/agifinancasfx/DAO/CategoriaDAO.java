@@ -54,6 +54,32 @@ public class CategoriaDAO {
             stmt.executeUpdate();
         }
     }
+    public List<Categoria> listarCategoriasPorUsuario(int idUsuario) throws SQLException {
+        List<Categoria> categorias = new ArrayList<>();
+
+        String sql = "SELECT id_categoria, nome, limite FROM categoria WHERE id_usuario = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Categoria categoria = new Categoria();
+                categoria.setId_categoria(rs.getInt("id_categoria"));
+                categoria.setNome(rs.getString("nome"));
+                categoria.setLimite(rs.getDouble("limite"));
+
+                categorias.add(categoria);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return categorias;
+    }
 
     public List<Categoria> listarCategorias(int id_usuario) {
         List<Categoria> categorias = new ArrayList<>();
@@ -67,6 +93,7 @@ public class CategoriaDAO {
                         rs.getString("nome"),
                         rs.getString("tipo"),
                         rs.getDouble("limite")
+
                 ));
             }
         } catch (SQLException e) {

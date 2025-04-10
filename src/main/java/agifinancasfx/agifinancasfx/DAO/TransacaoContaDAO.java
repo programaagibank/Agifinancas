@@ -152,6 +152,23 @@ public class TransacaoContaDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public double calcularTotalGastoPorCategoria(int idUsuario, int idCategoria) {
+        String sql = "SELECT SUM(valor) FROM transacao_conta WHERE id_usuario = ? AND id_categoria = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, idUsuario);
+            stmt.setInt(2, idCategoria);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                System.out.println("ID Usuario: " + idUsuario + ", ID Categoria: " + idCategoria);
+                return rs.getDouble(1); // ← valor somado
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0; // ← se nada for encontrado
+    }
     public static List<TransacaoDTO> listarTransacoesPorUsuario(int idUsuario) {
         List<TransacaoDTO> transacoes = new ArrayList<>();
 

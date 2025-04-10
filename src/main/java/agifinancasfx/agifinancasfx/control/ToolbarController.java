@@ -68,4 +68,13 @@ public class ToolbarController implements NavegarPeloApp {
             throw new RuntimeException(ex);
         }
     }
+
+    public void categoria(ActionEvent actionEvent) {
+        try {
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "Categoria");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }

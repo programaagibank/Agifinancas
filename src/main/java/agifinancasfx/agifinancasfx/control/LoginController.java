@@ -29,30 +29,32 @@ public class LoginController {
     @FXML
     public void fazerLogin(ActionEvent actionEvent) throws SQLException {
         Usuario usuario = this.usuarioDAO.buscarPorEmail(emailText.getText());
-        if(emailText.getText().isEmpty() || passwordText.getText().isEmpty()) {
+
+        if (emailText.getText().isEmpty() || passwordText.getText().isEmpty()) {
             CriarAlertas.CriarAlerta("Erro", "Campos não podem ser vazios!", Alert.AlertType.ERROR);
         } else {
             if (usuario != null && Senha.verificaSenha(passwordText.getText(), usuario.getSenha())) {
-                CriarAlertas.CriarAlerta("Info", "Login efetuado com sucesso!", Alert.AlertType.CONFIRMATION);
+                // Remove alerta de login efetuado com sucesso
                 this.usuarioAutenticado = this.usuarioDAO.buscarPorEmail(emailText.getText());
                 UsuarioSessao.getInstance().setUsuario(usuarioAutenticado);
                 try {
-                    GeradorCenas.primaryStage.setResizable(true);
+                    GeradorCenas.primaryStage.setResizable(false);
                     GeradorCenas.loadScene(GeradorCenas.primaryStage, "Home");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
-                CriarAlertas.CriarAlerta("Info", "Email ou senha inválidos!", Alert.AlertType.ERROR);
+                CriarAlertas.CriarAlerta("Erro", "Email ou senha inválidos!", Alert.AlertType.ERROR);
             }
         }
     }
 
+
     @FXML
     private void fazerCadastro(ActionEvent event) {
         try {
-            GeradorCenas cenas = new GeradorCenas();
-            cenas.gerarNovoStage("CadastroUsuario.fxml", "Cadastro", false, event);
+            GeradorCenas.primaryStage.setResizable(false);
+            GeradorCenas.loadScene(GeradorCenas.primaryStage, "CadastroUsuario");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

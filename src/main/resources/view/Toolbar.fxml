@@ -54,7 +54,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="btnPerfil" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#menuClick" styleClass="toolbar-button">
+            <Button fx:id="btnPerfil" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#categoria" styleClass="toolbar-button">
                 <graphic>
                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <image>

@@ -15,8 +15,8 @@ public class GeradorCenas {
         FXMLLoader loader = new FXMLLoader(GeradorCenas.class.getResource("/view/" + fxmlPath));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setWidth(320);
-        stage.setHeight(640);
+        stage.setWidth(310);
+        stage.setHeight(670);
         stage.setScene(new Scene(root));
         stage.setTitle(titulo);
         stage.setResizable(resizable);
@@ -35,6 +35,10 @@ public class GeradorCenas {
     public static void loadScene(Stage stage , String fxml) throws IOException {
         FXMLLoader fxmlLoginLoader = new FXMLLoader(GeradorCenas.class.getResource("/view/" + fxml + ".fxml"));
         Parent root = fxmlLoginLoader.load();
+        stage.setWidth(325);
+        stage.setHeight(670);
+        stage.setResizable(false);
+        stage.centerOnScreen();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

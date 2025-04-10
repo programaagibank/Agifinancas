@@ -10,9 +10,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
-        primaryStage.setWidth(320);
-        primaryStage.setHeight(640);
-        primaryStage.setResizable(true);
+        primaryStage.setWidth(330);
+        primaryStage.setHeight(670);
+        primaryStage.setResizable(false);
+        primaryStage.centerOnScreen();
         GeradorCenas.loadScene(primaryStage, "Login"); //loader.getController();
     }
     public static void main(String[] args) {

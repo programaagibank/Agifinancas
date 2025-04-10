@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vboxCategorias" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CategoriaCardController">
+
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <!-- Exemplo de card -->
+    <HBox prefHeight="87.0" prefWidth="240.0" spacing="20" style="-fx-background-color: #f0f4f8; -fx-background-radius: 10; -fx-padding: 10;">
+        <VBox spacing="5">
+            <Label fx:id="nomeCategoria" style="-fx-font-weight: bold;" text="Alimentação">
+                <font>
+                    <Font size="14" />
+                </font>
+            </Label>
+         <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+            <children>
+               <Label fx:id="valorAtual" prefHeight="17.0" prefWidth="88.0" text="R$ 100 " />
+               <Label prefHeight="17.0" prefWidth="81.0" text="              " />
+               <Label fx:id="valorCategoria" prefHeight="17.0" prefWidth="106.0" text="R$ 500" />
+            </children>
+         </HBox>
+            <ProgressBar fx:id="barProgress" prefWidth="200" progress="0.2" />
+        </VBox>
+        <AnchorPane />
+    </HBox>
+
+</VBox>
