@@ -77,4 +77,7 @@ public class ToolbarController implements NavegarPeloApp {
             throw new RuntimeException(ex);
         }
     }
+
+    public void pessoa(ActionEvent actionEvent) {
+    }
 }

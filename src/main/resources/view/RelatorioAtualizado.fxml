@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="670.0" prefWidth="309.0"
+            stylesheets="@home.css"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="agifinancasfx.agifinancasfx.control.RelatorioController">
@@ -21,14 +22,14 @@
    <children>
 
       <!-- Imagem de fundo -->
-      <ImageView fitHeight="670.0" fitWidth="309.0" pickOnBounds="true" smooth="false">
+      <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../img/Group139.jpeg"/>
          </image>
       </ImageView>
 
-      <!-- Toolbar -->
-      <fx:include fx:id="toolbar" source="Toolbar.fxml"/>
+      <!-- Toolbar fixa no fundo -->
+      <fx:include fx:id="toolbar" source="Toolbar.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
 
       <!-- Botões de navegação -->
       <Button layoutX="217.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent;"/>
@@ -37,7 +38,7 @@
 
       <!-- Campo de data -->
       <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="179.0"
-                  styleClass="date-picker" stylesheets="@new-style.css"/>
+                  styleClass="date-picker" stylesheets="@new-style.css" AnchorPane.topAnchor="170.0"/>
 
       <!-- Botão de busca -->
       <Button fx:id="idPesquisar" layoutX="213.0" layoutY="170.0"
@@ -59,7 +60,7 @@
                   fitToWidth="true"
                   pannable="true"
                   styleClass="scroll-geral"
-                  stylesheets="@new-style.css">
+                  stylesheets="@new-style.css" AnchorPane.topAnchor="214.0">
          <content>
             <VBox fx:id="vbox"
                   prefWidth="263.0"

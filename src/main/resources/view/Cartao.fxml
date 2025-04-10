@@ -5,28 +5,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="309.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CartaoController">
+<AnchorPane prefHeight="670.0" prefWidth="309.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agifinancasfx.agifinancasfx.control.CartaoController">
 
     <!-- Imagem de fundo -->
-    <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false">
+    <ImageView fitHeight="670.0" fitWidth="310.0" pickOnBounds="true" smooth="false" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0">
         <image>
             <Image url="@../img/Cartao-atualizar.png" />
         </image>
     </ImageView>
 
-    <!-- Toolbar inferior (igual às outras telas) -->
-    <fx:include source="Toolbar.fxml" />
-   <Pane layoutX="21.0" layoutY="82.0" prefHeight="151.0" prefWidth="278.0">
-      <children>
-         <Label fx:id="nomeCartao" layoutX="79.0" layoutY="21.0" textFill="WHITE" />
-         <Label fx:id="dataVencimento" layoutX="107.0" layoutY="61.0" textFill="WHITE" />
-         <Label fx:id="limiteDisponivel" layoutX="135.0" layoutY="103.0" textFill="WHITE" />
-      </children>
-   </Pane>
-   <ComboBox fx:id="comBoxCard" layoutX="68.0" layoutY="320.0" prefHeight="31.0" prefWidth="183.0" />
+    <!-- Toolbar fixa no fundo -->
+    <fx:include source="Toolbar.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+
+    <!-- Painel de informações do cartão -->
+    <AnchorPane layoutX="21.0" layoutY="82.0" prefHeight="151.0" prefWidth="278.0">
+        <children>
+            <Label fx:id="nomeCartao" layoutX="79.0" layoutY="21.0" textFill="WHITE" />
+            <Label fx:id="dataVencimento" layoutX="107.0" layoutY="61.0" textFill="WHITE" />
+            <Label fx:id="limiteDisponivel" layoutX="135.0" layoutY="103.0" textFill="WHITE" />
+        </children>
+    </AnchorPane>
+
+    <!-- ComboBox -->
+    <ComboBox fx:id="comBoxCard" layoutX="68.0" layoutY="320.0" prefHeight="31.0" prefWidth="183.0"/>
+
+    <!-- Botões de ação -->
     <Button fx:id="btnAtualizarCartao" layoutX="33.0" layoutY="368.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="245.0" style="-fx-background-color: transparent;" />
-    <fx:include fx:id="toolbar" source="Toolbar.fxml" />
-   <Button fx:id="btnAdicionarCartao" layoutX="32.0" layoutY="264.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="245.0" style="-fx-background-color: transparent;" />
-</Pane>
+    <Button fx:id="btnAdicionarCartao" layoutX="32.0" layoutY="264.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="245.0" style="-fx-background-color: transparent;" />
+</AnchorPane>
